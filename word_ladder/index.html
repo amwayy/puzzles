@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>节节高</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body class="bg-body-tertiary">
+    <div class="container">
+        <div class="collapse mt-5" id="answerCheckCollapse">
+            <div class="row d-flex justify-content-center">
+                <div class="col-10 col-md-8">
+                    <div class="card card-body" id="answerCheckCard">
+                        <div class="d-flex justify-content-between">
+                            <span id="answerCheckText">foo</span>
+                            <span><button type="button" class="btn-close focus-ring" id="closeAnswerCheckCardButton" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)"></button></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapse mt-5" id="answerInputCollapse">
+            <div class="row d-flex justify-content-center">
+                <div class="col-10 col-md-8">
+                    <div class="input-group">
+                        <input type="text" class="form-control focus-ring" placeholder="在这里输入答案" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)" id="answerInput">
+                        <button class="btn btn-dark" type="button" id="submitButton">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="ladder" class="mt-5 mb-5"></div>
+    </div>
+
+    <script>
+        var ladderAnsArray = ["LINY", "LINE", "LANE", "LARE", "LORE", "FORE", "FORT", "HORT", "HERT", "HERD", "HERR", "HEAR", "GEAR", "GORE", "GNAR"];
+        var ladderClueArray = ["Thin and flexible, like fine thread or string", "What you might draw to see the final answer", "Track selection", 
+            "Historically, a place of rest", "Traditional learning", "Golfer's warning cry", "Baltimore's McHenry", 
+            "Unpublished name in Garden's science: Abbr.", "Dutch deer", "Do a sheepdog's work", "German man", "When repeated, \"Well said!\"", 
+            "Boots, backpack, tent, etc.", "2000 Bush opponent", "Primeval yordle in 'League of Legends'"]
+        var ladderCount = 0;
+
+        for (var i = 0; i < 5; i++) {
+            CreateStep();
+        }
+
+        // ToggleCollapse(document.getElementById("answerInputCollapse"), true);
+
+        function CreateStep() {
+            if (ladderCount > ladderClueArray.length) {
+                return;
+            }
+
+            if (ladderCount === ladderClueArray.length) {
+                ToggleCollapse(document.getElementById("answerInputCollapse"), true);
+                ladderCount++;
+                return;
+            }
+
+            var ladder = document.getElementById("ladder");
+            var stepCollapse = document.createElement("div");
+            ladder.insertBefore(stepCollapse, ladder.firstChild);
+            stepCollapse.className = "row d-flex justify-content-center align-items-center mb-1 collapse"
+            var stepClue = document.createElement("div");
+            stepCollapse.appendChild(stepClue);
+            stepClue.className = "col-8 col-md-6 col-lg-4 text-center step-clue";
+            stepClue.textContent = ladderClueArray[ladderClueArray.length - ladderCount - 1];
+            var stepInputCol = document.createElement("div");
+            stepCollapse.appendChild(stepInputCol);
+            stepInputCol.className = "col-3 col-md-2 col-lg-1 text-center me-3";
+            var stepInput = document.createElement("input");
+            stepInputCol.appendChild(stepInput);
+            stepInput.className = "form-control text-center border border-dark focus-ring step-input"
+            stepInput.setAttribute("index", ladderCount);
+            stepInput.style = "--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)";
+            stepInput.addEventListener("input", () => {
+                stepInput.value = stepInput.value.replace(/[^a-zA-Z]/g, '').toUpperCase().slice(0, 4);
+                CheckLadderAnswer(stepInput);
+            });
+            ladderCount++;
+
+            return stepCollapse;
+        }
+
+        function CheckLadderAnswer(ladderInput) {
+            var index = ladderInput.getAttribute("index");
+            if (ladderInput.value == ladderAnsArray[ladderAnsArray.length - index - 1]) {
+                // 答案正确
+                ladderInput.disabled = true;
+                var stepCollapse = CreateStep();
+                ToggleCollapse(stepCollapse, true);
+
+                var stepInputArray = document.querySelectorAll(".step-input");
+                for (let stepInput of stepInputArray) {
+                    if (!stepInput.getAttribute("disabled")) {
+                        stepInput.focus();
+                        break;
+                    }
+                }
+            }
+        }
+
+        function ToggleCollapse(collapse, isShow) {
+            var bsCollapse = new bootstrap.Collapse(collapse, {
+            toggle: false
+            });
+            if (isShow) {
+                bsCollapse.show();
+            } else {
+                bsCollapse.hide();
+            }
+        }
+
+        function CheckAnswer() {
+            var inputtedAnswer = document.getElementById("answerInput").value;
+
+            inputtedAnswer = inputtedAnswer.replace(/ /g, "").toLowerCase();
+
+            var answerCheckCollapse = document.getElementById("answerCheckCollapse");
+            ToggleCollapse(answerCheckCollapse, true);
+            
+            var answerCheckCard = document.getElementById("answerCheckCard")
+            var answerCheckText = document.getElementById("answerCheckText");
+
+            if (inputtedAnswer == "yearofthedragon") {
+                answerCheckText.innerHTML = "答案正确！祝您龙年百尺竿头更进一步！";
+                answerCheckCard.classList.add("bg-warning", "text-danger");
+                answerCheckCard.classList.remove("bg-dark-subtle");
+
+                document.body.classList.remove("bg-body-tertiary");
+                document.body.classList.add("bg-danger");
+                document.getElementById("answerInput").classList.add("bg-warning", "text-danger", "border", "border-dark");
+                document.getElementById("answerInput").style = "--bs-focus-ring-color: rgba(var(--bs-warning-rgb), .25)";
+                document.getElementById("submitButton").classList.remove("btn-dark");
+                document.getElementById("submitButton").classList.add("btn-warning", "border", "border-dark", "text-danger");
+                var stepClueArray = document.querySelectorAll(".step-clue");
+                for (let stepClue of stepClueArray) {
+                    stepClue.classList.add("text-warning");
+                }
+                var stepInputArray = document.querySelectorAll(".step-input");
+                for (let stepInput of stepInputArray) {
+                    stepInput.classList.add("bg-warning", "text-danger");
+                    if (!stepInput.disabled) {
+                        stepInput.value = ladderAnsArray[ladderAnsArray.length - stepInput.getAttribute("index") - 1];
+                        stepInput.disabled = true;
+                    }
+                }
+            } else {
+                answerCheckText.innerHTML = "答案错误...";
+                answerCheckCard.classList.remove("bg-warning");
+                answerCheckCard.classList.add("bg-dark-subtle");
+            }
+        }
+
+        document.getElementById("closeAnswerCheckCardButton").addEventListener("click", () => {
+            var answerCheckCollapse = document.getElementById("answerCheckCollapse");
+            var bsCollapse = new bootstrap.Collapse(answerCheckCollapse, {
+            toggle: false
+            });
+            bsCollapse.hide();
+        });
+
+        document.getElementById("submitButton").addEventListener("click", () => {
+            CheckAnswer();
+        });
+
+        document.getElementById("answerInput").addEventListener("keydown", function(event) {
+            // 检查按下的键是否是回车键
+            if (event.keyCode === 13 || event.which === 13) {
+                CheckAnswer();
+            }
+        });
+    </script>
+</body>
+</html>
