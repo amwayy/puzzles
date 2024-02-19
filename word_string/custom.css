@@ -1,0 +1,11 @@
+/* 自定义开关的背景颜色为黑色 */
+.form-check-input:checked {
+    background-color: #212529; /* Bootstrap黑色主题色 */
+    border-color: #212529;
+  }
+  
+  /* 自定义开关的滑块颜色为黑色 */
+  .form-check-input:focus {
+    border-color: #212529;
+    box-shadow: 0 0 0 .25rem rgba(33, 37, 41, .25); /* 带有透明度的黑色 */
+  }

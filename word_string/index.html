@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>单词接龙</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="./custom.css" rel="stylesheet">
+</head>
+
+<body class="bg-body-tertiary">
+    <div class="d-flex justify-content-center mt-5 mb-3">
+        <button class="btn btn-dark" id="startButton">开始游戏</button>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+        <bi class="bi bi-question-circle fs-4 text-secondary mx-2" type="button" data-bs-toggle="modal" data-bs-target="#helpModal"></bi>
+        <bi class="bi bi-gear fs-4 text-secondary mx-2" type="button" data-bs-toggle="modal" data-bs-target="#settingModal"></bi>
+    </div>
+    
+    <div class="modal fade" id="helpModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">规则</h1>
+              <button type="button" class="btn-close focus-ring" data-bs-dismiss="modal" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)"></button>
+            </div>
+            <div class="modal-body">
+              单词接龙，不能使用已经用过的单词。<br>
+              当前输入单词的开头与上个单词的结尾有多少个字母重叠，当前玩家就得多少分。<br>
+              例如，上个单词是EXAMPLE，当前输入为AMPLENESS，则当前玩家得5分。<br>
+              5轮后（可设置游戏轮数）停止接龙，注意此时第一个单词是不得分的。<br>
+              现在，第一个单词中有几个字母出现在最后一个单词中，第一个单词就计多少分（包括重复字母）。<br>
+              例如，第一个单词为FIRST，最后一个单词为LAST，则第一个单词计2分。<br>
+              计总分多的玩家获胜。<br>
+              （使用 <a href="../dictionaries/scrabble_dictionary.txt" class="text-dark" target="_blank">标准Srabble字典</a>）
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="settingModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">设置</h1>
+              <button type="button" class="btn-close focus-ring" data-bs-dismiss="modal" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-8 col-md-4 col-lg-3 mb-3 mx-auto">
+                    <div class="input-group">
+                        <span class="input-group-text" data-bs-toggle="tooltip" title="最多为100">轮数</span>
+                        <input type="text" class="form-control text-center focus-ring" value="5" id="roundInput" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)">
+                    </div>
+                </div>
+
+                <div class="form-check d-flex justify-content-center">
+                    <input class="form-check-input mx-1" type="checkbox" value="" id="forbidUncommonCheck">
+                    <label class="form-check-label mx-1" for="forbidUncommonCheck">禁止PC使用不常见词汇</label>
+                </div>
+
+                <div class="form-check d-flex justify-content-center">
+                    <input class="form-check-input mx-1" type="checkbox" value="" id="timingCheck">
+                    <label class="form-check-label mx-1" for="timingCheck" data-bs-toggle="tooltip" title="下次输入生效，计时结束会随机输入">计时模式</label>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between col-4 col-lg-2 py-2 mx-auto fw-bold fs-4">
+        <span id="pcTotalScore" style="display: none;">0</span>
+        <span id="vs" style="display: none;">:</span>
+        <span id="playerTotalScore" style="display: none;">0</span>
+    </div>
+
+    <div class="container" id="inputContainer">
+    </div>
+
+    <div class="d-flex justify-content-center py-3">
+        <div class="collapse col-8 col-md-4" id="warningCollapse">
+            <div class="card card-body">
+                <div class="d-flex justify-content-between">
+                    <span id="warningText">不存在该单词</span>
+                    <span><button type="button" class="btn-close focus-ring" id="closeWarningButton" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)"></button></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center fw-bold fs-4">
+        <span id="timer" style="display: none;">剩余时间</span>
+    </div>
+
+    <div class="d-flex justify-content-center py-3">
+        <div class="collapse col-8 col-md-4" id="resultCollapse">
+            <div class="card card-body text-center">
+                <div class="mb-1" id="mode">模式</div>
+                <div class="mb-2 fs-4 fw-bold" id="resultText">游戏结果</div>
+                <button class="btn btn-dark mx-auto" id="restartButton" style="max-width: 150px;">再来一局</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+        <button class="btn btn-dark" id="confirmButton" style="display: none;">确认</button>
+    </div>
+
+
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+
+        // 读取字典
+        var wordArray;
+        var pcWordArray;
+        var scrabbleWordArray;
+        var commonWordArray;
+        fetch("../dictionaries/scrabble_dictionary.txt")
+        .then(response => {
+            if (!response.ok) {
+            throw new Error("读取失败");
+            }
+            return response.text();
+        })
+        .then(text => {
+            scrabbleWordArray = text.split(/\r\n|\n/);
+            wordArray = Array.from(scrabbleWordArray);
+            pcWordArray = Array.from(scrabbleWordArray);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+        fetch("../dictionaries/common_words.txt")
+        .then(response => {
+            if (!response.ok) {
+            throw new Error("读取失败");
+            }
+            return response.text();
+        })
+        .then(text => {
+            commonWordArray = text.toUpperCase().split(/\r\n|\n/);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
+        var curPcInputWord = "";
+        var firstPcInputWord = "";
+        var curPlayerScoreElement;
+        var round = 0;
+        var maxRound = 5;
+        var pcTotalScore = 0;
+        var playerTotalScore = 0;
+        var isUncommonWordForbidden = false;
+        var isTimingMode = false;
+        var maxTimer = 10;
+        var usedWordArray = [];
+        var countdownInterval;
+
+
+        document.getElementById("forbidUncommonCheck").addEventListener("change", () => {
+            isUncommonWordForbidden = !isUncommonWordForbidden;
+            if (isUncommonWordForbidden) {
+                pcWordArray = Array.from(commonWordArray);
+            } else {
+                pcWordArray = Array.from(scrabbleWordArray);
+            }
+        });
+
+        document.getElementById("timingCheck").addEventListener("change", () => {
+            isTimingMode = !isTimingMode;
+            if (!isTimingMode) {
+                timer.style.display = "none";
+                clearInterval(countdownInterval);
+            }
+        })
+
+        
+        var roundInput = document.getElementById("roundInput");
+        function ChangeMaxRound() {
+            var round = parseInt(roundInput.value);
+            if (!round) {
+                round = 0;
+            }
+            if (round < 1) {
+                round = 1;
+            } else if (round > 100) {
+                round = 100;
+            } 
+            roundInput.value = round;
+            maxRound = round;
+        }
+        roundInput.addEventListener("input", () => {
+            roundInput.value = roundInput.value.replace(/\D/g, '');
+        });
+        roundInput.addEventListener("blur", () => {
+            ChangeMaxRound();
+        })
+        roundInput.addEventListener("keydown", () => {
+            if (event.keyCode === 13 || event.which === 13) {
+                ChangeMaxRound();
+                roundInput.blur();
+            }
+        })
+
+
+        function CheckPlayerInput() {
+            var playerInputArray = document.querySelectorAll(".player-input");
+            var playerInputWord = "";
+            for (var playerInput of playerInputArray) {
+                if (!playerInput.disabled) {
+                    playerInputWord = playerInput.value;
+                    break;
+                }
+            }
+            if (!wordArray.includes(playerInputWord)) {
+                ToggleCollapse(document.getElementById("warningCollapse"), true);
+                document.getElementById("warningText").innerText = "不存在该单词";
+            } else if (usedWordArray.includes(playerInputWord)) {
+                ToggleCollapse(document.getElementById("warningCollapse"), true);
+                document.getElementById("warningText").innerText = "不得输入使用过的单词";
+            } else {
+                // 合法单词
+                usedWordArray.push(playerInputWord);
+
+                ToggleCollapse(document.getElementById("warningCollapse"), false);
+
+                var score = getOverlapLen(curPcInputWord, playerInputWord);
+                curPlayerScoreElement.innerHTML = "+" + score;
+                playerTotalScore += score;
+                document.getElementById("playerTotalScore").innerHTML = playerTotalScore;
+
+                round++;
+
+                if (round == maxRound) {
+                    var pcExtraScore = 0;
+                    for (var letter of firstPcInputWord) {
+                        if (playerInputWord.includes(letter)) {
+                            pcExtraScore++;
+                        }
+                    }
+                    pcTotalScore += pcExtraScore;
+                    document.getElementById("pcTotalScore").innerText = pcTotalScore;
+                    document.getElementById("firstPcScore").innerText = "+" + pcExtraScore;
+
+                    var modeText = (isUncommonWordForbidden ? "PC禁词" : "PC不禁词") + " | " + (isTimingMode ? "计时" : "不计时");
+                    document.getElementById("mode").innerText = modeText;
+
+                    document.getElementById("timer").style.display = "none";
+
+                    if (playerTotalScore > pcTotalScore) {
+                        document.getElementById("resultText").innerText = "赢了！";
+                    } else if (playerTotalScore < pcTotalScore) {
+                        document.getElementById("resultText").innerText = "输了……";
+                    } else {
+                        document.getElementById("resultText").innerText = "平局";
+                    }
+                    ToggleCollapse(document.getElementById("resultCollapse"), true);
+                    document.getElementById("confirmButton").style.display = "none";
+                } else if (round < maxRound) {
+                    GenerateInput();
+                }
+                playerInput.disabled = true;
+            }
+        }
+
+
+        document.getElementById("confirmButton").addEventListener("click", () => {
+            CheckPlayerInput();
+        });
+
+
+        document.getElementById("closeWarningButton").addEventListener("click", () => {
+            ToggleCollapse(document.getElementById("warningCollapse"), false);
+        });
+
+
+        function ToggleCollapse(collapse, isShow) {
+            var bsCollapse = new bootstrap.Collapse(collapse, {
+            toggle: false
+            });
+            if (isShow) {
+                bsCollapse.show();
+            } else {
+                bsCollapse.hide();
+            }
+        }
+
+
+        function getOverlapLen(word1, word2) {
+            var overlapLen = 0
+            var maxLen = Math.min(word1.length, word2.length);
+            for (var i = 0; i < maxLen; i++) {
+                if (word1.substring(word1.length - 1 - i, word1.length) == word2.substring(0, i + 1)) {
+                    overlapLen = i + 1;
+                }
+            }
+            return overlapLen;
+        }
+
+
+        function FindMaxOverlap(word1, dictionary) {
+            var maxOverlapLen = 0;
+            var maxOverlapWord = "";
+            for (var word2 of dictionary) {
+                if (usedWordArray.includes(word2)) {
+                    continue;
+                }
+                var overlapLen = getOverlapLen(word1, word2);
+                if (overlapLen > maxOverlapLen) {
+                    maxOverlapLen = overlapLen;
+                    maxOverlapWord = word2;
+                }
+            }
+
+            return maxOverlapWord;
+        }
+
+        var timeLeft = maxTimer;
+        var timer = document.getElementById("timer");
+
+        function countdown() {
+        if (timeLeft > 0) {
+            timeLeft--;
+            timer.innerText = timeLeft;
+            if (timeLeft == 0) {
+                clearInterval(countdownInterval);
+                var random = Math.floor(Math.random() * wordArray.length);
+                randomInputWord = wordArray[random];
+                var playerInputArray = document.querySelectorAll(".player-input");
+                for (playerInput of playerInputArray) {
+                    if (!playerInput.disabled) {
+                        playerInput.value = randomInputWord;
+                        CheckPlayerInput();
+                        break;
+                    }
+                }
+            }
+        }
+        }
+
+        function UpdateTimer() {
+            if (isTimingMode) {
+                timer.style.display = "block";
+                timeLeft = maxTimer;
+                timer.innerText = timeLeft;
+                countdownInterval = setInterval(countdown, 1000);
+            }
+        }
+
+
+        function GenerateInput() {
+            var inputCollapse = document.createElement("div");
+            document.getElementById("inputContainer").appendChild(inputCollapse);
+            inputCollapse.className = "collapse py-2";
+            var inputRow = document.createElement("div");
+            inputCollapse.appendChild(inputRow);
+            inputRow.className = "row d-flex justify-content-center align-items-center g-3 row-col-2 row-col-md-4";
+
+            var pcScore = document.createElement("div");
+            inputRow.appendChild(pcScore);
+            pcScore.className = "col-2 fw-bold text-end";
+            pcScore.innerHTML = "--";
+
+            var pcInputCol = document.createElement("div");
+            inputRow.appendChild(pcInputCol);
+            pcInputCol.className = "col-8 col-lg-2"
+            var pcInput = document.createElement("input");
+            pcInputCol.appendChild(pcInput);
+            pcInput.className = "form-control text-center focus-ring pc-input";
+            pcInput.style = "--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);";
+
+            var curPlayerInput = null;
+            var playerInputArray = document.querySelectorAll(".player-input");
+            for (var playerInput of playerInputArray) {
+                if (!playerInput.disabled) {
+                    curPlayerInput = playerInput;
+                    break;
+                }
+            }
+
+            var pcInputWord;
+            if (!curPlayerInput) {
+                var random = Math.floor(Math.random() * pcWordArray.length);
+                pcInputWord = pcWordArray[random];
+                firstPcInputWord = pcInputWord;
+                pcScore.id = "firstPcScore";
+            } else {
+                pcInputWord = FindMaxOverlap(curPlayerInput.value, pcWordArray);
+                var score = getOverlapLen(curPlayerInput.value, pcInputWord);
+                pcScore.innerHTML = "+" + score;
+                pcTotalScore += score;
+                document.getElementById("pcTotalScore").innerHTML = pcTotalScore;
+            }
+            pcInput.value = pcInputWord;
+            pcInput.disabled = true;
+            curPcInputWord = pcInputWord;
+            usedWordArray.push(pcInputWord);
+
+            var playerInputCol = document.createElement("div");
+            inputRow.appendChild(playerInputCol);
+            playerInputCol.className = "col-8 col-lg-2"
+            var playerInput = document.createElement("input");
+            playerInputCol.appendChild(playerInput);
+            playerInput.className = "form-control text-center focus-ring player-input";
+            playerInput.style = "--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);";
+
+            playerInput.addEventListener("input", () => {
+                let value = playerInput.value.toUpperCase();
+                value = value.replace(/[^A-Z]/gi, '');
+                playerInput.value = value;
+            });
+            playerInput.addEventListener("keydown", () => {
+                if (event.keyCode === 13 || event.which === 13) {
+                    CheckPlayerInput();
+                }
+            });
+
+            var playerScore = document.createElement("div");
+            inputRow.appendChild(playerScore);
+            playerScore.className = "col-2 fw-bold";
+            playerScore.setAttribute("isCur", true);
+            playerScore.innerHTML = "--";
+            curPlayerScoreElement = playerScore;
+
+            ToggleCollapse(inputCollapse, true);
+
+            clearInterval(countdownInterval);
+            UpdateTimer();
+        }
+
+
+        function StartGame() {
+            curPcInputWord = "";
+            firstPcInputWord = "";
+            curPlayerScoreElement = null;
+            round = 0;
+            pcTotalScore = 0;
+            playerTotalScore = 0;
+            usedWordArray = [];
+            document.getElementById("pcTotalScore").innerText = 0;
+            document.getElementById("playerTotalScore").innerText = 0;
+
+            document.getElementById("inputContainer").innerHTML = "";
+            ToggleCollapse(document.getElementById("warningCollapse"), false);
+            ToggleCollapse(document.getElementById("resultCollapse"), false);
+
+            GenerateInput();
+
+            document.getElementById("startButton").innerText = "重新开始";
+
+            document.getElementById("confirmButton").style.display = "block";
+            document.getElementById("pcTotalScore").style.display = "block";
+            document.getElementById("vs").style.display = "block";
+            document.getElementById("playerTotalScore").style.display = "block";
+        }
+
+        document.getElementById("restartButton").addEventListener("click", () => {
+            StartGame();
+        });
+
+        document.getElementById("startButton").addEventListener("click", () => {
+            StartGame();
+        });
+    </script>
+</body>
+</html>
