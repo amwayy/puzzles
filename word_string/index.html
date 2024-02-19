@@ -36,7 +36,7 @@
               5轮后（可设置游戏轮数）停止接龙，注意此时第一个单词是不得分的。<br>
               现在，第一个单词中有几个字母出现在最后一个单词中，第一个单词就计多少分（包括重复字母）。<br>
               例如，第一个单词为FIRST，最后一个单词为LAST，则第一个单词计2分。<br>
-              计总分多的玩家获胜。<br>
+              你的对手是一个简单的AI，它总是先手，随机输出初始词。最终计总分多的一方获胜。<br>
               （使用 <a href="../dictionaries/scrabble_dictionary.txt" class="text-dark" target="_blank">标准Srabble字典</a>）
             </div>
           </div>
@@ -60,7 +60,7 @@
 
                 <div class="form-check d-flex justify-content-center">
                     <input class="form-check-input mx-1" type="checkbox" value="" id="forbidUncommonCheck">
-                    <label class="form-check-label mx-1" for="forbidUncommonCheck">禁止PC使用不常见词汇</label>
+                    <label class="form-check-label mx-1" for="forbidUncommonCheck">禁止对手使用不常见词汇</label>
                 </div>
 
                 <div class="form-check d-flex justify-content-center">
@@ -250,7 +250,7 @@
                     document.getElementById("pcTotalScore").innerText = pcTotalScore;
                     document.getElementById("firstPcScore").innerText = "+" + pcExtraScore;
 
-                    var modeText = (isUncommonWordForbidden ? "PC禁词" : "PC不禁词") + " | " + (isTimingMode ? "计时" : "不计时");
+                    var modeText = (isUncommonWordForbidden ? "对手禁词" : "对手不禁词") + " | " + (isTimingMode ? "计时" : "不计时");
                     document.getElementById("mode").innerText = modeText;
 
                     document.getElementById("timer").style.display = "none";
@@ -309,6 +309,7 @@
         function FindMaxOverlap(word1, dictionary) {
             var maxOverlapLen = 0;
             var maxOverlapWord = "";
+            var maxOverlapWordArray = [];
             for (var word2 of dictionary) {
                 if (usedWordArray.includes(word2)) {
                     continue;
@@ -316,10 +317,15 @@
                 var overlapLen = getOverlapLen(word1, word2);
                 if (overlapLen > maxOverlapLen) {
                     maxOverlapLen = overlapLen;
-                    maxOverlapWord = word2;
+                    maxOverlapWordArray = [];
+                    maxOverlapWordArray.push(word2);
+                } else if (overlapLen == maxOverlapLen) {
+                    maxOverlapWordArray.push(word2);
                 }
             }
 
+            var random = Math.floor(Math.random() * maxOverlapWordArray.length);
+            maxOverlapWord = maxOverlapWordArray[random];
             return maxOverlapWord;
         }
 
