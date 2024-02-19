@@ -13,7 +13,11 @@
 </head>
 
 <body class="bg-body-tertiary">
-    <div class="d-flex justify-content-center mt-5 mb-3">
+    <div class="d-flex justify-content-center mt-5 mb-3 fw-bold fs-4" data-bs-toggle="tooltip" title="获胜时与对手的分差">
+        我的记录：<span id="record">0</span>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
         <button class="btn btn-dark" id="startButton">开始游戏</button>
     </div>
 
@@ -37,7 +41,7 @@
               现在，第一个单词中有几个字母出现在最后一个单词中，第一个单词就计多少分（包括重复字母）。<br>
               例如，第一个单词为FIRST，最后一个单词为LAST，则第一个单词计2分。<br>
               你的对手是一个简单的AI，它总是先手，随机输出初始词。最终计总分多的一方获胜。<br>
-              （使用 <a href="../dictionaries/scrabble_dictionary.txt" class="text-dark" target="_blank">标准Srabble字典</a>）
+              （使用 <a href="../dictionaries/scrabble_dictionary.txt" class="text-dark" target="_blank">标准Scrabble字典</a>）
             </div>
           </div>
         </div>
@@ -163,6 +167,12 @@
         var maxTimer = 10;
         var usedWordArray = [];
         var countdownInterval;
+        var record = 0;
+
+        if (sessionStorage.getItem("record")) {
+            record = sessionStorage.getItem("record");
+            document.getElementById("record").innerText = record;
+        }
 
 
         document.getElementById("forbidUncommonCheck").addEventListener("change", () => {
@@ -256,7 +266,15 @@
                     document.getElementById("timer").style.display = "none";
 
                     if (playerTotalScore > pcTotalScore) {
-                        document.getElementById("resultText").innerText = "赢了！";
+                        var winText = "赢了！"
+                        var score_diff = playerTotalScore - pcTotalScore;
+                        if (score_diff > record) {
+                            record = score_diff;
+                            sessionStorage.setItem("record", record);
+                            document.getElementById("record").innerText = record;
+                            winText += "（新纪录）";
+                        }
+                        document.getElementById("resultText").innerText = winText;
                     } else if (playerTotalScore < pcTotalScore) {
                         document.getElementById("resultText").innerText = "输了……";
                     } else {
