@@ -20,7 +20,7 @@
         <div class="d-flex justify-content-center align-items-center mb-3">
             <span class="me-5" id="timer">00:00</span>
             <button class="btn btn-dark" id="startToggleButton">开始</button>
-            <button class="btn btn-dark" id="shareButton" style="display: none;">
+            <button class="btn btn-dark" id="shareButton" style="display: none;" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="失误数以clue为单位<br>（🟢0🟡1🟠2🔴3+）">
                 <i class="bi bi-upload me-1" data-bs-placement="left"></i>
                 分享
             </button>
@@ -30,23 +30,23 @@
             <div class="d-flex justify-content-center mb-3">
                 <ul class="list-group border border-dark">
                     <li class="list-group-item">
-                        <div class="mb-1"><strong>1</strong> Approach pointy object (4)</div>
+                        <div class="mb-1" id="clue1"></div>
                         <input class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);">
                     </li>
                     <li class="list-group-item">
-                        <div class="mb-1"><strong>2</strong> Locate broken crate (5)</div>
+                        <div class="mb-1" id="clue2"></div>
                         <input class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);">
                     </li>
                     <li class="list-group-item">
-                        <div class="mb-1"><strong>3</strong> Less tanned with little time in Italian city (7)</div>
+                        <div class="mb-1" id="clue3"></div>
                         <input class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);">
                     </li>
                     <li class="list-group-item">
-                        <div class="mb-1"><strong>4</strong> Final stint in a lake (8)</div>
+                        <div class="mb-1" id="clue4"></div>
                         <input class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);">
                     </li>
                     <li class="list-group-item">
-                        <div class="mb-1"><strong>5</strong> European raps in ad, badly (8)</div>
+                        <div class="mb-1" id="clue5"></div>
                         <input class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);">
                     </li>
                 </ul>
@@ -61,8 +61,8 @@
             </div>
         </div>
 
-        <div id="completeInfo" class="d-flex justify-content-center fs-5 fw-bold">
-        </div>
+        <div id="completeInfo" class="d-flex justify-content-center fs-5 fw-bold mb-2"></div>
+        <div id="solution" class="d-flex justify-content-center"></div>
 
         <!-- <div class="mt-5 d-flex justify-content-center text-secondary">有任何问题？联系管理员：1964825491（QQ）</div> -->
         
@@ -70,13 +70,49 @@
     </div>
 
     <script>
-        const allLetters = 'AAAAAACCDEEEIIKLLMMNNOPPRRRRSTTT';
-        const lengthArray = Array(4, 5, 7, 8, 8);
-        const answerArray = Array('TACK', 'TRACE', 'PALERMO', 'TERMINAL', 'SPANIARD')
-        let inputLengthArray = Array(0, 0, 0, 0, 0);
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+        const clueArray = Array('Idiotic plan to get rid of Republican (4)', 
+                                'Son needs some trousers (6)',
+                                'Reputation of old city featured in Express (7)', 
+                                'A mistake making loaf of this kind? (7)',
+                                'Date once ruined an amusing tale (8)');
+        const answerArray = Array('DAFT', 'SLACKS', 'STATURE', 'BLOOMER', 'ANECDOTE');
+        const solution = '1. def: idiotic; plan=draft; Republican=r; get rid of表示去除字母(draft-r) <br>2. def: some trousers; son=s; need=lacks <br>3. def: reputation; old city=ur; express=state; featured in表示包含 <br>4. double definition (mistake/loaf) <br>5. def: amusing tale; "date once" anagram (indicator: ruined) <br>'
+        let lengthArray = Array(0, 0, 0, 0, 0);
+        let allLetters = '';
+        let lastInputArray = Array('', '', '', '', '');
         let remainingLetters = allLetters;
         let errorCountArray = Array(0, 0, 0, 0, 0);
         
+        for (let i = 0; i < 5; i++) {
+            let ans = answerArray[i];
+            allLetters += ans;
+
+            let clueDisplay = document.getElementById(`clue${i + 1}`);
+            let clue = clueArray[i];
+            clueDisplay.innerHTML = `<strong>${i + 1}</strong> ${clue}`;
+
+            lengthArray[i] = ans.length;
+        }
+        allLetters = allLetters.split('').sort().join('');
+        
+        function GetCommonPrefix(str1, str2) {
+            let prefix = "";
+            const minLength = Math.min(str1.length, str2.length);
+
+            for (let i = 0; i < minLength; i++) {
+                if (str1[i] === str2[i]) {
+                    prefix += str1[i];
+                } else {
+                    break;
+                }
+            }
+
+            return prefix;
+        }
+
         // 限制输入字母集，并转为大写，限制长度
         let inputs = document.querySelectorAll('.ans-input');
         inputs.forEach((input, index) => {
@@ -96,17 +132,19 @@
                 input.classList.remove('is-valid');
                 input.classList.remove('is-invalid');
 
-                let lastInputLength = inputLengthArray[index];
-                let inputValue = input.value;
-                let curInput = input.value.slice(lastInputLength, );
-                let filteredValue = inputValue.slice(0, lastInputLength);
-                for (let letter of curInput) {
-                    if (remainingLetters.includes(letter.toUpperCase())) {
-                        filteredValue += letter.toUpperCase();
+                let lastInput = lastInputArray[index];
+                let curInput = input.value;
+                let commonPrefix = GetCommonPrefix(lastInput, curInput);
+                let filteredValue = commonPrefix;
+                for (let i = commonPrefix.length; i < curInput.length; i++) {
+                    let inputtedChar = curInput[i];
+                    if (remainingLetters.includes(inputtedChar.toUpperCase())) {
+                        filteredValue += inputtedChar.toUpperCase();
                     }
                 }
                 input.value = filteredValue;
-                inputLengthArray[index] = filteredValue.length;
+                lastInputArray[index] = filteredValue;
+
                 UpdateRemainingLetters();
             });
         });
@@ -162,8 +200,10 @@
                 shareButton.style.display = 'block';
                 const additionalInfo = document.getElementById('additionalInfo');
                 const completeInfo = document.getElementById('completeInfo');
+                const solutionDisplay = document.getElementById('solution');
                 additionalInfo.style.display = 'none';
                 completeInfo.innerText = '已完成该谜题！';
+                solutionDisplay.innerHTML = solution;
                 hasCompleted = true;
             }
         }
@@ -209,7 +249,6 @@
         function CopyTextToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 shareButton.innerText = '已复制';
-                console.log(text);
             }).catch((error) => {
                 console.error('复制失败:', error);
             });
