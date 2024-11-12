@@ -1,0 +1,38 @@
+{
+    "2097": {
+        "date": "2024年11月12日",
+        "clues": [
+            "Creature, aristocratic, holding back (4)",
+            "Pulverised in good session at Carnoustie? (6)",
+            "Bottom admirer sometimes seen at Stratford? (7)",
+            "Positive vibes from voters, perhaps for Truss? (7)",
+            "Terribly pleased with wit's final part of column (8)"
+        ],
+        "answers": ["REAR", "GROUND", "TITANIA", "SUPPORT", "PEDESTAL"],
+        "solutions": [
+            "def: back; hidden word",
+            "def: pulverised; good = g; session at Carnoustie = round (Carnoustie是一个高尔夫俱乐部)",
+            "cryptic definition; Titania和Bottom是《仲夏夜之梦》中的角色; Stratford是Shakespeare的故乡",
+            "double definition (whole clue / truss)",
+            "def: part of column; \"please t\" anagram (indicator: terribly); t来自wit's final(wit的末字母)"
+        ]
+    },
+    "2096": {
+        "date": "2024年11月11日",
+        "clues": [
+            "Idiotic plan to get rid of Republican (4)",
+            "Son needs some trousers (6)",
+            "Reputation of old city featured in Express (7)",
+            "A mistake making loaf of this kind? (7)",
+            "Date once ruined an amusing tale (8)'"
+        ],
+        "answers": ["DAFT", "SLACKS", "STATURE", "BLOOMER", "ANECDOTE"],
+        "solutions": [
+            "def: idiotic; plan=draft; Republican=r; get rid of表示去除字母(draft-r)",
+            "def: some trousers; son=s; need=lacks",
+            "def: reputation; old city=ur; express=state; featured in表示包含",
+            "double definition (mistake/loaf)",
+            "def: amusing tale; \"date once\" anagram (indicator: ruined)"
+        ]
+    }
+}

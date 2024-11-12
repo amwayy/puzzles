@@ -30,24 +30,24 @@
             <div class="d-flex justify-content-center mb-3">
                 <ul class="list-group border border-dark">
                     <li class="list-group-item">
-                        <div class="mb-1" id="clue1"></div>
-                        <input class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);">
+                        <div class="mb-1 clue"></div>
+                        <div class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);" contenteditable="true" ></div>
                     </li>
                     <li class="list-group-item">
-                        <div class="mb-1" id="clue2"></div>
-                        <input class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);">
+                        <div class="mb-1 clue"></div>
+                        <div class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);" contenteditable="true" ></div>
                     </li>
                     <li class="list-group-item">
-                        <div class="mb-1" id="clue3"></div>
-                        <input class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);">
+                        <div class="mb-1 clue"></div>
+                        <div class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);" contenteditable="true" ></div>
                     </li>
                     <li class="list-group-item">
-                        <div class="mb-1" id="clue4"></div>
-                        <input class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);">
+                        <div class="mb-1 clue"></div>
+                        <div class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);" contenteditable="true" ></div>
                     </li>
                     <li class="list-group-item">
-                        <div class="mb-1" id="clue5"></div>
-                        <input class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);">
+                        <div class="mb-1 clue"></div>
+                        <div class="form-control focus-ring border border-dark ans-input" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);" contenteditable="true" ></div>
                     </li>
                 </ul>
             </div>
@@ -73,86 +73,107 @@
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-        const clueArray = Array('Idiotic plan to get rid of Republican (4)', 
-                                'Son needs some trousers (6)',
-                                'Reputation of old city featured in Express (7)', 
-                                'A mistake making loaf of this kind? (7)',
-                                'Date once ruined an amusing tale (8)');
-        const answerArray = Array('DAFT', 'SLACKS', 'STATURE', 'BLOOMER', 'ANECDOTE');
-        const solution = '1. def: idiotic; plan=draft; Republican=r; get rid of表示去除字母(draft-r) <br>2. def: some trousers; son=s; need=lacks <br>3. def: reputation; old city=ur; express=state; featured in表示包含 <br>4. double definition (mistake/loaf) <br>5. def: amusing tale; "date once" anagram (indicator: ruined) <br>'
+        const number = '2097';
+        let clueArray = [];
+        let answerArray = [];
+        let solutionArray = [];
         let lengthArray = Array(0, 0, 0, 0, 0);
         let allLetters = '';
+        let date = '';
         let lastInputArray = Array('', '', '', '', '');
-        let remainingLetters = allLetters;
+        let remainingLetters = '';
         let errorCountArray = Array(0, 0, 0, 0, 0);
-        
-        for (let i = 0; i < 5; i++) {
-            let ans = answerArray[i];
-            allLetters += ans;
+        const clues = document.querySelectorAll('.clue');
+        const inputs = document.querySelectorAll('.ans-input');
 
-            let clueDisplay = document.getElementById(`clue${i + 1}`);
-            let clue = clueArray[i];
-            clueDisplay.innerHTML = `<strong>${i + 1}</strong> ${clue}`;
-
-            lengthArray[i] = ans.length;
-        }
-        allLetters = allLetters.split('').sort().join('');
-        
-        function GetCommonPrefix(str1, str2) {
-            let prefix = "";
-            const minLength = Math.min(str1.length, str2.length);
-
-            for (let i = 0; i < minLength; i++) {
-                if (str1[i] === str2[i]) {
-                    prefix += str1[i];
-                } else {
-                    break;
-                }
+        // 初始化clue、答案等
+        fetch('./data.json').then(response => {
+            if (!response.ok) {
+                throw new Error('网络响应失败');
             }
+                return response.json();
+        }).then(data => {
+            let dataToday = data[number];
+            clueArray = dataToday['clues'];
+            answerArray = dataToday['answers'];
+            solutionArray = dataToday['solutions'];
+            date = dataToday['date'];
 
-            return prefix;
+            for (let i = 0; i < 5; i++) {
+                let ans = answerArray[i];
+                allLetters += ans;
+
+                let clueDisplay = clues[i];
+                let clue = clueArray[i];
+                clueDisplay.innerHTML = `<strong>${i + 1}</strong> ${clue}`;
+
+                lengthArray[i] = ans.length;
+            }
+            allLetters = allLetters.split('').sort().join('');
+            UpdateRemainingLetters();
+            InitializeInputs();
+            InitialzeShare();
+        }).catch(error => {
+            console.error('读取 JSON 文件出错:', error);
+        });
+
+        // 将光标移至内容末尾
+        function MoveCaretToEnd(el) {
+            const range = document.createRange();
+            range.selectNodeContents(el);
+            range.collapse(false);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
         }
 
-        // 限制输入字母集，并转为大写，限制长度
-        let inputs = document.querySelectorAll('.ans-input');
-        inputs.forEach((input, index) => {
-            // 按下回车时跳转到下一个input
-            input.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter') {
-                    event.preventDefault();
-                    if (index + 1 < inputs.length) {
-                        inputs[index + 1].focus();
+        function InitializeInputs() {
+            // 限制输入字母集，并转为大写，限制长度
+            inputs.forEach((input, index) => {
+                // 按下回车时跳转到下一个input
+                input.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        if (index + 1 < inputs.length) {
+                            inputs[index + 1].focus();
+                        }
                     }
-                }
-            });
+                });
 
-            input.setAttribute('maxlength', lengthArray[index]);
-            input.addEventListener('input', () => {
-                // 输入后去除答案验证
-                input.classList.remove('is-valid');
-                input.classList.remove('is-invalid');
+                let maxLen = lengthArray[index];
+                input.addEventListener('input', () => {
+                    // 输入后去除答案验证
+                    input.classList.remove('is-valid');
+                    input.classList.remove('is-invalid');
+                    input.innerHTML = input.innerText;
 
-                let lastInput = lastInputArray[index];
-                let curInput = input.value;
-                let commonPrefix = GetCommonPrefix(lastInput, curInput);
-                let filteredValue = commonPrefix;
-                for (let i = commonPrefix.length; i < curInput.length; i++) {
-                    let inputtedChar = curInput[i];
-                    if (remainingLetters.includes(inputtedChar.toUpperCase())) {
-                        filteredValue += inputtedChar.toUpperCase();
+                    let lastInput = lastInputArray[index];
+                    let curInput = input.innerText;
+                    curInput = curInput.slice(0, maxLen);
+                    let filteredValue = '';
+                    for (let i = 0; i < curInput.length; i++) {
+                        let inputtedChar = curInput[i].toUpperCase();
+                        if (lastInput.includes(inputtedChar)) {
+                            filteredValue += inputtedChar;
+                            lastInput = lastInput.replace(inputtedChar, '');
+                        } else if (remainingLetters.includes(inputtedChar)) {
+                            filteredValue += inputtedChar;
+                        }
                     }
-                }
-                input.value = filteredValue;
-                lastInputArray[index] = filteredValue;
+                    input.innerText = filteredValue;
+                    lastInputArray[index] = filteredValue;
 
-                UpdateRemainingLetters();
+                    MoveCaretToEnd(input);
+
+                    UpdateRemainingLetters();
+                });
             });
-        });
+        }
         
         function UpdateRemainingLetters() {
             let inputLetters = ''
             for (let input of inputs) {
-                inputLetters += input.value;
+                inputLetters += input.innerText;
             }
             remainingLetters = allLetters;
             for (let letter of inputLetters) {
@@ -164,8 +185,6 @@
                 document.getElementById('remainingLetters').innerText = '无';
             }
         }
-
-        UpdateRemainingLetters();
 
         const submitButton = document.getElementById('submitButton');
         const startToggleButton = document.getElementById('startToggleButton');
@@ -181,16 +200,29 @@
         function CheckAnswers() {
             let isComplete = true;
             inputs.forEach((input, index) => {
-                let inputValue = input.value;
+                let inputValue = input.innerText;
                 let ans = answerArray[index];
                 if (inputValue == ans) {
                     input.classList.add('is-valid');
                     input.classList.remove('is-invalid');
+
+                    input.innerHTML = '<span class="text-success">' + inputValue + '</span>';
                 } else {
                     isComplete = false;
                     input.classList.add('is-invalid');
                     input.classList.remove('is-valid');
                     errorCountArray[index] += 1;
+
+                    let checkedInfo = '';
+                    for (let i = 0; i < inputValue.length; i++) {
+                        letter = inputValue[i];
+                        if (letter == ans[i]) {
+                            checkedInfo += '<span class="text-success">' + letter + '</span>';
+                        } else {
+                            checkedInfo += '<span class="text-danger">' + letter + '</span>'
+                        }
+                    }
+                    input.innerHTML = checkedInfo;
                 }
             });
 
@@ -203,7 +235,13 @@
                 const solutionDisplay = document.getElementById('solution');
                 additionalInfo.style.display = 'none';
                 completeInfo.innerText = '已完成该谜题！';
-                solutionDisplay.innerHTML = solution;
+
+                let solutions = '';
+                for (let i = 0; i < 5; i++) {
+                    let solution = solutionArray[i];
+                    solutions += `${i + 1}. ${solution} <br>`;
+                }
+                solutionDisplay.innerHTML = solutions;
                 hasCompleted = true;
             }
         }
@@ -234,18 +272,6 @@
             isPlaying = !isPlaying;
         })
 
-        function GetChineseCurrentDate() {
-            const date = new Date();
-
-            // 获取年、月、日
-            const year = date.getFullYear();
-            const month = date.getMonth() + 1; // 月份从0开始，所以需要加1
-            const day = date.getDate();
-
-            // 格式化日期字符串
-            return `${year}年${month}月${day}日`;
-        }
-
         function CopyTextToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 shareButton.innerText = '已复制';
@@ -254,34 +280,36 @@
             });
         }
 
-        shareButton.addEventListener('click', () => {
-            let timeUsed = timerDisplay.innerText;
-            let totalErrorTime = errorCountArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-            let gameStat = '';
-            for (let errorCount of errorCountArray) {
-                switch (errorCount) {
-                    case 0: 
-                        gameStat += '🟢';
-                        break;
-                    case 1: 
-                        gameStat += '🟡';
-                        break;
-                    case 2: 
-                        gameStat += '🟠';
-                        break;
-                    default: 
-                        gameStat += '🔴';
-                        break;
+        function InitialzeShare() {
+            shareButton.addEventListener('click', () => {
+                let timeUsed = timerDisplay.innerText;
+                let totalErrorTime = errorCountArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+                let gameStat = '';
+                for (let errorCount of errorCountArray) {
+                    switch (errorCount) {
+                        case 0: 
+                            gameStat += '🟢';
+                            break;
+                        case 1: 
+                            gameStat += '🟡';
+                            break;
+                        case 2: 
+                            gameStat += '🟠';
+                            break;
+                        default: 
+                            gameStat += '🔴';
+                            break;
+                    }
                 }
-            }
-            let url = 'https://amwayy.github.io/puzzles/quintagram';
-            let shareText = `Cryptic Quintagram - ${GetChineseCurrentDate()}\n我用时${timeUsed}完成了今日谜题，共失误${totalErrorTime}次\n${gameStat}\n${url}`;
-            CopyTextToClipboard(shareText);
-        });
+                let url = 'https://amwayy.github.io/puzzles/quintagram';
+                let shareText = `Cryptic Quintagram - ${date}\n我用时${timeUsed}完成了今日谜题，共失误${totalErrorTime}次\n${gameStat}\n${url}`;
+                CopyTextToClipboard(shareText);
+            });
 
-        shareButton.addEventListener('mouseleave', () => {
-            shareButton.innerHTML = '<i class="bi bi-upload me-1" data-bs-placement="left"></i>分享';
-        });
+            shareButton.addEventListener('mouseleave', () => {
+                shareButton.innerHTML = '<i class="bi bi-upload me-1" data-bs-placement="left"></i>分享';
+            });
+        }
     </script>
 </body>
 </html>
