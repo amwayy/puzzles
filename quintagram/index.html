@@ -73,7 +73,7 @@
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-        const number = '2097';
+        const number = '2098';
         let clueArray = [];
         let answerArray = [];
         let solutionArray = [];
@@ -113,6 +113,7 @@
             UpdateRemainingLetters();
             InitializeInputs();
             InitialzeShare();
+            ReadLocalStorage();
         }).catch(error => {
             console.error('读取 JSON 文件出错:', error);
         });
@@ -162,6 +163,7 @@
                     }
                     input.innerText = filteredValue;
                     lastInputArray[index] = filteredValue;
+                    localStorage.setItem('lastInput', JSON.stringify(lastInputArray));
 
                     MoveCaretToEnd(input);
 
@@ -197,6 +199,36 @@
         let timeElapsed = 0;
         let timer;
 
+        function ReadLocalStorage() {
+            // 继承localStorage数据
+            if (localStorage.getItem('lastPuzzleNo')) {
+                let lastPuzzleNo = localStorage.getItem('lastPuzzleNo');
+                if (lastPuzzleNo != number) {
+                    // 清除localStorage
+                    localStorage.clear();
+                }
+            }
+            localStorage.setItem('lastPuzzleNo', number);
+            if (localStorage.getItem('timeElapsed')) {
+                timeElapsed = localStorage.getItem('timeElapsed');
+                timerDisplay.textContent = formatTime(timeElapsed);
+            }
+            if (localStorage.getItem('lastInput')) {
+                lastInputArray = JSON.parse(localStorage.getItem('lastInput'));
+                inputs.forEach((input, index) => {
+                    input.innerHTML = lastInputArray[index];
+                })
+            }
+            if (localStorage.getItem('hasCompleted') != null) {
+                hasCompleted = localStorage.getItem('hasCompleted');
+                if (hasCompleted) {
+                    puzzle.style.display = 'block';
+                    CheckAnswers();
+                    ShowCompleteInfo();
+                }
+            }
+        }
+
         function CheckAnswers() {
             let isComplete = true;
             inputs.forEach((input, index) => {
@@ -228,22 +260,27 @@
 
             if (isComplete) {
                 clearInterval(timer);
-                startToggleButton.style.display = 'none';
-                shareButton.style.display = 'block';
-                const additionalInfo = document.getElementById('additionalInfo');
-                const completeInfo = document.getElementById('completeInfo');
-                const solutionDisplay = document.getElementById('solution');
-                additionalInfo.style.display = 'none';
-                completeInfo.innerText = '已完成该谜题！';
-
-                let solutions = '';
-                for (let i = 0; i < 5; i++) {
-                    let solution = solutionArray[i];
-                    solutions += `${i + 1}. ${solution} <br>`;
-                }
-                solutionDisplay.innerHTML = solutions;
+                ShowCompleteInfo();
                 hasCompleted = true;
+                localStorage.setItem('hasCompleted', true);
             }
+        }
+
+        function ShowCompleteInfo() {
+            startToggleButton.style.display = 'none';
+            shareButton.style.display = 'block';
+            const additionalInfo = document.getElementById('additionalInfo');
+            const completeInfo = document.getElementById('completeInfo');
+            const solutionDisplay = document.getElementById('solution');
+            additionalInfo.style.display = 'none';
+            completeInfo.innerText = '已完成该谜题！';
+
+            let solutions = '';
+            for (let i = 0; i < 5; i++) {
+                let solution = solutionArray[i];
+                solutions += `${i + 1}. ${solution} <br>`;
+            }
+            solutionDisplay.innerHTML = solutions;
         }
 
         submitButton.addEventListener('click', () => {
@@ -264,6 +301,7 @@
             } else {
                 timer = setInterval(() => {
                     timeElapsed++;
+                    localStorage.setItem('timeElapsed', timeElapsed);
                     timerDisplay.textContent = formatTime(timeElapsed);
                 }, 1000);
                 startToggleButton.innerText = '暂停';

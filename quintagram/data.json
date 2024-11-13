@@ -1,4 +1,22 @@
 {
+    "2098": {
+        "date": "2024年11月13日",
+        "clues": [
+            "Essence found in ginseng is terrific (4)",
+            "Desert transport arrived, heading for Libya (5)",
+            "Dull bishop with old piece of jewellery (6)",
+            "Confining leader of Jacobins poorly (7)",
+            "Inharmonious nightclub right to welcome Daniel (10)"
+        ],
+        "answers": ["GIST", "CAMEL", "BORING", "JAILING", "DISCORDANT"],
+        "solutions": [
+            "def: essence; hidden word",
+            "def: desert transport; arrived = came; heading for Libya = l",
+            "def: dull; bishop = b; old = o; piece of jewellery = ring",
+            "def: confining; leader of Jacobins = j; poorly = ailing",
+            "def: inharmonious; nightclub = disco; right = r; to = t; Daniel = dan; welcome表示包含"
+        ]
+    },
     "2097": {
         "date": "2024年11月12日",
         "clues": [
