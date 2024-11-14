@@ -1,4 +1,22 @@
 {
+    "2099": {
+        "date": "2024年11月14日",
+        "clues": [
+            "Spot unwanted garden visitor? (4)",
+            "Gallon consumed by famed pilot Harry (6)",
+            "Female in party hosted by cat or Reynard (3,3)",
+            "Spooner's beast, plump animal (5,3)",
+            "Hoarder: gentleman collecting right and left (8)"
+        ],
+        "answers": ["MOLE", "BADGER", "REDFOX", "FRUITBAT", "SQUIRREL"],
+        "solutions": [
+            "double definition (spot/unwanted garden visitor)",
+            "def: harry (to annoy someone); gallon = g; famed pilot = bader (Douglas Bader); consumed by表示包含",
+            "def: Reynard (出自中世纪故事集); female = f; party = do; cat = rex; in和hosted by表示包含",
+            "def: animal; spoonerism (交换首音节谐音); beast = brute; plump = fat",
+            "def: hoarder; gentleman = squire; right = r; left = l; collecting表示包含"
+        ]
+    },
     "2098": {
         "date": "2024年11月13日",
         "clues": [
@@ -42,15 +60,141 @@
             "Son needs some trousers (6)",
             "Reputation of old city featured in Express (7)",
             "A mistake making loaf of this kind? (7)",
-            "Date once ruined an amusing tale (8)'"
+            "Date once ruined an amusing tale (8)"
         ],
         "answers": ["DAFT", "SLACKS", "STATURE", "BLOOMER", "ANECDOTE"],
         "solutions": [
-            "def: idiotic; plan=draft; Republican=r; get rid of表示去除字母(draft-r)",
-            "def: some trousers; son=s; need=lacks",
-            "def: reputation; old city=ur; express=state; featured in表示包含",
+            "def: idiotic; plan = draft; Republican = r; get rid of表示去除字母(draft-r)",
+            "def: some trousers; son = s; needs = lacks",
+            "def: reputation; old city = ur; express = state; featured in表示包含",
             "double definition (mistake/loaf)",
             "def: amusing tale; \"date once\" anagram (indicator: ruined)"
+        ]
+    },
+    "2095": {
+        "date": "2024年11月9日",
+        "clues": [
+            "Cunning and silly at regular intervals (3)",
+            "Academic embraces old mathematical work (5)",
+            "Fight back finally, showing a bit of fire? (5)",
+            "Band make time for Dutch artist (9)",
+            "RAF accepts strange flying vehicle (10)"
+        ],
+        "answers": ["SLY", "PROOF", "SPARK", "REMBRANDT", "SPACECRAFT"],
+        "solutions": [
+            "def: cunning; 间隔地取\"silly\"中的字母(indicator: regular)",
+            "def: mathematical work; academic = prof; old = o; embraces表示包含",
+            "def: showing a bit of fire; fight = spar; back finally = k(末字母)",
+            "def: Dutch artist; band = rem(乐队); make = brand; time = t",
+            "def: flying vehicle; \"RAF accepts\" anagram (indicator: strange)"
+        ]
+    },
+    "2094": {
+        "date": "2024年11月8日",
+        "clues": [
+            "Explorer's company all right (4)",
+            "Explorer in Chile initially wrecked boat (5)",
+            "Explorer in place with huge bird returning (6)",
+            "Explorer strangely unnamed claiming pole (8)",
+            "Explorer in company car (VW) with damage at front (5,4)"
+        ],
+        "answers": ["COOK", "CABOT", "CORTES", "AMUNDSEN", "MARCOPOLO"],
+        "solutions": [
+            "def: explorer; company = co; all right = ok",
+            "def: explorer; Chile initially = c (首字母); \"boat\" anagram (indicator: wrecked)",
+            "def: explorer; in place = set; huge bird = roc (出自阿拉伯神话); returning表示倒序",
+            "def: explorer; \"unnamed\" anagram (indicator: strangely); pole = s (南极); claiming表示包含",
+            "def: explorer; company = co; car (VW) = polo (一种车型); damage = mar (at front表示放到最前面)"
+        ]
+    },
+    "2093": {
+        "date": "2024年11月7日",
+        "clues": [
+            "Items for discussion a female possibly read out (6)",
+            "Method actor's latest piece getting trashed (6)",
+            "Young reporter claims that girl's a little angel (6)",
+            "Awful house moves consuming one day (7)",
+            "Seriously supporting a team in Madrid? (3,4)"
+        ],
+        "answers": ["AGENDA", "RECIPE", "CHERUB", "HIDEOUS", "FORREAL"],
+        "solutions": [
+            "def: items for discussion; a female possibly = a gender; 谐音(indicator: read out)",
+            "def: method; actor's latest = r (末字母); \"piece\" anagram (indicator: getting trashed)",
+            "def: a little angel; young reporter = cub; that girl = her; claims表示包含",
+            "def: awful; \"house\" anagram (indicator: moves); one = i, day = d; consuming表示包含",
+            "def: seriously; supporting = for; a team in Madrid = real(皇家马德里)"
+        ]
+    },
+    "2092": {
+        "date": "2024年11月6日",
+        "clues": [
+            "Abroad, I must welcome fine witticism (4)",
+            "Regularly visit husband and another family member (5)",
+            "Look good, as well as extremely eager (6)",
+            "Charles III on public transport, performing in street! (7)",
+            "Hire soldiers before time for battle (10)"
+        ],
+        "answers": ["JOKE", "HAUNT", "GANDER", "BUSKING", "ENGAGEMENT"],
+        "solutions": [
+            "def: witticism; abroad, I = je (法语“我”); fine = ok; welcome表示包含",
+            "def: regularly visit; husband = h; another family member = aunt",
+            "def: look; good = g; as well as = and; extremely eager = er (两端字母)",
+            "def: performing in street; charles iii = king; public transport = bus; A on B表示A跟在B后面",
+            "def: battle; hire = engage; soidiers = men; time = t"
+        ]
+    },
+    "2091": {
+        "date": "2024年11月5日",
+        "clues": [
+            "Grounded flyer involved in three murders (3)",
+            "Dirty pen containing two ducks? (5)",
+            "Wright brother in Liverpool sacked, leaving post office (7)",
+            "Extremely dedicated learner sticks around for hugs (7)",
+            "Would he outfox 1, 2, 3 and 4? (5,5)"
+        ],
+        "answers": ["EMU", "SOOTY", "ORVILLE", "CUDDLES", "BASILBRUSH"],
+        "solutions": [
+            "def: grounded flyer; hidden word",
+            "def: dirty; pen = sty; duck = 0 = o (板球术语）; containing表示包含",
+            "def: Wright brother; post office = po; leaving表示去除字母 (liverpool - po); \"liverol\" anagram (indicator: sacked)",
+            "def: hugs; extremely dedicated = dd (两端字母); learner = l; sticks = cues (比如台球杆); around表示包含",
+            "cryptic definition; 本题5个答案都是手偶秀角色，而Basil Brush是一只狐狸"
+        ]
+    }, 
+    "2090": {
+        "date": "2024年11月4日",
+        "clues": [
+            "Writer with friends in Paris? (4)",
+            "Bishop taken in and flogged (6)",
+            "Girl's story inspiring Charlie (6)",
+            "Expelled from university and jailed (4,4)",
+            "Strange European somehow becoming a policeman (8)"
+        ],
+        "answers": ["AMIS", "BEATEN", "LASSIE", "SENTDOWN", "SERGEANT"],
+        "solutions": [
+            "double definition (writer (Martin Amis) / friends in Paris (法语))",
+            "def: flogged; bishop = b; taken in = eaten",
+            "def: girl; story = lie; charlie = ass (fool); inspiring表示包含",
+            "double definition (expelled from university / jailed)",
+            "def: policeman; european = e; \"strange e\" anagram (indicator: somehow)"
+        ]
+    },
+    "2089": {
+        "date": "2024年11月2日",
+        "clues": [
+            "Approach pointy object (4)",
+            "Locate broken crate (5)",
+            "Less tanned with little time in Italian city (7)",
+            "Final stint in a lake (8)",
+            "European raps in ad, badly (8)"
+        ],
+        "answers": ["TACK", "TRACE", "PALERMO", "TERMINAL", "SPANIARD"],
+        "solutions": [
+            "double definition (approach / pointy object)",
+            "def: locate; \"crate\" anagram (indicator: broken)",
+            "def: Italian city; less tanned = paler; little time = mo (moment)",
+            "def: final; stint = term; lake = l",
+            "def: European; \"raps in ad\" anagram (indicator: badly)"
         ]
     }
 }

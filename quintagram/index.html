@@ -17,12 +17,24 @@
 
         <div class="d-flex justify-content-center fs-3 mb-2"><strong>Cryptic Quintagram</strong></div>
         <div class="d-flex justify-content-center mb-3">给定答案的所有字母，解出5个cryptic clues吧</div>
+
+        <div class="col-8 col-lg-5 mx-auto">
+            <div class="input-group mb-2">
+                <span class="input-group-text border border-dark">编号</span>
+                <input class="form-control focus-ring border border-dark text-center" id="numberInput" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)">
+                <button class="btn btn-dark" id="jumpButton">跳转</button>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mb-3 gap-5">
+            <button class="btn btn-light border border-dark" id="previousButton">上一个</button>
+            <button class="btn btn-light border border-dark" id="nextButton">下一个</button>
+        </div>
+
         <div class="d-flex justify-content-center align-items-center mb-3">
             <span class="me-5" id="timer">00:00</span>
             <button class="btn btn-dark" id="startToggleButton">开始</button>
             <button class="btn btn-dark" id="shareButton" style="display: none;" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="失误数以clue为单位<br>（🟢0🟡1🟠2🔴3+）">
-                <i class="bi bi-upload me-1" data-bs-placement="left"></i>
-                分享
+                <i class="bi bi-upload me-1" data-bs-placement="left"></i> 分享
             </button>
         </div>
 
@@ -73,7 +85,7 @@
         const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
         const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-        const number = '2098';
+        let number = '';
         let clueArray = [];
         let answerArray = [];
         let solutionArray = [];
@@ -83,8 +95,13 @@
         let lastInputArray = Array('', '', '', '', '');
         let remainingLetters = '';
         let errorCountArray = Array(0, 0, 0, 0, 0);
+        let puzzleData;
         const clues = document.querySelectorAll('.clue');
         const inputs = document.querySelectorAll('.ans-input');
+        const numberInput = document.getElementById('numberInput');
+        const previousButton = document.getElementById('previousButton');
+        const nextButton = document.getElementById('nextButton');
+        const jumpButton = document.getElementById('jumpButton');
 
         // 初始化clue、答案等
         fetch('./data.json').then(response => {
@@ -93,11 +110,75 @@
             }
                 return response.json();
         }).then(data => {
-            let dataToday = data[number];
-            clueArray = dataToday['clues'];
-            answerArray = dataToday['answers'];
-            solutionArray = dataToday['solutions'];
-            date = dataToday['date'];
+            puzzleData = data;
+
+            const params = new URLSearchParams(window.location.search);
+            const targetNumber = params.get('no');
+            const numberToday = Object.keys(data)[Object.keys(data).length - 1];
+            let lastPuzzleNo;
+            if (localStorage.getItem('lastPuzzleNo')) {
+                lastPuzzleNo = localStorage.getItem('lastPuzzleNo');
+            }
+            if (targetNumber != null) {
+                number = targetNumber;
+            } else if (lastPuzzleNo != null) {
+                number = lastPuzzleNo;
+            }
+            let targetData;
+            if (number in data) {
+                targetData = data[number];
+            } else {
+                targetData = data[numberToday];
+                number = numberToday;
+            }
+            if (number != lastPuzzleNo) {
+                localStorage.clear();
+                localStorage.setItem('lastPuzzleNo', number);
+            }
+
+            InitializeClue(targetData);
+            InitializeInputs();
+            InitialzeShare();
+            InitializeJump(data);
+            ReadLocalStorage();
+        }).catch(error => {
+            console.error('读取 JSON 文件出错:', error);
+        });
+
+        jumpButton.addEventListener('click', () => {
+            let targetNumber = numberInput.value;
+            if (targetNumber in puzzleData) {
+                JumpTo(targetNumber);
+            } else {
+                // 谜题不存在
+                numberInput.value = '没这题';
+            }
+        })
+
+        previousButton.addEventListener('click', () => {
+            let numberNum = Number(number);
+            JumpTo(parseInt(numberNum - 1));
+        })
+
+        nextButton.addEventListener('click', () => {
+            let numberNum = Number(number);
+            JumpTo(parseInt(numberNum + 1));
+        })
+
+        function JumpTo(targetNumber) {
+            if (targetNumber != number) {
+                localStorage.clear();
+                localStorage.setItem('lastPuzzleNo', targetNumber);
+                const urlWithoutParams = `${window.location.origin}${window.location.pathname}`;
+                window.location.href = urlWithoutParams;
+            }
+        }
+
+        function InitializeClue(data) {
+            clueArray = data['clues'];
+            answerArray = data['answers'];
+            solutionArray = data['solutions'];
+            date = data['date'];
 
             for (let i = 0; i < 5; i++) {
                 let ans = answerArray[i];
@@ -111,12 +192,22 @@
             }
             allLetters = allLetters.split('').sort().join('');
             UpdateRemainingLetters();
-            InitializeInputs();
-            InitialzeShare();
-            ReadLocalStorage();
-        }).catch(error => {
-            console.error('读取 JSON 文件出错:', error);
-        });
+        }
+
+        function InitializeJump(data) {
+            numberInput.value = number;
+            let numberNum = Number(number);
+            if (!(parseInt(numberNum + 1) in data)) {
+                nextButton.disabled = true;
+            } else {
+                nextButton.disabled = false;
+            }
+            if (!(parseInt(numberNum - 1) in data)) {
+                previousButton.disabled = true;
+            } else {
+                previousButton.disabled = false;
+            }
+        }
 
         // 将光标移至内容末尾
         function MoveCaretToEnd(el) {
@@ -200,15 +291,6 @@
         let timer;
 
         function ReadLocalStorage() {
-            // 继承localStorage数据
-            if (localStorage.getItem('lastPuzzleNo')) {
-                let lastPuzzleNo = localStorage.getItem('lastPuzzleNo');
-                if (lastPuzzleNo != number) {
-                    // 清除localStorage
-                    localStorage.clear();
-                }
-            }
-            localStorage.setItem('lastPuzzleNo', number);
             if (localStorage.getItem('timeElapsed')) {
                 timeElapsed = localStorage.getItem('timeElapsed');
                 timerDisplay.textContent = formatTime(timeElapsed);
@@ -339,13 +421,13 @@
                             break;
                     }
                 }
-                let url = 'https://amwayy.github.io/puzzles/quintagram';
-                let shareText = `Cryptic Quintagram - ${date}\n我用时${timeUsed}完成了今日谜题，共失误${totalErrorTime}次\n${gameStat}\n${url}`;
+                let url = `https://amwayy.github.io/puzzles/quintagram/?no=${number}`;
+                let shareText = `Cryptic Quintagram - ${date}\n我用时${timeUsed}完成了当日谜题，共失误${totalErrorTime}次\n${gameStat}\n${url}`;
                 CopyTextToClipboard(shareText);
             });
 
             shareButton.addEventListener('mouseleave', () => {
-                shareButton.innerHTML = '<i class="bi bi-upload me-1" data-bs-placement="left"></i>分享';
+                shareButton.innerHTML = '<i class="bi bi-upload me-1" data-bs-placement="left"></i> 分享';
             });
         }
     </script>
