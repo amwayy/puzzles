@@ -1,4 +1,22 @@
 {
+    "2100": {
+        "date": "2024年11月15日",
+        "clues": [
+            "I'm surprised by king's anorak (4)",
+            "Nothing captured in fair form of combat (5)",
+            "One entertained by unacceptable idea (6)",
+            "Wreath coming from diminutive fellow? (7)",
+            "Writer's day in Paris with new, top celebs (10)"
+        ],
+        "answers": ["GEEK", "JOUST", "NOTION", "CHAPLET", "JOURNALIST"],
+        "solutions": [
+            "def: anorak; I'm surprised = gee; king = k",
+            "def: form of combat; nothing = o; fair = just; captured表示包含",
+            "def: idea; one = i; unacceptable = not on; entertained by表示包含",
+            "def: wreath; fellow = chap; diminutive意为加上表示\"小\"的后缀, 例如let(见booklet, owlet等)",
+            "def: writer; day in Paris = jour (法语); new = n; top celebs = a-list"
+        ]
+    },
     "2099": {
         "date": "2024年11月14日",
         "clues": [
@@ -10,7 +28,7 @@
         ],
         "answers": ["MOLE", "BADGER", "REDFOX", "FRUITBAT", "SQUIRREL"],
         "solutions": [
-            "double definition (spot/unwanted garden visitor)",
+            "double definition (spot / unwanted garden visitor)",
             "def: harry (to annoy someone); gallon = g; famed pilot = bader (Douglas Bader); consumed by表示包含",
             "def: Reynard (出自中世纪故事集); female = f; party = do; cat = rex; in和hosted by表示包含",
             "def: animal; spoonerism (交换首音节谐音); beast = brute; plump = fat",
