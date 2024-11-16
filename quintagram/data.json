@@ -1,4 +1,22 @@
 {
+    "2101": {
+        "date": "2024年11月16日",
+        "clues": [
+            "Hat and short cloak (3)",
+            "Sportswear? Take it all off! (5)",
+            "Study exclusive gaming device (7)",
+            "Gift that's already dispatched? (7)",
+            "Vital loans arranged for football team (5,5)"
+        ],
+        "answers": ["CAP", "STRIP", "CONSOLE", "PRESENT", "ASTONVILLA"],
+        "solutions": [
+            "def: hat; cloak = cape; short表示截断",
+            "double definition (sportswear / take it all off)",
+            "def: gaming device; study = con; exclusive = sole",
+            "def: gift; dispatched = sent; pre前缀表示某事在之前已经发生",
+            "def: football team; \"vital loans\" anagram (indicator: arranged)"
+        ]
+    },
     "2100": {
         "date": "2024年11月15日",
         "clues": [
@@ -213,6 +231,60 @@
             "def: Italian city; less tanned = paler; little time = mo (moment)",
             "def: final; stint = term; lake = l",
             "def: European; \"raps in ad\" anagram (indicator: badly)"
+        ]
+    },
+    "2088": {
+        "date": "2024年11月1日",
+        "clues": [
+            "Englishman abroad catching finale of Wagner concert (4)",
+            "Kind of tree in mist by lake (5)",
+            "Golly! Group gets tight-fitting garment (6)",
+            "Relaxed kid welcoming current support (4-4)",
+            "Dread criminal and wicked risk-taker (9)"
+        ],
+        "answers": ["PROM", "HAZEL", "CORSET", "LAIDBACK", "DAREDEVIL"],
+        "solutions": [
+            "def: concert; englishman abroad = pom (澳大利亚人对英国人的称呼); finale of Wagner = r (末字母); catching表示包含",
+            "def: kind of tree; mist = haze; lake = l",
+            "def: tight-fitting garment; golly = cor; group = set",
+            "def: relaxed; kid = lad; current = i (电流); welcoming表示包含; support = back",
+            "def: risk-taker; \"dread\" anagram (indicator: criminal); wicked = evil"
+        ]
+    },
+    "2087": {
+        "date": "2024年10月31日",
+        "clues": [
+            "European assents: one giving spirited response? (5)",
+            "Suggestion from good entertainer? (5)",
+            "Power seized by terribly secret Bond foes (7)",
+            "NUT head distressed, regularly visited (7)",
+            "Impressive carriage? (8)"
+        ],
+        "answers": ["OUIJA", "GHOST", "SPECTRE", "HAUNTED", "PRESENCE"],
+        "solutions": [
+            "def: one giving spirited response; European assents = oui (法语) + ja (德语、荷兰语等)",
+            "def: suggestion; good = g; entertainer = host",
+            "def: Bond foes; \"secret\" anagram (indicator: terribly); power = p; seized表示包含",
+            "def: regularly visited; \"nut head\" anagram (indicator: distressed)",
+            "cryptic definition; presence: physical bearing, especially if it is commanding or authoritative; carriage: the way one holds oneself when standing or walking"
+        ]
+    },
+    "2086": {
+        "date": "2024年10月30日",
+        "clues": [
+            "Partners wanting large car (5)",
+            "You may sit on it right up until this point (2,3)",
+            "That guy's right-wing past (7)",
+            "Small cabin, unfashionable and hidden from view (4,3)",
+            "Loads of money I left in Lisbon, stupidly (8)"
+        ],
+        "answers": ["COUPE", "SOFAR", "HISTORY", "SHUTOUT", "BILLIONS"],
+        "solutions": [
+            "def: car; partners = couple; large = l; wanting表示缺少字母",
+            "def: up until this point; you may sit on it = sofa; right = r",
+            "def: past; that guy's = his; right-wing = tory",
+            "def: hidden from view; small = s; cabin = hut; unfashionable = out",
+            "def: loads of money; left = l; \"i l lisbon\" anagram (indicator: stupidly)"
         ]
     }
 }
