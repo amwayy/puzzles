@@ -1,4 +1,22 @@
 {
+    "2102": {
+        "date": "2024年11月18日",
+        "clues": [
+            "Track down and shoot (5)",
+            "I'm alarmed by church's disrespect (5)",
+            "Officer needing heart, they say (7)",
+            "Swears about old ways (7)",
+            "Removed clothes? Befuddled Boers did (8)"
+        ],
+        "answers": ["STALK", "CHEEK", "COLONEL", "COURSES", "DISROBED"],
+        "solutions": [
+            "double definition (track down / shoot (plant stem))",
+            "def: disrespect; I'm alarmed = eek; church = ch",
+            "def: officer; heart = kernel; they say表示谐音",
+            "def: ways; swears = curses; old = o; about表示包含",
+            "def: removed clothes; \"Boers did\" anagram (indicator: befuddled)"
+        ]
+    },
     "2101": {
         "date": "2024年11月16日",
         "clues": [
@@ -285,6 +303,78 @@
             "def: past; that guy's = his; right-wing = tory",
             "def: hidden from view; small = s; cabin = hut; unfashionable = out",
             "def: loads of money; left = l; \"i l lisbon\" anagram (indicator: stupidly)"
+        ]
+    },
+    "2085": {
+        "date": "2024年10月29日",
+        "clues": [
+            "One leaving sinking ship? Sailor's returning! (3)",
+            "Not quite right to frame DA as 1 (5)",
+            "Is 1 so like serpent trapping Eve ultimately? (6)",
+            "Trendy ex is 1 (8)",
+            "Do greenkeepers aspire to produce this 1? (10)"
+        ],
+        "answers": ["RAT", "JUDAS", "SNEAKY", "INFORMER", "SUPERGRASS"],
+        "solutions": [
+            "def: one leaving sinking ship; sailor = tar; returning表示倒序",
+            "def: 1 (rat); right = just; not quite表示截断; frame表示包含",
+            "def: is 1 (rat) so; like serpent = snaky; Eve ultimately = e (末字母); trapping表示包含",
+            "def: 1 (rat); trendy = in; ex = former",
+            "double definition (do greenkeepers aspire to produce this / 1 (rat))"
+        ]
+    },
+    "2084": {
+        "date": "2024年10月28日",
+        "clues": [
+            "Mythical bird on way back? Goodness me! (3)",
+            "Expression of relief not many heard (4)",
+            "Lack of resistance in final moments (6)",
+            "Former England manager using this exit from stadium? (9)",
+            "Outline of refurbished hotel suite (10)"
+        ],
+        "answers": ["COR", "PHEW", "DEARTH", "SOUTHGATE", "SILHOUETTE"],
+        "solutions": [
+            "def: goodness me; mythical bird = roc; on way back表示倒序",
+            "def: expression of relief; not many = few; heard表示谐音",
+            "def: lack; resistance = r; final moments = death; in表示包含",
+            "double definition (former england manager / exit from stadium)",
+            "def: outline; \"hotel suite\" anagram (indicator: refurbished)"
+        ]
+    },
+    "2083": {
+        "date": "2024年10月26日",
+        "clues": [
+            "Maybe swallow porridge? (4)",
+            "My holding back benefit causes strain (6)",
+            "Witty Dorothy's pen name? (6)",
+            "Daily story for idiot (7)",
+            "Ten in a shop stirred by single woodwind (9)"
+        ],
+        "answers": ["BIRD", "MELODY", "PARKER", "CHARLIE", "SAXOPHONE"],
+        "solutions": [
+            "double definition (maybe swallow / porridge (jail sentence))",
+            "def: strain; benefit = dole; back表示倒序; holding表示包含",
+            "double definition (witty Dorothy / pen name)",
+            "def: idiot; daily = char (charwoman); story = lie",
+            "def: woodwind; ten = x; \"a shop\" anagram (indicator: stirred); in表示包含; single = one"
+        ]
+    },
+    "2082": {
+        "date": "2024年10月25日",
+        "clues": [
+            "Fancy wife meeting that guy! (4)",
+            "Long moustaches reduced in size (4)",
+            "Is able, somehow, to descend by rope (6)",
+            "Don't forget about parliamentarian (8)",
+            "Pour cold water on detective's spine (10)"
+        ],
+        "answers": ["WHIM", "ACHE", "ABSEIL", "REMEMBER", "DISCOURAGE"],
+        "solutions": [
+            "def: fancy; wife = w; that guy = him",
+            "def: long; hidden word",
+            "def: to descend by rope; \"is able\" anagram (indicator: somehow)",
+            "def: don't forget; about = re; parliamentarian = member",
+            "def: pour cold water on; detecive = di (detective inspector); spine = courage"
         ]
     }
 }
