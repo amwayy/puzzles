@@ -1,4 +1,22 @@
-{
+{   
+    "2103": {
+        "date": "2024年11月19日",
+        "clues": [
+            "Party member almost getting benefit (4)",
+            "Damage seen after cold spell (5)",
+            "Marshal is obliged to the late Queen (6)",
+            "Son admitted to proper lineage (7)",
+            "Cruelty shown by UN sort meeting head (10)"
+        ],
+        "answers": ["DOLE", "CHARM", "MUSTER", "DESCENT", "UNKINDNESS"],
+        "solutions": [
+            "def: benefit; party = do; member = leg; almost表示截断",
+            "def: spell; damage = harm; cold = c",
+            "def: marshal; obliged to = must; late Queen = er (Elizabeth Regina)",
+            "def: lineage; son = s; proper = decent; admitted to表示包含",
+            "def: cruelty; sort = kind; head = ness"
+        ]
+    },
     "2102": {
         "date": "2024年11月18日",
         "clues": [
@@ -82,7 +100,7 @@
         ],
         "answers": ["GIST", "CAMEL", "BORING", "JAILING", "DISCORDANT"],
         "solutions": [
-            "def: essence; hidden word",
+            "def: essence; hidden word (indicator: found in)",
             "def: desert transport; arrived = came; heading for Libya = l",
             "def: dull; bishop = b; old = o; piece of jewellery = ring",
             "def: confining; leader of Jacobins = j; poorly = ailing",
@@ -100,7 +118,7 @@
         ],
         "answers": ["REAR", "GROUND", "TITANIA", "SUPPORT", "PEDESTAL"],
         "solutions": [
-            "def: back; hidden word",
+            "def: back; hidden word (indicator: holding)",
             "def: pulverised; good = g; session at Carnoustie = round (Carnoustie是一个高尔夫俱乐部)",
             "cryptic definition; Titania和Bottom是《仲夏夜之梦》中的角色; Stratford是Shakespeare的故乡",
             "double definition (whole clue / truss)",
@@ -208,7 +226,7 @@
         ],
         "answers": ["EMU", "SOOTY", "ORVILLE", "CUDDLES", "BASILBRUSH"],
         "solutions": [
-            "def: grounded flyer; hidden word",
+            "def: grounded flyer; hidden word (indicator: involved in)",
             "def: dirty; pen = sty; duck = 0 = o (板球术语）; containing表示包含",
             "def: Wright brother; post office = po; leaving表示去除字母 (liverpool - po); \"liverol\" anagram (indicator: sacked)",
             "def: hugs; extremely dedicated = dd (两端字母); learner = l; sticks = cues (比如台球杆); around表示包含",
@@ -371,10 +389,64 @@
         "answers": ["WHIM", "ACHE", "ABSEIL", "REMEMBER", "DISCOURAGE"],
         "solutions": [
             "def: fancy; wife = w; that guy = him",
-            "def: long; hidden word",
+            "def: long; hidden word (indicator: reduced in size)",
             "def: to descend by rope; \"is able\" anagram (indicator: somehow)",
             "def: don't forget; about = re; parliamentarian = member",
             "def: pour cold water on; detecive = di (detective inspector); spine = courage"
+        ]
+    },
+    "2081": {
+        "date": "2024年10月24日",
+        "clues": [
+            "Succeeding in reversing 10 divided by 10 (4)",
+            "Romance Frieda's beginning with Heather (5)",
+            "Look round outside black outbuilding (6)",
+            "Really old object is calming (8)",
+            "Involved with chocolate lab or a terrier, partly (9)"
+        ],
+        "answers": ["NEXT", "FLING", "GAZEBO", "SOOTHING", "ELABORATE"],
+        "solutions": [
+            "def: succeeding; 第一个10 = ten; reversing表示倒序; 第二个10 = x; divided by表示包含",
+            "def: romance; Frieda's beginning = f (首字母); heather = ling",
+            "def: outbuilding; look = gaze; round = o; black = b; outside表示包含",
+            "def: calming; really = so; old = o; object = thing",
+            "def: involved; hidden word (indicator: partly)"
+        ]
+    },
+    "2080": {
+        "date": "2024年10月23日",
+        "clues": [
+            "Playwright seen in Woolwich area (4)",
+            "Actor Gene more passionate? (6)",
+            "Perhaps White House lavatory's working for former PM? (7)",
+            "Pair to bury press worker (7)",
+            "Crow lady dancing in yellow (8)"
+        ],
+        "answers": ["HARE", "WILDER", "JOHNSON", "PRINTER", "COWARDLY"],
+        "solutions": [
+            "def: playwright; hidden word (indicator: seen in)",
+            "double definition (actor Gene / more passionate)",
+            "def: former PM; perhaps White House lavatory = john (美式表达); working = on",
+            "def: press worker; pair = pr; bury = inter",
+            "def: yellow; \"crow lady\" anagram (indicator: dancing)"
+        ]
+    },
+    "2079": {
+        "date": "2024年10月22日",
+        "clues": [
+            "Good man holding firm --- Billy Connolly maybe (4)",
+            "Initially finding nothing odd in ancient marketplace (5)",
+            "Cabinet member I ignored in church (7)",
+            "Hurried to organise the Danes (8)",
+            "Loudly criticises soldiers' accommodation (8)"
+        ],
+        "answers": ["SCOT", "FORUM", "MINSTER", "HASTENED", "BARRACKS"],
+        "solutions": [
+            "def: Billy Connolly maybe; good man = st (saint); firm = co (company); holding表示包含",
+            "def: ancient marketplace; initially finding = f (首字母); nothing = o; odd = rum",
+            "def: church; cabinet member = minister; I ignored表示删去字母i",
+            "def: hurried; \"the Danes\" anagram (indicator: organise)",
+            "double definition (loudly criticises / soldiers' accommodation)"
         ]
     }
 }
