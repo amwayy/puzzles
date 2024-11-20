@@ -1,4 +1,22 @@
 {   
+    "2104": {
+        "date": "2024年11月20日",
+        "clues": [
+            "Good to possess evening attire (4)",
+            "Novelist in road in site of literary festival (5)",
+            "Go on board boat, following English doctor (6)",
+            "Nobleman by borders of royalty's land (7)",
+            "Indecision shown by that man, one entering Euston? (10)"
+        ],
+        "answers": ["GOWN", "HARDY", "EMBARK", "COUNTRY", "HESITATION"],
+        "solutions": [
+            "def: evening attire; good = g; possess = own",
+            "def: novelist; road = rd; literary festival = hay; in site of表示包含",
+            "def: go on board; English = e; doctor = mb (Medicinae Baccalaureus); boat = ark",
+            "def: land; nobleman = count; borders of royalty = ry (两端字母)",
+            "def: indecision; that man = he; one = i; Euston = station; entering表示包含"
+        ]
+    },
     "2103": {
         "date": "2024年11月19日",
         "clues": [
@@ -447,6 +465,96 @@
             "def: church; cabinet member = minister; I ignored表示删去字母i",
             "def: hurried; \"the Danes\" anagram (indicator: organise)",
             "double definition (loudly criticises / soldiers' accommodation)"
+        ]
+    },
+    "2078": {
+        "date": "2024年10月21日",
+        "clues": [
+            "Expressed maximum irritation (5)",
+            "Dog starts to bark excruciatingly with a broken leg (6)",
+            "Outstanding ale isn't drunk (7)",
+            "My face is friendly (7)",
+            "Home appliance costing nothing ... almost nothing! (7)"
+        ],
+        "answers": ["PIQUE", "BEAGLE", "SALIENT", "CORDIAL", "FREEZER"],
+        "solutions": [
+            "def: irritation; maximum = peak; expressed表示谐音",
+            "def: dog; starts to bark excruciatingly = be (首字母); \"leg\" anagram (indicator: broken)",
+            "def: outstanding; \"ale isn't\" anagram (indicator: drunk)",
+            "def: friendly; my = cor; face = dial (of a clock)",
+            "def: home appliance; costing nothing = free; nothing (第二个) = zero; almost表示截断"
+        ]
+    },
+    "2077": {
+        "date": "2024年10月19日",
+        "clues": [
+            "Blue tale needing no introduction (4)",
+            "1 Liz has support (5)",
+            "1 Robert, Conservative in unusual jerkin (7)",
+            "1 Helen, surprisingly wealthy (7)",
+            "1 Tom had net tangled on boat (9)"
+        ],
+        "answers": ["TORY", "TRUSS", "JENRICK", "WHATELY", "TUGENDHAT"],
+        "solutions": [
+            "def: blue; tale = story; needing no introduction表示去除首字母",
+            "double definition (1 (tory) Liz / support)",
+            "def: 1 (tory) Robert; Conservative = c; \"jerkin\" anagram (indicator: unusual); in表示包含",
+            "def: 1 (tory) Helen; \"wealthy\" anagram (indicator: surprisingly)",
+            "def: 1 (tory) tom; \"had net\" anagram (indicator: tangled); boat = tug; A on B表示A跟在B后面"
+        ]
+    },
+    "2076": {
+        "date": "2024年10月18日",
+        "clues": [
+            "Goods carried around with legendary Greek vessel (5)",
+            "First-rate publicity work that is netting millions (5)",
+            "European requiring some anger management (6)",
+            "Opening of cool, fantastic bar near city (8)",
+            "Monument not cheap to get repaired (8)"
+        ],
+        "answers": ["CARGO", "PRIME", "GERMAN", "CANBERRA", "CENOTAPH"],
+        "solutions": [
+            "def: goods carried; around = c (circa); legendary Greek vessel = argo",
+            "def: first-rate; publicity work = pr (public relations); that is = ie; millions = m; netting表示包含",
+            "def: European; hidden word (indicator: requiring some)",
+            "def: city; opening of cool = c (首字母); \"bar near\" (indicator: fantastic)",
+            "def: monument; \"not cheap\" (indicator: get repaired)"
+        ]
+    },
+    "2075": {
+        "date": "2024年10月17日",
+        "clues": [
+            "Asian neckwear picked up (4)",
+            "Fight the setter and Bruce the martial arts star (5)",
+            "Fruit in caramel on skewer (6)",
+            "Old men to show off document (8)",
+            "Fat soldier holding tabloid back to front (9)"
+        ],
+        "answers": ["THAI", "MELEE", "MELONS", "PASSPORT", "MARGARINE"],
+        "solutions": [
+            "def: Asian; neckwear = tie; picked up表示谐音",
+            "def: fight; setter = me; Bruce the martial arts star = lee",
+            "def: fruit; hidden word (indicator: in)",
+            "def: document; old men = pas; show off = sport",
+            "def: fat; soldier = marine; tabloid = rag; back to front表示倒序; holding表示包含"
+        ]
+    },
+    "2074": {
+        "date": "2024年10月16日",
+        "clues": [
+            "Lock house and impede robberies, primarily (4)",
+            "100 parrots in cloaks (5)",
+            "Abhor half of love and hate possibly (6)",
+            "Bishop said how toast may be (8)",
+            "Insect in broken rock aboard train (9)"
+        ],
+        "answers": ["HAIR", "CAPES", "LOATHE", "BUTTERED", "COCKROACH"],
+        "solutions": [
+            "def: lock; 取后4个单词首字母(indicator: primarily)",
+            "def: cloaks; 100 = c; parrots = apes",
+            "def: abhor; half of love = lo; \"hate\" anagram (indicator: possibly)",
+            "def: how toast may be; bishop = b; said = uttered",
+            "def: insect; \"rock\" anagram (indicator: broken); train = coach; aboard表示包含"
         ]
     }
 }
