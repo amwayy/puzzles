@@ -1,4 +1,22 @@
 {   
+    "2105": {
+        "date": "2024年11月21日",
+        "clues": [
+            "Clothing item inside exclusive store (4)",
+            "Revolutionary's second game (5)",
+            "Grandpa initially adores hand-warmers (6)",
+            "Knitted garment and cigar ruined (8)",
+            "Forbid card game in writing (9)"
+        ],
+        "answers": ["VEST", "CHESS", "GLOVES", "CARDIGAN", "PROSCRIBE"],
+        "solutions": [
+            "def: clothing item; hidden word (indicator: inside)",
+            "def: game; revolutionary = che (Che Guevara); second = s",
+            "def: hand-warmers; grandpa initially = p (首字母); adores = loves",
+            "def: knitted garment; \"and cigar\" anagram (indicator: ruined)",
+            "def: forbid; card game = crib; writing = prose; in表示包含"
+        ]
+    },
     "2104": {
         "date": "2024年11月20日",
         "clues": [
