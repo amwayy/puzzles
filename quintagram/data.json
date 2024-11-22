@@ -1,4 +1,22 @@
 {   
+    "2106": {
+        "date": "2024年11月22日",
+        "clues": [
+            "Cut heroin seized by police officer (4)",
+            "Craze due ultimately to die out (4)",
+            "Weave and, yes, periodically dodge (5)",
+            "Dispassionate aim (9)",
+            "Excellent quality of refurbished front piece (10)"
+        ],
+        "answers": ["CHOP", "FADE", "EVADE", "OBJECTIVE", "PERFECTION"],
+        "solutions": [
+            "def: cut; heroin = h; police officer = cop; seized by表示包含",
+            "def: die out; craze = fad; due ultimately = e (末字母)",
+            "def: dodge; periodically表示隔位取\"weave and, yes\"字母",
+            "double definition (dispassionate / aim)",
+            "def: excellent quality; \"front piece\" anagram (indicator: refurbished)"
+        ]
+    },
     "2105": {
         "date": "2024年11月21日",
         "clues": [
