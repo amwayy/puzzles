@@ -1,4 +1,22 @@
 {   
+    "2107": {
+        "date": "2024年11月23日",
+        "clues": [
+            "Blossom's fine cow (6)",
+            "Engineer has met 1 (6)",
+            "Losing energy, predator is 1 (6)",
+            "Quiet girl on 1 (7)",
+            "Zulus, one accepting a British honour for 1 (7)"
+        ],
+        "answers": ["FLOWER", "THAMES", "TIGRIS", "SHANNON", "ZAMBEZI"],
+        "solutions": [
+            "def: blossom; fine = f; cow = lower (low: said of cattle: to make a gentle mooing sound). 这是一道带主题的谜题, 以下4个clue的definition均为1的答案flower, 但不是解读为花, 而是FLOWer, 即流动的东西, 比如河流",
+            "\"has met\" anagram (indicator: engineer)",
+            "energy = e; predator = tiger; losing表示去除字母",
+            "quiet = sh; girl = ann",
+            "zulus = zz (NATO字母表); one = i; British honour = mbe (Member of the Order of the British Empire); accepting表示包含"
+        ]
+    },
     "2106": {
         "date": "2024年11月22日",
         "clues": [
@@ -591,6 +609,78 @@
             "def: abhor; half of love = lo; \"hate\" anagram (indicator: possibly)",
             "def: how toast may be; bishop = b; said = uttered",
             "def: insect; \"rock\" anagram (indicator: broken); train = coach; aboard表示包含"
+        ]
+    },
+    "2073": {
+        "date": "2024年10月15日",
+        "clues": [
+            "Passionate knight leaves showy clothing (5)",
+            "Fierce person, did Lily Savage have this? (6)",
+            "Smoking jacket? (6)",
+            "Hell for nine at sea! (7)",
+            "Bed-wetter? (8)"
+        ],
+        "answers": ["FIERY", "DRAGON", "BLAZER", "INFERNO", "HOSEPIPE"],
+        "solutions": [
+            "def: passionate; knight = n; showy clothing = finery; leaves表示去除字母",
+            "double definition (fierce person / did Lily Savage have this? (Lily Savage是一位变装表演者, 而drag可以表示women's clothes worn by a man))",
+            "cryptic definition (blaze: to burn)",
+            "def: hell; \"for nine\" anagram (indicator: at sea)",
+            "cryptic definition (bed: an area of ground in a garden, for growing plants)"
+        ]
+    },
+    "2072": {
+        "date": "2024年10月14日",
+        "clues": [
+            "Cheese, fresh at first, is short-lived (5)",
+            "Train going around a European capital (6)",
+            "Coppers put up in church (6)",
+            "Surviving scam in US city? (7)",
+            "US prosecutor seethes about king in unenlightened times (4,4)"
+        ],
+        "answers": ["BRIEF", "TIRANA", "CHANGE", "LASTING", "DARKAGES"],
+        "solutions": [
+            "def: short-lived; cheese = brie; fresh at first = f (首字母)",
+            "def: European capital; \"train\" anagram (indicator: going around)",
+            "def: coppers; put up = hang; church = ce (Church of England); in表示包含",
+            "def: surviving; scam = sting; US city = LA (Los Angeles)",
+            "def: unenlightened times; US prosecutor = DA (District Attorney); seethes = rages; king = k; about表示包含"
+        ]
+    },
+    "2071": {
+        "date": "2024年10月12日",
+        "clues": [
+            "Donkey is eating by big hole (5)",
+            "Carries around new inhalers (5)",
+            "An indefinite number taken in by hoax weapon (6)",
+            "Dodgy hearing forsakes one in strong wind (7)",
+            "Snake displaying hood or backing off (4,5)"
+        ],
+        "answers": ["ABYSS", "LUNGS", "CANNON", "MISTRAL", "KINGCOBRA"],
+        "solutions": [
+            "def: big hole; donkey = ass; eating表示包含",
+            "def: carries = lugs; new = n; around表示包含",
+            "def: weapon; indefinite number = n; hoax = con; taken in表示包含",
+            "def: strong wind; dodgy hearing = mistrial; one = i; forsakes表示去除字母",
+            "def: snake displaying hood; \"or backing\" anagram (indicator: off)"
+        ]
+    },
+    "2070": {
+        "date": "2024年10月11日",
+        "clues": [
+            "Was sorry about being obscene on the radio (4)",
+            "Precisely speak at length (4,2)",
+            "Comfort thus given by fine material (6)",
+            "Old, empty toilet in prison house (7)",
+            "Great love of ace tandoori cooking (9)"
+        ],
+        "answers": ["RUED", "BANGON", "SOLACE", "COTTAGE", "ADORATION"],
+        "solutions": [
+            "def: was sorry; being obscene = rude; on the radio表示谐音",
+            "double definition (precisely / speak at length)",
+            "def: comfort; thus = so; fine material = lace",
+            "def: house; old = o; empty toilet = tt (两端字母); prison = cage; in表示包含",
+            "def: great love; ace = a; \"tandoori\" anagram (indicator: cooking)"
         ]
     }
 }
