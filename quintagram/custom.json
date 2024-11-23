@@ -1,0 +1,20 @@
+{
+    "ANGLE": {
+        "date": "by amway",
+        "clues": [
+            "Sharp cut into skin of apple (5)",
+            "Proper ceremony for the audience (5)",
+            "So tube can be blunt (6)",
+            "Open road just covering acres (8)",
+            "Bend engineers' electrical cable (6)"
+        ],
+        "answers": ["ACUTE", "RIGHT", "OBTUSE", "STRAIGHT", "REFLEX"],
+        "solutions": [
+            "def: sharp; skin of apple = ae (两端字母); into表示包含",
+            "def: proper; ceremony = rite; for the audience表示谐音",
+            "def: blunt; \"so tube\" anagram (indicator: can be)",
+            "def: open; road = st; just = right; acres = a; covering表示包含",
+            "def: bend; engineers = re (Royal Engineer); electrical cable = flex"
+        ]
+    }
+}

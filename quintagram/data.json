@@ -2,7 +2,7 @@
     "2107": {
         "date": "2024年11月23日",
         "clues": [
-            "Blossom's fine cow (6)",
+            "Blossom's fine cow? (6)",
             "Engineer has met 1 (6)",
             "Losing energy, predator is 1 (6)",
             "Quiet girl on 1 (7)",
@@ -681,6 +681,60 @@
             "def: comfort; thus = so; fine material = lace",
             "def: house; old = o; empty toilet = tt (两端字母); prison = cage; in表示包含",
             "def: great love; ace = a; \"tandoori\" anagram (indicator: cooking)"
+        ]
+    },
+    "2069": {
+        "date": "2024年10月10日",
+        "clues": [
+            "Average is not nice (4)",
+            "Talk about new terrace song (5)",
+            "Design sales pitch with promotion at the end (7)",
+            "A cop went dancing in African city (4,4)",
+            "Soldier to locate drone (8)"
+        ],
+        "answers": ["MEAN", "CHANT", "PATTERN", "CAPETOWN", "PARASITE"],
+        "solutions": [
+            "double definition (average / not nice)",
+            "def: terrace song (football chant); talk = chat; new = n; about表示包含",
+            "def: design; sales pitch = patter; promotion at the end = n (末字母)",
+            "def: \"a cop went\" anagram (indicator: dancing)",
+            "def: drone; soldier = para (paratrooper); locate = site"
+        ]
+    },
+    "2068": {
+        "date": "2024年10月9日",
+        "clues": [
+            "Outstanding time for a performance by two people (4)",
+            "Regularly visit husband and female relative (5)",
+            "One's taken to court and released (6)",
+            "Fool's brief craze receiving terrible hate (7)",
+            "Excellent start of a teacher's day? (5-5)"
+        ],
+        "answers": ["DUET", "HAUNT", "ISSUED", "FATHEAD", "FIRSTCLASS"],
+        "solutions": [
+            "def: a performance by two people; outstanding = due; time = t",
+            "def: regularly visit; husband = h; female relative = aunt",
+            "def: released; one = i; taken to court = sued",
+            "def: fool; brief craze = fad; \"hate\" anagram (indicator: terrible); receiving表示包含",
+            "double definition (excellent / start of a teacher's day)"
+        ]
+    },
+    "2067": {
+        "date": "2024年10月8日",
+        "clues": [
+            "Dangerous one runs into dried grass (5)",
+            "Motorcyclist with inner bit of tubing by pavement edge? Almost! (5)",
+            "Perhaps bearded lady's outfit for audition? (7)",
+            "Worst family coming back for Ginsberg? (7)",
+            "When travelling Myers is a messenger (8)"
+        ],
+        "answers": ["HAIRY", "BIKER", "HIRSUTE", "BEATNIK", "EMISSARY"],
+        "solutions": [
+            "def: dangerous; one = i; runs = r; dried grass = hay; into表示包含",
+            "def: motorcyclist; inner bit of tubing = bi (中间字母); pavement edge = kerb; almost表示截断",
+            "def: perhaps bearded; lady's outfit = her suit; for audition表示谐音",
+            "def: ginsberg; worst = beat; family = kin; coming back表示倒序",
+            "def: messenger; \"Myers is a\" anagram (indicator: travelling)"
         ]
     }
 }

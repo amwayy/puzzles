@@ -95,7 +95,7 @@
         let lastInputArray = Array('', '', '', '', '');
         let remainingLetters = '';
         let errorCountArray = Array(0, 0, 0, 0, 0);
-        let puzzleData;
+        let puzzleData, customData;
         const clues = document.querySelectorAll('.clue');
         const inputs = document.querySelectorAll('.ans-input');
         const numberInput = document.getElementById('numberInput');
@@ -105,39 +105,54 @@
         const revealButton = document.getElementById('revealButton');
         const dateDisplay = document.getElementById('dateDisplay');
 
+        const files = ['./data.json', './custom.json'];
         // 初始化clue、答案等
-        fetch('./data.json').then(response => {
-            if (!response.ok) {
-                throw new Error('网络响应失败');
-            }
+        Promise.all(files.map(file => 
+            fetch(file).then(response => {
+                if (!response.ok) {
+                    throw new Error(`网络响应失败：${file}`);
+                }
                 return response.json();
-        }).then(data => {
-            puzzleData = data;
+            })
+        ))
+        .then(dataArray => {
+            puzzleData = dataArray[0];
+            customData = dataArray[1];
 
-            const params = new URLSearchParams(window.location.search);
-            const targetNumber = params.get('no');
-            const numberToday = Object.keys(data)[Object.keys(data).length - 1];
-            const numberOldest = Object.keys(data)[0];
+            const numberToday = Object.keys(puzzleData)[Object.keys(puzzleData).length - 1];
+            const numberOldest = Object.keys(puzzleData)[0];
             jumpButton.setAttribute('data-bs-title', `已更新${numberOldest}-${numberToday}`);
             const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
             const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+            const params = new URLSearchParams(window.location.search);
+            const targetNumber = params.get('no');
 
             let lastPuzzleNo;
             if (localStorage.getItem('lastPuzzleNo')) {
                 lastPuzzleNo = localStorage.getItem('lastPuzzleNo');
             }
+            // 优先跳转到指定编号
             if (targetNumber != null) {
                 number = targetNumber;
-            } else if (lastPuzzleNo != null) {
+            }
+            // 若无指定编号，继承之前的编号 
+            else if (lastPuzzleNo != null) {
                 number = lastPuzzleNo;
             }
             let targetData;
-            if (number in data) {
-                targetData = data[number];
-            } else {
-                targetData = data[numberToday];
+            // 合法编号则读取
+            if (number in puzzleData) {
+                targetData = puzzleData[number];
+            } else if (number in customData) {
+                targetData = customData[number];
+            }
+            // 否则跳转到最新谜题（默认状态下即编号为空时也跳转到最新）
+            else {
+                targetData = puzzleData[numberToday];
                 number = numberToday;
             }
+            // 如果不是接着之前的题做，则清空数据
             if (number != lastPuzzleNo) {
                 localStorage.clear();
                 localStorage.setItem('lastPuzzleNo', number);
@@ -150,11 +165,12 @@
 
             InitializeClue(targetData);
             InitializeInputs();
-            InitialzeShare();
-            InitializeJump(data);
+            InitializeShare();
+            InitializeJump(puzzleData);
             ReadLocalStorage();
-        }).catch(error => {
-            console.error('读取 JSON 文件出错:', error);
+        })
+        .catch(error => {
+            console.error('读取文件时出错：', error);
         });
 
         let enterConfirm = false;
@@ -178,8 +194,8 @@
         })
 
         jumpButton.addEventListener('click', () => {
-            let targetNumber = numberInput.value;
-            if (targetNumber in puzzleData) {
+            let targetNumber = numberInput.value.toUpperCase();
+            if (targetNumber in puzzleData || targetNumber in customData) {
                 JumpTo(targetNumber);
             } else {
                 // 谜题不存在
@@ -441,7 +457,7 @@
             });
         }
 
-        function InitialzeShare() {
+        function InitializeShare() {
             shareButton.addEventListener('click', () => {
                 let timeUsed = timerDisplay.innerText;
                 let totalErrorTime = errorCountArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
@@ -464,8 +480,8 @@
                 }
                 let url = `https://amwayy.github.io/puzzles/quintagram/?no=${number}`;
                 // let randomClue = getRandomElement(clueArray);
-                // let shareText = `Cryptic Quintagram - ${date}\n${randomClue} ...\n我用时${timeUsed}完成了当日谜题，共失误${totalErrorTime}次\n${gameStat}\n${url}`;
-                let shareText = `Cryptic Quintagram - ${date}\n我用时${timeUsed}完成了当日谜题，共失误${totalErrorTime}次\n${gameStat}\n${url}`;
+                // let shareText = `Cryptic Quintagram - ${date}\n${randomClue} ...\n我用时${timeUsed}完成了该谜题，共失误${totalErrorTime}次\n${gameStat}\n${url}`;
+                let shareText = `Cryptic Quintagram - ${number} - ${date}\n我用时${timeUsed}完成了该谜题，共失误${totalErrorTime}次\n${gameStat}\n${url}`;
                 CopyTextToClipboard(shareText);
             });
 
