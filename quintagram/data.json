@@ -1,4 +1,22 @@
 {   
+    "2108": {
+        "date": "2024年11月25日",
+        "clues": [
+            "Sponge bags smell horribly (4)",
+            "Officer grabbing husband's axe (4)",
+            "Help a gullible chap, might one say? (7)",
+            "Book a tough defender? (8)",
+            "Massacre composition of Elgar thus (9)"
+        ],
+        "answers": ["PONG", "CHOP", "SUCCOUR", "HARDBACK", "SLAUGHTER"],
+        "solutions": [
+            "def: smell horribly; hidden word (indicator: bags)",
+            "def: axe: officer = cop; husband = h; grabbing表示包含",
+            "def: help; gullible chap = sucker; might one say表示谐音",
+            "def: book; tough = hard; defender = back",
+            "def: massacre; \"Elgar thus\" anagram (indicator: composition)"
+        ]
+    },
     "2107": {
         "date": "2024年11月23日",
         "clues": [
@@ -735,6 +753,42 @@
             "def: perhaps bearded; lady's outfit = her suit; for audition表示谐音",
             "def: ginsberg; worst = beat; family = kin; coming back表示倒序",
             "def: messenger; \"Myers is a\" anagram (indicator: travelling)"
+        ]
+    },
+    "2066": {
+        "date": "2024年10月7日",
+        "clues": [
+            "Constant smell in waterway (5)",
+            "Trial of one involved in conspiracy (5)",
+            "Swear curriculum will leave nothing out (5)",
+            "Nobleman butchering hare and duck (8)",
+            "Foremost producer of motion pictures (9)"
+        ],
+        "answers": ["CREEK", "PILOT", "CURSE", "ARCHDUKE", "PARAMOUNT"],
+        "solutions": [
+            "def: waterway; constant = c; smell = reek",
+            "def: trail; one = i; conspiracy = plot; involved in表示包含",
+            "def: swear; curriculum = course; nothing = o; leave ... out表示去除字母",
+            "def: nobleman; \"hare duck\" anagram (indicator: butchering)",
+            "double definition (foremost / producer of motion picture)"
+        ]
+    },
+    "2065": {
+        "date": "2024年10月6日",
+        "clues": [
+            "Announce opposition goal (6)",
+            "Fairly trivial to capture rook (6)",
+            "Put back cereal, grabbing the French pastry (6)",
+            "Officer that's in the center of Brazil, perhaps, we hear (7)",
+            "Good person with yen to tip hairdresser (7)"
+        ],
+        "answers": ["OBJECT", "PRETTY", "ECLAIR", "COLONEL", "STYLIST"],
+        "solutions": [
+            "double definition (announce opposition / goal)",
+            "def: fairly; trivial = petty; rook = r; capture表示包含",
+            "def: pastry; cereal = rice; put back表示倒序; the French = la; grabbing表示包含",
+            "def: officer; that's in the center of Brazil, perhaps = kernel (as in Brazil nut); we hear表示谐音",
+            "def: hairdresser; good person = st (saint); yen = y; tip = list (to lean)"
         ]
     }
 }

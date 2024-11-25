@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>什么是Cryptic Clue？</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body class="bg-body-tertiary">
+    <div class="container my-5 col-10 col-lg-8">
+        <header class="text-center mb-4">
+            <h1 class="display-6">什么是Cryptic Clue？</h1>
+        </header>
+
+        <!-- <nav class="mb-4">
+            <h2 class="h5">目录</h2>
+            <ul class="list-unstyled">
+                <li><a href="#section1" class="text-decoration-none">1. 引言</a></li>
+                <li><a href="#section2" class="text-decoration-none">2. 主要内容</a></li>
+                <li><a href="#section3" class="text-decoration-none">3. 实例分析</a></li>
+                <li><a href="#section4" class="text-decoration-none">4. 结论</a></li>
+            </ul>
+        </nav> -->
+
+        <section id="section1" class="mb-5">
+            <p>本文将向你介绍一种在西方（尤其是英国）流行的文字游戏，除了要会一点英语之外，你不需要额外的前置知识。</p>
+            <div class="text-center mb-2">
+                <img src="./crossword.png" class="img-fluid rounded mx-auto d-block" style="max-width: 50%;" alt="crossword" id="crossword">
+                <span class="text-secondary">图1 crossword</span>
+            </div>
+            <p>你或许曾在某些西方的影视剧里看到过这样黑白交错的网格，玩家根据提示在白格中填入字母，使横向纵向相连的白格组成单词或短语。横纵交叉处共享字母，例如<a href="#crossword" class="text-dark">图1</a>盘面最左上角的D既是DOWN AND OUT的首字母，又是DESI的首字母。当我们在每一个白格内都填入正确的字母时，即完成了谜题。</p>
+            <p>这样的谜题叫<strong>crossword</strong>，字面义就是纵横交错的单词，中文可以被译为“纵横字谜”或者“填字游戏”。</p>
+            <p>Crossword已有百年历史，Arthur Wynne于1913年在《纽约世界报》发表的FUN'S Word-Cross Puzzle被认为是历史上第一个crossword（见<a href="#firstCrossword" class="text-dark">图2</a>），尽管和<a href="#crossword" class="text-dark">图1</a>在形状和编号方式上有所不同，但思想精髓是一致的。</p>
+            <div class="text-center mb-2">
+                <img src="./First_crossword.png" class="img-fluid rounded mx-auto d-block" style="max-width: 50%;" alt="first crossword" id="firstCrossword">
+                <span class="text-secondary">图2 历史上第一个crossword</span>
+            </div>
+            <p>网格下方的文字是确定填入单词的提示，这样的提示被称为<strong>clue</strong>，早期crossword的clue往往就是所填单词的直接定义或者近义词，例如<a href="#firstCrossword" class="text-dark">图2</a>中间最上方，编号1-32部分的clue是To govern，答案是RULE。试试你能不能完成<a href="#firstCrossword" class="text-dark">图2</a>中的crossword，你可以在<a href="http://www.fun-with-words.com/first_crossword_solution.html" class="text-dark" target="_blank">这里</a>查看答案！</p>
+            <p>然而大家逐渐觉得这样直球的clue没什么意思，便有人开始玩起了花样，具体的起源已不可考，但本文的主角<strong>cryptic clue</strong>就这么诞生了。</p>
+            <p>cryptic是“隐秘的”、“加密的”的意思，让我们随便来看一个cryptic clue：“Home appliance costing nothing ... almost nothing! (7)”，括号中的数字表示答案是7字母单词，但是“不要钱……几乎不要钱的家电”是什么东西？这怎么能指向到一个单词呢？确实是有够cryptic的。别急，看完这篇文章你应该能明白这条clue是什么意思。</p>
+            <p>普通的clue到cryptic clue的转变并不是一蹴而就的，在某段时间内，英国几家报社刊登的crossword中混杂着普通clue和cryptic clue，并且cryptic clue的组成标准也不统一。直到一位crossword出题人Ximenes在1966年写了一本叫“<a href="https://xotaotc.nfshost.com/" class="text-dark" target="_blank">Ximenes On The Art Of The Crossword</a>”的书，现代cryptic clue的标准才被定下来。（顺带一提，Ximenes并不是作者的本名，英国crossword出题人有用圈名的传统。）</p>
+            <p>一个cryptic clue一般分为两部分：一是<strong>definition</strong>，也就是像最初的clue那样给出词义的定义；另一部分是<strong>wordplay</strong>，也就是文字游戏部分，玩文字游戏的手段有很多，我们一一来看。</p>
+        </section>
+
+        <section id="section2" class="mb-5">
+            <h2 class="h4">Charade 拆分</h2>
+            Blossom's fine cow? (6)
+            <!-- FLOWER -->
+            Revolutionary's second game (5)
+            <!-- CHESS -->
+            Good to possess evening attire (4)
+            <!-- GOWN -->
+            Marshal is obliged to the late Queen (6)
+            <!-- MUSTER -->
+            Cruelty shown by UN sort meeting head (10)
+            <!-- UNKINDNESS -->
+            Dull bishop with old piece of jewellery (6)
+            <!-- BORING -->
+            Regularly visit husband and another family member (5)
+            <!-- HAUNT -->
+            <!-- 不是直接从左到右拼接 -->
+            Go on board boat, following English doctor (6)
+            <!-- EMBARK -->
+            Damage seen after cold spell (5)
+            <!-- CHARM -->
+            Son needs some trousers (6)
+            <!-- SLACKS -->
+        </section>
+
+        <section id="section" class="mb-5">
+            <h2 class="h4">Container 包含</h2>
+            Forbid card game in writing (9)
+            <!-- PROSCRIBE -->
+            Cut heroin seized by police officer (4)
+            <!-- CHOP -->
+            Novelist in road in site of literary festival (5)
+            <!-- HARDY -->
+            Son admitted to proper lineage (7)
+            <!-- DESCENT -->
+            Swears about old ways (7)
+            <!-- COURSE -->
+            Hoarder: gentleman collecting right and left (8)
+            <!-- SQUIRREL -->
+            Academic embraces old mathematical work (5)
+            <!-- PROOF -->
+            <!-- 双重嵌套 -->
+            Female in party hosted by cat or Reynard (3,3)
+            <!-- RED FOX -->
+        </section>
+
+        <section id="section" class="mb-5">
+            <h2 class="h4">Anagram 重组</h2>
+            Excellent quality of refurbished front piece (10)
+            <!-- PERFECTION -->
+            Knitted garment and cigar ruined (8)
+            <!-- CARDIGAN -->
+            Removed clothes? Befuddled Boers did (8)
+            <!-- DISROBED -->
+            Date once ruined an amusing tale (8)
+            <!-- ANECDOTE -->
+            RAF accepts strange flying vehicle (10)
+            <!-- SPACECRAFT -->
+        </section>
+
+        <section id="section" class="mb-5">
+            <h2 class="h4">Hidden 隐藏</h2>
+            Clothing item inside exclusive store (4)
+            <!-- VEST -->
+            Essence found in ginseng is terrific (4)
+            <!-- GIST -->
+            Creature, aristocratic, holding back (4)
+            <!-- REAR -->
+            Grounded flyer involved in three murders (3)
+            <!-- EMU -->
+        </section>
+
+        <section id="section" class="mb-5">
+            <h2 class="h4">Reversal 倒序</h2>
+        </section>
+
+        <section id="section" class="mb-5">
+            <h2 class="h4">Homophone 谐音</h2>
+            Officer needing heart, they say (7)
+            <!-- COLONEL -->
+            Items for discussion a female possibly read out (6)
+            <!-- AGENDA -->
+        </section>
+
+        <section id="section" class="mb-5">
+            <h2 class="h4">Improvised 小伎俩</h2>
+            <!-- 首尾字母 -->
+            Grandpa initially adores hand-warmers (6)
+            <!-- GLOVES -->
+            Desert transport arrived, heading for Libya (5)
+            <!-- CAMEL -->
+            Confining leader of Jacobins poorly (7)
+            <!-- JAILING -->
+            Craze due ultimately to die out (4)
+            <!-- FADE -->
+            <!-- 两端字母 -->
+            Nobleman by borders of royalty's land (7)
+            <!-- COUNTRY -->
+            Look good, as well as extremely eager (6)
+            <!-- GANDER -->
+            <!-- 隔位取样 -->
+            Weave and, yes, periodically dodge (5)
+            <!-- EVADE -->
+            Cunning and silly at regular intervals (3)
+            <!-- SLY -->
+            <!-- 删除 -->
+            Party member almost getting benefit (4)
+            <!-- DOLE -->
+            Hat and short cloak (3)
+            <!-- CAP -->
+            Idiotic plan to get rid of Republican (4)
+            <!-- DAFT -->
+            <!-- 外语 -->
+            Writer's day in Paris with new, top celebs (10)
+            <!-- JOURNALIST -->
+            <!-- 单词新解 -->
+            Gift that's already dispatched? (7)
+            <!-- PRESENT -->
+            Wreath coming from diminutive fellow? (7)
+            <!-- CHAPLET -->
+            <!-- spoonerism -->
+            Spooner's beast, plump animal (5,3)
+            <!-- FRUIT BAT -->
+        </section>
+
+        <section id="section" class="mb-5">
+            <h2 class="h4">Double Definition 双重定义</h2>
+            Dispassionate aim (9)
+            <!-- OBJECTIVE -->
+            Track down and shoot (5)
+            <!-- STALK -->
+            Sportswear? Take it all off! (5)
+            <!-- STRIP -->
+            Spot unwanted garden visitor? (4)
+            <!-- MOLE -->
+        </section>
+
+        <section id="section" class="mb-5">
+            <h2 class="h4">Cryptic 双关</h2>
+            Bottom admirer sometimes seen at Stratford? (7)
+            <!-- TITANIA -->
+        </section>
+
+        </section><section id="section" class="mb-5">
+            <h2 class="h4">实战</h2>
+            <!-- 多device混合起来 -->
+            Terribly pleased with wit's final part of column (8)
+            <!-- PEDESTAL -->
+            Method actor's latest piece getting trashed (6)
+            <!-- RECIPE -->
+            Awful house moves consuming one day (7)
+            <!-- HIDEOUS -->
+            Abroad, I must welcome fine witticism (4)
+            <!-- JOKE -->
+        </section>
+    </div>
+
+    <script>
+    </script>
+</body>
+</html>
