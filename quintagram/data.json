@@ -1,4 +1,22 @@
 {   
+    "2109": {
+        "date": "2024年11月26日",
+        "clues": [
+            "Writer is predator eating nothing? (5)",
+            "Writer brings success to church (5)",
+            "Writer and orator extremely healthy (6)",
+            "Writer to cry about being behind that woman (7)",
+            "Writer could make sense on TV (9)"
+        ],
+        "answers": ["WOOLF", "JOYCE", "ORWELL", "SHELLEY", "STEVENSON"],
+        "solutions": [
+            "def: writer; predator = wolf; nothing = o; eating表示包含",
+            "def: writer; success = joy; church = ce (Church of England)",
+            "def: writer; orator extremely = or (两端字母); healthy = well",
+            "def: writer; cry = yell; about表示倒序; that woman = she",
+            "def: writer; \"sense on TV\" anagram (indicator: could make)"
+        ]
+    },
     "2108": {
         "date": "2024年11月25日",
         "clues": [
@@ -789,6 +807,24 @@
             "def: pastry; cereal = rice; put back表示倒序; the French = la; grabbing表示包含",
             "def: officer; that's in the center of Brazil, perhaps = kernel (as in Brazil nut); we hear表示谐音",
             "def: hairdresser; good person = st (saint); yen = y; tip = list (to lean)"
+        ]
+    },
+    "2064": {
+        "date": "2024年10月4日",
+        "clues": [
+            "Some missionaries going round part of the Middle East (4)",
+            "Source of protein that's often fried, usually for starters (4)",
+            "Quietly take offence at something you're given (7)",
+            "Short sketch for folder (7)",
+            "His earnest misguided enthusiasm (10)"
+        ],
+        "answers": ["IRAN", "TOFU", "PRESENT", "PROFILE", "HEARTINESS"],
+        "solutions": [
+            "def: part of Middle East; hidden word (indicator: some); going round表示倒序",
+            "def: source of protein; 取后4个词的首字母(indicator: for starters)",
+            "def: something you're given; quietly = p (piano); take offence = resent",
+            "double definition (short sketch / folder)",
+            "def: enthusiasm; \"his earnest\" anagram (indicator: misguided)"
         ]
     }
 }
