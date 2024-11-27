@@ -1,4 +1,22 @@
 {   
+    "2110": {
+        "date": "2024年11月27日",
+        "clues": [
+            "Dipsomaniac is to gain nothing (4)",
+            "Personnel hosting ex-president, one who likes rambling (5)",
+            "Trainee holy person has not a single sin (6)",
+            "Running argument about royal (7)",
+            "Cold section of gigantic hill in Essex (10)"
+        ],
+        "answers": ["WINO", "HIKER", "NOVICE", "WORKING", "CHILLINESS"],
+        "solutions": [
+            "def: dipsomaniac; gain = win; nothing = o",
+            "def: one who likes rambling; personnel = hr; ex-president = ike; hosting表示包含",
+            "def: trainee holy person; not a single sin = no vice",
+            "def: running; argument = row; about表示倒序; royal = king",
+            "def: cold; hidden word (indicator: section of)"
+        ]
+    },
     "2109": {
         "date": "2024年11月26日",
         "clues": [
@@ -823,8 +841,26 @@
             "def: part of Middle East; hidden word (indicator: some); going round表示倒序",
             "def: source of protein; 取后4个词的首字母(indicator: for starters)",
             "def: something you're given; quietly = p (piano); take offence = resent",
-            "double definition (short sketch / folder)",
+            "def: short sketch; for = pro; folder = file",
             "def: enthusiasm; \"his earnest\" anagram (indicator: misguided)"
+        ]
+    },
+    "2063": {
+        "date": "2024年10月3日",
+        "clues": [
+            "Concert featuring Grieg regularly (3)",
+            "Very tough writer (5)",
+            "Facilities by Cambridgeshire city? Not exactly (7)",
+            "Rushed to embrace Asian national or one from Europe (8)",
+            "Soldier rereading novel (9)"
+        ],
+        "answers": ["GIG", "HARDY", "LOOSELY", "ROMANIAN", "GRENADIER"],
+        "solutions": [
+            "def: concert; 隔位取\"Grieg\"字母(indicator: regularly)",
+            "double definition (very tough / writer)",
+            "def: not exactly; facilities = loos; Cambridgeshire city = ely",
+            "def: one from Europe; rushed = ran; Asian national = omani; embrace表示包含",
+            "def: soldier; \"rereading\" anagram (indicator: novel)"
         ]
     }
 }

@@ -9,16 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        .hidden-input {
-            position: fixed;
-            opacity: 0;
-            height: 1px;
-            width: 1px;
-            bottom: 0;
-            left: 0;
-        }
-    </style>
 </head>
 
 <body class="bg-body-tertiary">
@@ -26,7 +16,24 @@
         <div class="mt-5"></div>
 
         <div class="d-flex justify-content-center fs-3 mb-2"><strong>Cryptic Quintagram</strong></div>
-        <div class="d-flex justify-content-center mb-3">给定答案的所有字母，解出5个cryptic clues吧</div>
+        <div class="d-flex justify-content-center mb-3">
+            给定答案的所有字母，解出5个cryptic clues吧 <i class="bi bi-question-circle ms-2 text-secondary" data-bs-toggle="modal" data-bs-target="#helpModal" role="button"></i>
+        </div>
+
+        <div class="modal fade" id="helpModal">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">操作指引</h1>
+                  <button type="button" class="btn-close focus-ring" data-bs-dismiss="modal" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)"></button>
+                </div>
+                <div class="modal-body">
+                    灰色格表示当前聚焦的格，输入后跳转到下一格（只能输入给定字母）。也可以通过点击或左右方向键切换聚焦格。HOME和END键令聚焦格跳转到首尾字母格。上下方向键可切换clue。<br>
+                    移动端可通过点击给定字母进行输入，再次点击聚焦格可移除当前输入。
+                </div>
+              </div>
+            </div>
+        </div>
 
         <div class="col-8 col-lg-5 mx-auto">
             <div class="input-group mb-2">
@@ -35,9 +42,11 @@
                 <button class="btn btn-dark" id="jumpButton" data-bs-toggle="tooltip">跳转</button>
             </div>
         </div>
-        <div class="d-flex justify-content-center mb-3 gap-5">
-            <button class="btn btn-light border border-dark" id="previousButton">上一个</button>
-            <button class="btn btn-light border border-dark" id="nextButton">下一个</button>
+        <div class="d-flex justify-content-center mb-3 gap-3">
+            <button class="btn btn-light fs-5" id="oldestButton" data-bs-toggle="tooltip" data-bs-title="最老最冷" data-bs-placement="bottom"><i class="bi bi-chevron-double-left"></i></button>
+            <button class="btn btn-light fs-5" id="previousButton" data-bs-toggle="tooltip" data-bs-title="上一个" data-bs-placement="bottom"><i class="bi bi-chevron-left"></i></button>
+            <button class="btn btn-light fs-5" id="nextButton" data-bs-toggle="tooltip" data-bs-title="下一个" data-bs-placement="bottom"><i class="bi bi-chevron-right"></i></button>
+            <button class="btn btn-light fs-5" id="latestButton" data-bs-toggle="tooltip" data-bs-title="最新最热" data-bs-placement="bottom"><i class="bi bi-chevron-double-right"></i></button>
         </div>
 
         <div class="d-flex justify-content-center mb-3" id="dateDisplay"></div>
@@ -45,20 +54,19 @@
         <div class="d-flex justify-content-center align-items-center mb-3">
             <span class="me-5" id="timer">00:00</span>
             <button class="btn btn-dark" id="startToggleButton">开始</button>
-            <button class="btn btn-dark" id="shareButton" style="display: none;" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="失误数以clue为单位<br>（🟢0🟡1🟠2🔴3+）">
+            <button class="btn btn-dark" id="shareButton" style="display: none; width: 5.5rem;" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="失误数以clue为单位<br>（🟢0🟡1🟠2🔴3+）">
                 <i class="bi bi-upload me-1" data-bs-placement="left"></i> 分享
             </button>
         </div>
 
         <div id="puzzle" style="display: none;">
-            <div class="d-flex justify-content-center mb-3">
+            <div class="d-flex justify-content-center mb-4">
                 <ul class="list-group border border-dark" id="clueContainer">
                 </ul>
             </div>
 
             <div id="additionalInfo">
-                <div class="d-flex justify-content-center"><strong>剩余字母</strong></div>
-                <div class="d-flex justify-content-center mb-3" id="remainingLetters"></div>
+                <div class="d-flex justify-content-center flex-wrap gap-3 mb-4" id="remainingLetters"></div>
                 <div class="d-flex justify-content-center gap-5">
                     <button class="btn btn-light border border-dark" id="revealButton">查看解答</button>
                     <button class="btn btn-dark" id="submitButton">提交</button>
@@ -68,8 +76,6 @@
 
         <div id="completeInfo" class="d-flex justify-content-center fs-5 fw-bold mb-2"></div>
         <div id="solution" class="d-flex justify-content-center"></div>
-
-        <!-- <div class="mt-5 d-flex justify-content-center text-secondary">有任何问题？联系管理员：1964825491（QQ）</div> -->
         
         <div class="mb-5"></div>
     </div>
@@ -88,9 +94,13 @@
         let puzzleData, customData;
         let focusingLetterIndex = 0;
         let letterInputs;
+        let numberToday, numberOldest;
+        const remainingLettersDisplay = document.getElementById('remainingLetters');
         const numberInput = document.getElementById('numberInput');
         const previousButton = document.getElementById('previousButton');
         const nextButton = document.getElementById('nextButton');
+        const latestButton = document.getElementById('latestButton');
+        const oldestButton = document.getElementById('oldestButton');
         const jumpButton = document.getElementById('jumpButton');
         const revealButton = document.getElementById('revealButton');
         const dateDisplay = document.getElementById('dateDisplay');
@@ -105,13 +115,11 @@
                         <div class="mb-1 clue"></div>
                         <!-- <div class="form-control focus-ring border border-dark ans-input mb-2" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);" contenteditable="true" ></div> -->
                         <div class="d-flex word-input"></div>
-                        <input class="hidden-input" type="text">
                     </li>`;
         }
         clueContainer.innerHTML = `${clueHtml}`;
         const clues = document.querySelectorAll('.clue');
         const wordInputs = document.querySelectorAll('.word-input');
-        const hiddenInputs = document.querySelectorAll('.hidden-input');
 
         const files = ['./data.json', './custom.json'];
         // 初始化clue、答案等
@@ -127,8 +135,8 @@
             puzzleData = dataArray[0];
             customData = dataArray[1];
 
-            const numberToday = Object.keys(puzzleData)[Object.keys(puzzleData).length - 1];
-            const numberOldest = Object.keys(puzzleData)[0];
+            numberToday = Object.keys(puzzleData)[Object.keys(puzzleData).length - 1];
+            numberOldest = Object.keys(puzzleData)[0];
             jumpButton.setAttribute('data-bs-title', `已更新${numberOldest}-${numberToday}`);
             const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
             const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
@@ -175,6 +183,7 @@
             InitializeShare();
             InitializeJump(puzzleData);
             ReadLocalStorage();
+            UpdateRemainingLetters();
         })
         .catch(error => {
             console.error('读取文件时出错：', error);
@@ -187,7 +196,7 @@
                 revealButton.innerText = '确认查看';
             } else {
                 wordInputs.forEach((wordInput, index) => {
-                    let letterInputs = Array.from(wordInput.children);
+                    let letterInputs = Array.from(wordInput.querySelectorAll('.letter-input'));
                     letterInputs.forEach((letterInput, idx) => {
                         letterInput.innerText = answerArray[index][idx];
                     })
@@ -195,7 +204,7 @@
                 localStorage.setItem('lastInput', JSON.stringify(answerArray));
                 puzzle.style.display = 'block';
                 CheckAnswers();
-                ShowCompleteInfo();
+                ShowCompleteInfo(true);
             }
         })
         revealButton.addEventListener('mouseout', () => {
@@ -230,6 +239,14 @@
             JumpTo(parseInt(numberNum + 1));
         })
 
+        latestButton.addEventListener('click', () => {
+            JumpTo(parseInt(numberToday));
+        })
+
+        oldestButton.addEventListener('click', () => {
+            JumpTo(parseInt(numberOldest));
+        })
+
         function JumpTo(targetNumber) {
             if (targetNumber != number) {
                 localStorage.clear();
@@ -257,10 +274,31 @@
 
                 lengthArray[i] = ans.length;
 
+                let match = clue.match(/\(([0-9,-]+)\)$/);
                 let wordInputInnerHTML = '';
-                for (let j = 0; j < ans.length; j++) {
-                    wordInputInnerHTML += `
-                            <div class="d-flex align-items-center justify-content-center border border-dark letter-input" style="width: 2rem; height: 2rem;"></div>`;
+                if (match) {
+                    let enumeration = match[1];
+                    let numbers = enumeration.split(/[-,]/);
+                    let sum = 0;
+                    for (let k = 0; k < numbers.length; k++) {
+                        let num = parseInt(numbers[k]);
+                        for (let j = 0; j < num; j++) {
+                            wordInputInnerHTML += `<div class="d-flex align-items-center justify-content-center border border-dark letter-input" role="button" style="width: 1.8rem; height: 1.8rem;"></div>`;
+                        }
+                        if (k < numbers.length - 1) {
+                            if (enumeration.charAt(sum + k) === '-') {
+                                wordInputInnerHTML += `<div class="d-flex align-items-center justify-content-center" style="width: 0.5rem;">-</div>`;
+                            } else {
+                                wordInputInnerHTML += `<div class="d-flex align-items-center justify-content-center" style="width: 0.5rem;">&nbsp;</div>`;
+                            }
+                        }
+                        sum += num;
+                    }
+                } else {
+                    wordInputInnerHTML = '';
+                    for (let j = 0; j < ans.length; j++) {
+                        wordInputInnerHTML += `<div class="d-flex align-items-center justify-content-center border border-dark letter-input" role="button" style="width: 1.8rem; height: 1.8rem;"></div>`;
+                    }
                 }
                 wordInputs[i].innerHTML = wordInputInnerHTML;
             }
@@ -310,17 +348,21 @@
                 } else if (key == 'ARROWUP') {
                     event.preventDefault();
                     FocusLetter(Math.max(start - 1, 0));
-                    const homeKeyEvent = new KeyboardEvent('keydown', {
-                        key: 'home',
-                    });
-                    document.dispatchEvent(homeKeyEvent);
+                    SimulateKeyDown('home');
                 } else if (key == 'ARROWDOWN' || key == 'ENTER') {
                     event.preventDefault();
-                    FocusLetter(Math.min(end + 1, letterInputs.length - 1))
+                    FocusLetter(Math.min(end + 1, letterInputs.length - 1));
                 }
             });
             InitializeLetterInput();
             FocusLetter(0);
+        }
+
+        function SimulateKeyDown(key) {
+            const event = new KeyboardEvent('keydown', {
+                key: key,
+            });
+            document.dispatchEvent(event);
         }
 
         function UpdateInput() {
@@ -346,18 +388,14 @@
         function InitializeLetterInput() {
             letterInputs.forEach((input, index) => {
                 input.addEventListener('click', () => {
-                    FocusLetter(index);
-                    let wordIndex;
-                    let letterCount = 0;
-                    for (let i = 0; i < lengthArray.length; i++) {
-                        letterCount += lengthArray[i];
-                        if (index < letterCount) {
-                            wordIndex = i;
-                            break;
-                        }
+                    if (hasCompleted) {
+                        return;
                     }
-                    // 在移动端呼出虚拟键盘
-                    hiddenInputs[wordIndex].focus();
+                    if (input.classList.contains('bg-dark-subtle')) {
+                        input.innerText = '';
+                        UpdateInput();
+                    }
+                    FocusLetter(index);
                 });
             })
         }
@@ -408,11 +446,27 @@
             for (let letter of inputLetters) {
                 remainingLetters = remainingLetters.replace(letter, '');
             }
-            if (remainingLetters.length > 0) {
-                document.getElementById('remainingLetters').innerText = remainingLetters;
-            } else {
-                document.getElementById('remainingLetters').innerText = '无';
+            let remainingLettersDisplayInnerHTML = '';
+            let compressedLetters = '';
+            let count = 1;
+            for (let i = 0; i < remainingLetters.length; i++) {
+                if (i < remainingLetters.length - 1 && remainingLetters[i] === remainingLetters[i+1]) {
+                    count++;
+                } else {
+                    compressedLetters += remainingLetters[i];
+                    remainingLettersDisplayInnerHTML += `
+                        <div class="position-relative d-flex align-items-center justify-content-center border border-dark" role="button" style="width: 1.8rem; height: 1.8rem;" onclick="SimulateKeyDown('${remainingLetters[i].toLowerCase()}')">
+                            ${remainingLetters[i]}
+                            ${count > 1 ? `<span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-dark" style="font-size: 0.6rem;">
+                                ${count}
+                            </span>` : ''}
+                        </div>`;
+                    count = 1;
+                }
             }
+            // remainingLettersDisplayInnerHTML += `
+            //         <div class="d-flex align-items-center justify-content-center border border-dark bg-dark text-light" role="button" style="width: 1.8rem; height: 1.8rem;" onclick="SimulateKeyDown('${'backspace'}')"><i class="bi bi-backspace"></i></div>`;
+            remainingLettersDisplay.innerHTML = remainingLettersDisplayInnerHTML;
         }
 
         const submitButton = document.getElementById('submitButton');
@@ -431,11 +485,14 @@
                 timeElapsed = localStorage.getItem('timeElapsed');
                 timerDisplay.textContent = formatTime(timeElapsed);
             }
+            if (localStorage.getItem('errorCount')) {
+                errorCountArray = JSON.parse(localStorage.getItem('errorCount'));
+            }
             if (localStorage.getItem('lastInput')) {
                 lastInputArray = JSON.parse(localStorage.getItem('lastInput'));
                 lastInputArray.forEach((word, index) => {
                     let wordInput = wordInputs[index];
-                    let letterInputs = Array.from(wordInput.children);
+                    let letterInputs = Array.from(wordInput.querySelectorAll('.letter-input'));
                     letterInputs.forEach((letterInput, idx) => {
                         letterInput.innerText = word[idx];
                     })
@@ -455,9 +512,10 @@
             let isComplete = true;
             wordInputs.forEach((wordInput, index) => {
                 let ans = answerArray[index];
-                let letterInputs = Array.from(wordInput.children);
+                let letterInputs = Array.from(wordInput.querySelectorAll('.letter-input'));
                 let isCorrect = true;
                 letterInputs.forEach((letterInput, idx) => {
+                    letterInput.classList.remove('bg-dark-subtle');
                     if (letterInput.innerText != ans[idx]) {
                         isComplete = false;
                         isCorrect = false;
@@ -469,7 +527,8 @@
                     }
                 })
                 if (!isCorrect) {
-                    errorCountArray[index] += 1
+                    errorCountArray[index] += 1;
+                    localStorage.setItem('errorCount', JSON.stringify(errorCountArray));
                 }
             })
 
@@ -481,14 +540,18 @@
             }
         }
 
-        function ShowCompleteInfo() {
+        function ShowCompleteInfo(isReveal = false) {
             startToggleButton.style.display = 'none';
             shareButton.style.display = 'block';
             const additionalInfo = document.getElementById('additionalInfo');
             const completeInfo = document.getElementById('completeInfo');
             const solutionDisplay = document.getElementById('solution');
             additionalInfo.style.display = 'none';
-            completeInfo.innerText = '已完成该谜题！';
+            if (isReveal) {
+                completeInfo.innerText = '';
+            } else {
+                completeInfo.innerText = '已完成该谜题！';
+            }
 
             let solutions = '';
             for (let i = 0; i < 5; i++) {
