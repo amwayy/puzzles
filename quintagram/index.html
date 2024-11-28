@@ -201,7 +201,7 @@
                         letterInput.innerText = answerArray[index][idx];
                     })
                 });
-                localStorage.setItem('lastInput', JSON.stringify(answerArray));
+                UpdateInput();
                 puzzle.style.display = 'block';
                 CheckAnswers();
                 ShowCompleteInfo(true);

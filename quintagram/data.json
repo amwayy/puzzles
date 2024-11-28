@@ -1,4 +1,22 @@
 {   
+    "2111": {
+        "date": "2024年11月28日",
+        "clues": [
+            "Small pale bird (4)",
+            "Sorceress with strong desire (5)",
+            "Mahler is playing in New York neighbourhood (6)",
+            "Standard way to protect home (7)",
+            "Utopian cities laid out (10)"
+        ],
+        "answers": ["SWAN", "WITCH", "HARLEM", "ROUTINE", "IDEALISTIC"],
+        "solutions": [
+            "def: bird; small = s; pale = wan",
+            "def: sorceress; with = w; strong desire = itch",
+            "def: New York neighbourhood; \"Mahler\" anagram (indicator: playing)",
+            "def: standard; way = route; home = in; protect表示包含",
+            "def: utopian; \"cities laid\" anagram (indicator: out)"
+        ]
+    },
     "2110": {
         "date": "2024年11月27日",
         "clues": [
