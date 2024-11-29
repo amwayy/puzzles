@@ -1,4 +1,22 @@
 {   
+    "2112": {
+        "date": "2024年11月29日",
+        "clues": [
+            "Enjoyment displayed by some staff, unnecessarily (3)",
+            "One about to create outrage (3)",
+            "Ascertain a record has finished? (8)",
+            "Part of extremely familiar behaviour (8)",
+            "Even meat is transported from part of southeast Asia (10)"
+        ],
+        "answers": ["FUN", "IRE", "DISCOVER", "FRACTION", "VIETNAMESE"],
+        "solutions": [
+            "def: enjoyment; hidden word (indicator: displayed by some)",
+            "def: outrage; one = i; about = re",
+            "def: ascertain; record = disc; finished = over",
+            "def: part; extremely familiar = fr (两端字母); behaviour = action",
+            "def: from part of southeast Asia; \"even meat is\" anagram (indicator: transported)"
+        ]
+    },
     "2111": {
         "date": "2024年11月28日",
         "clues": [
@@ -879,6 +897,60 @@
             "def: not exactly; facilities = loos; Cambridgeshire city = ely",
             "def: one from Europe; rushed = ran; Asian national = omani; embrace表示包含",
             "def: soldier; \"rereading\" anagram (indicator: novel)"
+        ]
+    },
+    "2062": {
+        "date": "2024年10月2日",
+        "clues": [
+            "Have an inclination for what Jack Sprat ate (4)",
+            "Unscrupulous chap, say, sent back sponge (5)",
+            "Blunder by Republican chief (6)",
+            "Leading lady to this place, eating nothing cool (7)",
+            "Vice, fiendish one, stylist hides (10)"
+        ],
+        "answers": ["LEAN", "CADGE", "GAFFER", "HEROINE", "DISHONESTY"],
+        "solutions": [
+            "double definition (have an inclination / what Jack Sprat ate (出自童谣Jack Sprat))",
+            "def: sponge; unscrupulous chap = cad; say = eg; sent back表示倒序",
+            "def: chief; blunder = gaffe; Republican = r",
+            "def: leading lady; this place = here; nothing = o; cool = in; eating表示包含",
+            "def: vice; hidden word (indicator: hides)"
+        ]
+    },
+    "2061": {
+        "date": "2024年10月1日",
+        "clues": [
+            "Gosh, drunken animals! (4)",
+            "Extravagant high-five? (4-2)",
+            "Large in belly, weight revealing gourmand (7)",
+            "Stop crusade to deny seconds in feast (7)",
+            "Emperor on plane poorly having consumed duck (8)"
+        ],
+        "answers": ["HOGS", "SLAPUP", "GLUTTON", "BANQUET", "NAPOLEON"],
+        "solutions": [
+            "def: animals; \"gosh\" anagram (indicator: drunken)",
+            "double definition (extravagant / high-five)",
+            "def: gourmand; large = l; belly = gut; in表示包含; weight = ton",
+            "def: feast; stop = ban; crusade = quest; seconds = s; deny表示去除字母",
+            "def: emperor; \"on plane\" anagram (indicator: poorly); duck = o (板球术语); consumed表示包含"
+        ]
+    },
+    "2060": {
+        "date": "2024年9月30日",
+        "clues": [
+            "Determined to do as The Sun does? (3)",
+            "Obvious one's involved in plot (5)",
+            "Captured in yard reportedly (6)",
+            "Anxiety on motorway for one's paramour? (8)",
+            "One visiting Tipperary getting drunk with daughter (3,7)"
+        ],
+        "answers": ["SET", "PLAIN", "CAUGHT", "MISTRESS", "DAYTRIPPER"],
+        "solutions": [
+            "double definition (determined / do as the sun does)",
+            "def: obvious; one = i; plot = plan; involved表示包含",
+            "def: captured; yard = court; reportedly表示谐音",
+            "def: paramour; anxiety = stress; motorway = mi (m1)",
+            "def: \"Tipperary d\" anagram (indicator: drunk); 其中d来自daughter = d"
         ]
     }
 }
