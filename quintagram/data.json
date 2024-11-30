@@ -1,4 +1,22 @@
 {   
+    "2113": {
+        "date": "2024年11月30日",
+        "clues": [
+            "5 training with the French (4)",
+            "5 confused and untidy, do we hear? (5)",
+            "5 is one laying track? (5)",
+            "5 on a drama broadcast (8)",
+            "Player smashed floor with table (10)"
+        ],
+        "answers": ["PELE", "MESSI", "HENRY", "MARADONA", "FOOTBALLER"],
+        "solutions": [
+            "def: 5 (footballer); training = pe (Physical Education); the French = le (法语)",
+            "def: 5 (footballer); confused and untidy = messy; do we hear表示谐音",
+            "def: 5 (footballer); one laying = hen; track = ry (railway)",
+            "def: 5 (footballer): \"on a drama\" anagram (indicator: broadcast)",
+            "def: player; \"floor table\" anagram (indicator: smashed)"
+        ]
+    },
     "2112": {
         "date": "2024年11月29日",
         "clues": [
@@ -951,6 +969,60 @@
             "def: captured; yard = court; reportedly表示谐音",
             "def: paramour; anxiety = stress; motorway = mi (m1)",
             "def: \"Tipperary d\" anagram (indicator: drunk); 其中d来自daughter = d"
+        ]
+    },
+    "2059": {
+        "date": "2024年9月28日",
+        "clues": [
+            "Virus with unknown instability (4)",
+            "Field of study ultimately well covered by many papers (5)",
+            "Dull routine name put in part of crossword (5)",
+            "Uses trains (9)",
+            "Unsafe broken noseguard (9)"
+        ],
+        "answers": ["FLUX", "REALM", "GRIND", "EXERCISES", "DANGEROUS"],
+        "solutions": [
+            "def: instability; virus = flu; unknown = x",
+            "def: field of study; ultimately well = l (末字母); many papers = ream; covered by表示包含",
+            "def: dull routine; name = n; part of crossword = grid; put in表示包含",
+            "double definition (uses / trains)",
+            "def: unsafe; \"noseguard\" anagram (indicator: broken)"
+        ]
+    },
+    "2058": {
+        "date": "2024年9月27日",
+        "clues": [
+            "Ground net (4)",
+            "This world famine needs heading off! (5)",
+            "Uses swearword when male cat comes in (7)",
+            "Wow: take undergraduate course in Spanish city (7)",
+            "Wild iguana circling vehicle in country (9)"
+        ],
+        "answers": ["LAND", "EARTH", "CUSTOMS", "CORDOBA", "NICARAGUA"],
+        "solutions": [
+            "double definition (ground / net (to capture))",
+            "def: this world; famine = dearth; heading off表示去除首字母",
+            "def: uses; swearword = cuss; male cat = tom; comes in表示包含",
+            "def: Spanish city; wow = cor; take undergraduate course = do ba (Bachelor of Arts)",
+            "def: country; \"iguana\" anagram (indicator: wild); vehicle = car; circling表示包含"
+        ]
+    },
+    "2057": {
+        "date": "2024年9月26日",
+        "clues": [
+            "Diagram rich artist exhibits (5)",
+            "Time in the city to get religious headwear (6)",
+            "Ruler, for example, splitting monthly expense? (6)",
+            "Short road trip disrupted transport hub (7)",
+            "Drink with upper-class young lady in country (8)"
+        ],
+        "answers": ["CHART", "TURBAN", "REGENT", "AIRPORT", "PORTUGAL"],
+        "solutions": [
+            "def: diagram; hidden word (indicator: exhibits)",
+            "def: religious headwear; time = t; city = urban",
+            "def: ruler; for example = eg; monthly expense = rent; splitting表示包含",
+            "def: transport hub; short表示截断; \"roa trip\" anagram (indicator: disrupted)",
+            "def: country; drink = port (一种酒); upper-class = u; young lady = gal"
         ]
     }
 }
