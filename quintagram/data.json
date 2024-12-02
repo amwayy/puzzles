@@ -1,4 +1,22 @@
 {   
+    "2114": {
+        "date": "2024年12月2日",
+        "clues": [
+            "Curious executive entertaining banker (4)",
+            "Assault cricketer (6)",
+            "Thus athletes appear to put money into scheme? (6)",
+            "Charlie overtaking backmarkers, getting applause (8)",
+            "English grandee turning traitor (8)"
+        ],
+        "answers": ["OUSE", "BATTER", "INVEST", "CLAPPING", "RENEGADE"],
+        "solutions": [
+            "def: banker (river); hidden word (indicator: entertaining (giving hospitality to / adopting))",
+            "double definition (assault / cricketer)",
+            "def: put money into scheme; thus athletes appear = in vest",
+            "def: applause; Charlie = c (NATO字母表); overtaking backmarkers = lapping",
+            "def: traitor; English = e; \"e grandee\" anagram (indicator: turning)"
+        ]
+    },
     "2113": {
         "date": "2024年11月30日",
         "clues": [
@@ -1023,6 +1041,24 @@
             "def: ruler; for example = eg; monthly expense = rent; splitting表示包含",
             "def: transport hub; short表示截断; \"roa trip\" anagram (indicator: disrupted)",
             "def: country; drink = port (一种酒); upper-class = u; young lady = gal"
+        ]
+    },
+    "2056": {
+        "date": "2024年9月25日",
+        "clues": [
+            "The French kings frolic (4)",
+            "Seat is cold --- it's uncomfortable! (5)",
+            "Flight from outer parts of enormous promontory (6)",
+            "Fish obtained by waterside area (7)",
+            "Grim pro playing bridge? (10)"
+        ],
+        "answers": ["LARK", "COUCH", "ESCAPE", "HADDOCK", "FORBIDDING"],
+        "solutions": [
+            "def: frolic; the French = la (法语); kings = r (rex) + k (king) (因为是复数所以用了2种king的不同缩写）",
+            "def: seat; cold = c; it's uncomfortable = ouch",
+            "def: flight; outer parts of enormous = es (两端字母); promontory = cape",
+            "def: fish; obtained = had; waterside area = dock",
+            "def: grim; pro = for; playing bridge = bidding"
         ]
     }
 }
