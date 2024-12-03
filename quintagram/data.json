@@ -1,4 +1,22 @@
 {   
+    "2115": {
+        "date": "2024年12月3日",
+        "clues": [
+            "Pack runs before noon (3)",
+            "Vessel in gale we remember (4)",
+            "Dog runs away from mine worker (6)",
+            "Shepherd may care for this cheese (9)",
+            "Shamefacedly needing his help: yes, when drunk (10)"
+        ],
+        "answers": ["RAM", "EWER", "COLLIE", "LEICESTER", "SHEEPISHLY"],
+        "solutions": [
+            "def: pack (取动词义); runs = r; before noon = am",
+            "def: vessel; hidden word (indicator: in)",
+            "def: dog; runs = r; mine worker = collier; away from表示去除字母(collier - r)",
+            "cryptic definition; LEICESTER既是一种羊的品种, 也是一种奶酪",
+            "def: shamefacedly; \"his help yes\" anagram (indicator: when drunk)"
+        ]
+    },
     "2114": {
         "date": "2024年12月2日",
         "clues": [
