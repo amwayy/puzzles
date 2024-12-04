@@ -1,4 +1,22 @@
 {   
+    "2116": {
+        "date": "2024年12月4日",
+        "clues": [
+            "Pastry dish left in cooling device (4)",
+            "Fib about receiving graduate's message (5)",
+            "Talk about dropping son off for athletics event (6)",
+            "Bit of swagger man exhibits, which is appropriate (7)",
+            "Resident dressed like a nun, meeting worker?"
+        ],
+        "answers": ["FLAN", "EMAIL", "DISCUS", "GERMANE", "INHABITANT"],
+        "solutions": [
+            "def: pastry dish (焦糖布丁); left = l; cooling device = fan; in表示包含",
+            "def: message; fib = lie; about表示倒序; graduate = ma (Master of Arts); receiving表示包含",
+            "def: athletics event; talk about = discuss; son = s; dropping ... off表示去除字母(discuss - s)",
+            "def: appropriate; hidden word (swagGER MAN Exhibits, indicator: bit of)",
+            "def: resident; dressed like a nun = in habit (修女的服饰就叫habit); worker = ant"
+        ]
+    },
     "2115": {
         "date": "2024年12月3日",
         "clues": [
@@ -11,7 +29,7 @@
         "answers": ["RAM", "EWER", "COLLIE", "LEICESTER", "SHEEPISHLY"],
         "solutions": [
             "def: pack (取动词义); runs = r; before noon = am",
-            "def: vessel; hidden word (indicator: in)",
+            "def: vessel; hidden word (galE WE Remember, indicator: in)",
             "def: dog; runs = r; mine worker = collier; away from表示去除字母(collier - r)",
             "cryptic definition; LEICESTER既是一种羊的品种, 也是一种奶酪",
             "def: shamefacedly; \"his help yes\" anagram (indicator: when drunk)"
@@ -28,7 +46,7 @@
         ],
         "answers": ["OUSE", "BATTER", "INVEST", "CLAPPING", "RENEGADE"],
         "solutions": [
-            "def: banker (river); hidden word (indicator: entertaining (giving hospitality to / adopting))",
+            "def: banker (river); hidden word (curiOUS Executive, indicator: entertaining (giving hospitality to / adopting))",
             "double definition (assault / cricketer)",
             "def: put money into scheme; thus athletes appear = in vest",
             "def: applause; Charlie = c (NATO字母表); overtaking backmarkers = lapping",
@@ -64,7 +82,7 @@
         ],
         "answers": ["FUN", "IRE", "DISCOVER", "FRACTION", "VIETNAMESE"],
         "solutions": [
-            "def: enjoyment; hidden word (indicator: displayed by some)",
+            "def: enjoyment; hidden word (stafF UNnecessarily, indicator: displayed by some)",
             "def: outrage; one = i; about = re",
             "def: ascertain; record = disc; finished = over",
             "def: part; extremely familiar = fr (两端字母); behaviour = action",
@@ -104,7 +122,7 @@
             "def: one who likes rambling; personnel = hr; ex-president = ike; hosting表示包含",
             "def: trainee holy person; not a single sin = no vice",
             "def: running; argument = row; about表示倒序; royal = king",
-            "def: cold; hidden word (indicator: section of)"
+            "def: cold; hidden word (gigantiC HILL IN ESSex, indicator: section of)"
         ]
     },
     "2109": {
@@ -136,7 +154,7 @@
         ],
         "answers": ["PONG", "CHOP", "SUCCOUR", "HARDBACK", "SLAUGHTER"],
         "solutions": [
-            "def: smell horribly; hidden word (indicator: bags)",
+            "def: smell horribly; hidden word (sPONGe, indicator: bags)",
             "def: axe: officer = cop; husband = h; grabbing表示包含",
             "def: help; gullible chap = sucker; might one say表示谐音",
             "def: book; tough = hard; defender = back",
@@ -190,7 +208,7 @@
         ],
         "answers": ["VEST", "CHESS", "GLOVES", "CARDIGAN", "PROSCRIBE"],
         "solutions": [
-            "def: clothing item; hidden word (indicator: inside)",
+            "def: clothing item; hidden word (exclusiVE STore, indicator: inside)",
             "def: game; revolutionary = che (Che Guevara); second = s",
             "def: hand-warmers; grandpa initially = g (首字母); adores = loves",
             "def: knitted garment; \"and cigar\" anagram (indicator: ruined)",
@@ -316,7 +334,7 @@
         ],
         "answers": ["GIST", "CAMEL", "BORING", "JAILING", "DISCORDANT"],
         "solutions": [
-            "def: essence; hidden word (indicator: found in)",
+            "def: essence; hidden word (ginsenG IS Terrific, indicator: found in)",
             "def: desert transport; arrived = came; heading for Libya = l",
             "def: dull; bishop = b; old = o; piece of jewellery = ring",
             "def: confining; leader of Jacobins = j; poorly = ailing",
@@ -334,7 +352,7 @@
         ],
         "answers": ["REAR", "GROUND", "TITANIA", "SUPPORT", "PEDESTAL"],
         "solutions": [
-            "def: back; hidden word (indicator: holding)",
+            "def: back; hidden word (creatuRE ARistocratic, indicator: holding)",
             "def: pulverised; good = g; session at Carnoustie = round (Carnoustie是一个高尔夫俱乐部)",
             "cryptic definition; Titania和Bottom是《仲夏夜之梦》中的角色; Stratford是Shakespeare的故乡",
             "double definition (whole clue / truss)",
@@ -442,7 +460,7 @@
         ],
         "answers": ["EMU", "SOOTY", "ORVILLE", "CUDDLES", "BASILBRUSH"],
         "solutions": [
-            "def: grounded flyer; hidden word (indicator: involved in)",
+            "def: grounded flyer; hidden word (threE MUrders, indicator: involved in)",
             "def: dirty; pen = sty; duck = 0 = o (板球术语）; containing表示包含",
             "def: Wright brother; post office = po; leaving表示去除字母 (liverpool - po); \"liverol\" anagram (indicator: sacked)",
             "def: hugs; extremely dedicated = dd (两端字母); learner = l; sticks = cues (比如台球杆); around表示包含",
@@ -605,7 +623,7 @@
         "answers": ["WHIM", "ACHE", "ABSEIL", "REMEMBER", "DISCOURAGE"],
         "solutions": [
             "def: fancy; wife = w; that guy = him",
-            "def: long; hidden word (indicator: reduced in size)",
+            "def: long; hidden word (moustACHEs, indicator: reduced in size)",
             "def: to descend by rope; \"is able\" anagram (indicator: somehow)",
             "def: don't forget; about = re; parliamentarian = member",
             "def: pour cold water on; detecive = di (detective inspector); spine = courage"
@@ -626,7 +644,7 @@
             "def: romance; Frieda's beginning = f (首字母); heather = ling",
             "def: outbuilding; look = gaze; round = o; black = b; outside表示包含",
             "def: calming; really = so; old = o; object = thing",
-            "def: involved; hidden word (indicator: partly)"
+            "def: involved; hidden word (chocolatE LAB OR A TErrier, indicator: partly)"
         ]
     },
     "2080": {
@@ -640,7 +658,7 @@
         ],
         "answers": ["HARE", "WILDER", "JOHNSON", "PRINTER", "COWARDLY"],
         "solutions": [
-            "def: playwright; hidden word (indicator: seen in)",
+            "def: playwright; hidden word (woolwicH AREa, indicator: seen in)",
             "double definition (actor Gene / more passionate)",
             "def: former PM; perhaps White House lavatory = john (美式表达); working = on",
             "def: press worker; pair = pr; bury = inter",
@@ -714,7 +732,7 @@
         "solutions": [
             "def: goods carried; around = c (circa); legendary Greek vessel = argo",
             "def: first-rate; publicity work = pr (public relations); that is = ie; millions = m; netting表示包含",
-            "def: European; hidden word (indicator: requiring some)",
+            "def: European; hidden word (anGER MANagement, indicator: requiring some)",
             "def: city; opening of cool = c (首字母); \"bar near\" (indicator: fantastic)",
             "def: monument; \"not cheap\" (indicator: get repaired)"
         ]
@@ -732,7 +750,7 @@
         "solutions": [
             "def: Asian; neckwear = tie; picked up表示谐音",
             "def: fight; setter = me; Bruce the martial arts star = lee",
-            "def: fruit; hidden word (indicator: in)",
+            "def: fruit; hidden word (caraMEL ON Skewer, indicator: in)",
             "def: document; old men = pas; show off = sport",
             "def: fat; soldier = marine; tabloid = rag; back to front表示倒序; holding表示包含"
         ]
@@ -928,7 +946,7 @@
         ],
         "answers": ["IRAN", "TOFU", "PRESENT", "PROFILE", "HEARTINESS"],
         "solutions": [
-            "def: part of Middle East; hidden word (indicator: some); going round表示倒序",
+            "def: part of Middle East; hidden word (missioNARIes, indicator: some); going round表示倒序",
             "def: source of protein; 取后4个词的首字母(indicator: for starters)",
             "def: something you're given; quietly = p (piano); take offence = resent",
             "def: short sketch; for = pro; folder = file",
@@ -968,7 +986,7 @@
             "def: sponge; unscrupulous chap = cad; say = eg; sent back表示倒序",
             "def: chief; blunder = gaffe; Republican = r",
             "def: leading lady; this place = here; nothing = o; cool = in; eating表示包含",
-            "def: vice; hidden word (indicator: hides)"
+            "def: vice; hidden word (fienDISH ONE STYlist, indicator: hides)"
         ]
     },
     "2061": {
@@ -1054,7 +1072,7 @@
         ],
         "answers": ["CHART", "TURBAN", "REGENT", "AIRPORT", "PORTUGAL"],
         "solutions": [
-            "def: diagram; hidden word (indicator: exhibits)",
+            "def: diagram; hidden word (riCH ARTist, indicator: exhibits)",
             "def: religious headwear; time = t; city = urban",
             "def: ruler; for example = eg; monthly expense = rent; splitting表示包含",
             "def: transport hub; short表示截断; \"roa trip\" anagram (indicator: disrupted)",
@@ -1072,11 +1090,65 @@
         ],
         "answers": ["LARK", "COUCH", "ESCAPE", "HADDOCK", "FORBIDDING"],
         "solutions": [
-            "def: frolic; the French = la (法语); kings = r (rex) + k (king) (因为是复数所以用了2种king的不同缩写）",
+            "def: frolic; the French = la (法语); kings = r (rex) + k (king) (因为是复数所以用了2种king的不同缩写)",
             "def: seat; cold = c; it's uncomfortable = ouch",
             "def: flight; outer parts of enormous = es (两端字母); promontory = cape",
             "def: fish; obtained = had; waterside area = dock",
             "def: grim; pro = for; playing bridge = bidding"
+        ]
+    },
+    "2055": {
+        "date": "2024年9月24日",
+        "clues": [
+            "About time for the whip? (3)",
+            "1 Scottish mountain girl (6)",
+            "1 from one housed in identical quarters (7)",
+            "1 a Welsh woman? (7)",
+            "1 came in moving round leg (5,4)"
+        ],
+        "answers": ["CAT", "BENGAL", "SIAMESE", "PERSIAN", "MAINECOON"],
+        "solutions": [
+            "def: whip (cat o' nine tails); about = ca (circa); time = t",
+            "def: 1 (cat); Scottish mountain = ben; girl = gal",
+            "def: 1 (cat); one = i; identical = same; housed in表示包含; quarters = se (directions)",
+            "def: 1 (cat); a = per; Welsh woman = sian",
+            "def: 1 (cat); \"came in\" anagram (indicator: moving); round = o; leg = on (on side is leg side in cricket)"
+        ]
+    },
+    "2054": {
+        "date": "2024年9月23日",
+        "clues": [
+            "British boat in bay (4)",
+            "At which one might burn a piece of meat, they say (5)",
+            "Charming host welcoming a soldier (5)",
+            "Bond's second assignment a failure? (8)",
+            "Miriam late for training? That's irrelevant (10)"
+        ],
+        "answers": ["BARK", "STAKE", "MAGIC", "OMISSION", "IMMATERIAL"],
+        "solutions": [
+            "def: bay; British = b; boat = ark",
+            "def: at which one might burn; piece of meat = steak; they say表示谐音",
+            "def: charming; host = mc; soldier = gi (General Infantryman, 美国大兵); welcoming表示包含",
+            "def: failure; Bond's second = o (第2个字母); assignment = mission",
+            "def: irrelevant; \"Miriam late\" anagram (indicator: training)"
+        ]
+    },
+    "2053": {
+        "date": "2024年9月21日",
+        "clues": [
+            "Man on board eating right seafood (5)",
+            "Who sleeps with the fishes? (6)",
+            "Vehicle holding six with a little delicacy (6)",
+            "Swimmer in hotel slipping (7)",
+            "Cooked a clam: mostly dry dish (8)"
+        ],
+        "answers": ["PRAWN", "KIPPER", "CAVIAR", "HERRING", "CALAMARI"],
+        "solutions": [
+            "def: seafood; man on board = pawn; right = r; eating表示包含",
+            "cryptic definition; kip有sleep义, 同时kipper也是一种鱼",
+            "def: little delicacy; vehicle = car; six = vi; holding表示包含",
+            "def: swimmer; hotel = h (NATO字母表); slipping = erring",
+            "def: dish; \"a clam\" anagram (indicator: cooked); dry = arid; almost表示截断"
         ]
     }
 }

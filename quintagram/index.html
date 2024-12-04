@@ -35,12 +35,14 @@
             </div>
         </div>
 
-        <div class="col-8 col-lg-5 mx-auto">
-            <div class="input-group mb-2">
+        <div class="d-flex justify-content-center align-items-center col-11 col-lg-7 mx-auto mb-2 gap-3">
+            <i class="bi bi-bookmark fs-5" role="button" data-bs-toggle="tooltip" data-bs-title="添加书签" id="bookmarkButton"></i>
+            <div class="input-group">
                 <span class="input-group-text border border-dark">编号</span>
                 <input class="form-control focus-ring border border-dark text-center" id="numberInput" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)">
                 <button class="btn btn-dark" id="jumpButton" data-bs-toggle="tooltip">跳转</button>
             </div>
+            <i class="bi bi-bookmark-x fs-5" role="button" data-bs-toggle="tooltip" data-bs-title="删除书签" id="deleteBookmarkButton"></i>
         </div>
         <div class="d-flex justify-content-center mb-3 gap-3">
             <button class="btn btn-light fs-5" id="oldestButton" data-bs-toggle="tooltip" data-bs-title="最老最冷" data-bs-placement="bottom"><i class="bi bi-chevron-double-left"></i></button>
@@ -95,6 +97,7 @@
         let focusingLetterIndex = 0;
         let letterInputs;
         let numberToday, numberOldest;
+        let bookmarkNumber = -1;
         const remainingLettersDisplay = document.getElementById('remainingLetters');
         const numberInput = document.getElementById('numberInput');
         const previousButton = document.getElementById('previousButton');
@@ -105,6 +108,8 @@
         const revealButton = document.getElementById('revealButton');
         const dateDisplay = document.getElementById('dateDisplay');
         const clueContainer = document.getElementById('clueContainer');
+        const bookmarkButton = document.getElementById('bookmarkButton');
+        const deleteBookmarkButton = document.getElementById('deleteBookmarkButton');
         const nClue = 5;
 
         // 初始化clueContainer
@@ -138,8 +143,7 @@
             numberToday = Object.keys(puzzleData)[Object.keys(puzzleData).length - 1];
             numberOldest = Object.keys(puzzleData)[0];
             jumpButton.setAttribute('data-bs-title', `已更新${numberOldest}-${numberToday}`);
-            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+            UpdateTooltip();
 
             const params = new URLSearchParams(window.location.search);
             const targetNumber = params.get('no');
@@ -170,7 +174,7 @@
             }
             // 如果不是接着之前的题做，则清空数据
             if (number != lastPuzzleNo) {
-                localStorage.clear();
+                ClearPlayStat();
                 localStorage.setItem('lastPuzzleNo', number);
             }
 
@@ -188,6 +192,28 @@
         .catch(error => {
             console.error('读取文件时出错：', error);
         });
+
+        let tooltipInstances = [];
+        function UpdateTooltip(refocus=true) {
+            const focusedElement = document.querySelector('[data-bs-toggle="tooltip"][aria-describedby]');
+            tooltipInstances.forEach(instance => instance.dispose());
+            tooltipInstances = [];
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+            tooltipInstances = [...tooltipTriggerList].map(tooltipTriggerEl => {
+                const tooltip = new bootstrap.Tooltip(tooltipTriggerEl);
+                if (focusedElement && tooltipTriggerEl === focusedElement && refocus) {
+                    tooltip.show();
+                }
+                return tooltip;
+            });
+        }
+
+        function ClearPlayStat() {
+            localStorage.removeItem('timeElapsed');
+            localStorage.removeItem('errorCount');
+            localStorage.removeItem('lastInput');
+            localStorage.removeItem('hasCompleted');
+        }
 
         let enterConfirm = false;
         revealButton.addEventListener('click', () => {
@@ -222,6 +248,40 @@
             }
         })
 
+        bookmarkButton.addEventListener('click', () => {
+            // 无书签，插入书签
+            if (bookmarkNumber == -1) {
+                bookmarkNumber = number;
+                localStorage.setItem('bookmarkNumber', number);
+                bookmarkButton.classList.remove('bi-bookmark');
+                bookmarkButton.classList.add('bi-bookmark-fill');
+                bookmarkButton.setAttribute('data-bs-title', `跳转至#${bookmarkNumber}`);
+                UpdateTooltip();
+            }
+            // 有书签，跳转
+            else {
+                JumpTo(bookmarkNumber);
+            }
+        })
+
+        deleteBookmarkButton.addEventListener('click', () => {
+            bookmarkNumber = -1;
+            localStorage.removeItem('bookmarkNumber');
+            bookmarkButton.classList.add('bi-bookmark');
+            bookmarkButton.classList.remove('bi-bookmark-fill');
+            bookmarkButton.setAttribute('data-bs-title', '添加书签');
+            deleteBookmarkButton.setAttribute('data-bs-title', '已删除');
+            UpdateTooltip();
+        })
+
+        deleteBookmarkButton.addEventListener('mouseleave', () => {
+            let title = deleteBookmarkButton.getAttribute('data-bs-title');
+            if (title != '删除书签') {
+                deleteBookmarkButton.setAttribute('data-bs-title', '删除书签');
+                UpdateTooltip(false);
+            }
+        })
+
         numberInput.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
                 event.preventDefault();
@@ -249,7 +309,7 @@
 
         function JumpTo(targetNumber) {
             if (targetNumber != number) {
-                localStorage.clear();
+                ClearPlayStat();
                 localStorage.setItem('lastPuzzleNo', targetNumber);
                 const urlWithoutParams = `${window.location.origin}${window.location.pathname}`;
                 window.location.href = urlWithoutParams;
@@ -505,6 +565,13 @@
                     CheckAnswers();
                     ShowCompleteInfo();
                 }
+            }
+            if (localStorage.getItem('bookmarkNumber') != null) {
+                bookmarkNumber = localStorage.getItem('bookmarkNumber');
+                bookmarkButton.classList.remove('bi-bookmark');
+                bookmarkButton.classList.add('bi-bookmark-fill');
+                bookmarkButton.setAttribute('data-bs-title', `跳转至#${bookmarkNumber}`);
+                UpdateTooltip();
             }
         }
 
