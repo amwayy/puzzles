@@ -1,4 +1,22 @@
 {   
+    "2117": {
+        "date": "2024年12月5日",
+        "clues": [
+            "Colouring agent to expire, reportedly (3)",
+            "Finally getting into row --- a fierce one (5)",
+            "Do turn dancing next to a round building (7)",
+            "Sort a few new computer programs (8)",
+            "Control banks working for religious community (9)"
+        ],
+        "answers": ["DYE", "TIGER", "ROTUNDA", "SOFTWARE", "MONASTERY"],
+        "solutions": [
+            "def: colouring agent; expire = die; reportedly表示谐音",
+            "def: a fierce one; finally getting = g (末字母); row = tier; into表示包含",
+            "def: round building; \"do turn\" anagram (indicator: dancing)",
+            "def: computer programs; \"sort a few\" anagram (indicator: new)",
+            "def: religious community; control = mastery; working = on; banks表示包含"
+        ]
+    },
     "2116": {
         "date": "2024年12月4日",
         "clues": [
@@ -6,7 +24,7 @@
             "Fib about receiving graduate's message (5)",
             "Talk about dropping son off for athletics event (6)",
             "Bit of swagger man exhibits, which is appropriate (7)",
-            "Resident dressed like a nun, meeting worker?"
+            "Resident dressed like a nun, meeting worker? (10)"
         ],
         "answers": ["FLAN", "EMAIL", "DISCUS", "GERMANE", "INHABITANT"],
         "solutions": [

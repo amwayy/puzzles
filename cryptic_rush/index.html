@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Cryptic Rush</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body class="bg-body-tertiary">
+    <div class="container col-10 col-md-8 col-lg-8">
+        <div class="mt-5"></div>
+
+        <div class="d-flex justify-content-center fs-3 mb-5 fw-bold">TIMES 2024</div>
+
+        <div class="d-flex justify-content-center mb-2" id="clue">loading...</div>
+        <div class="d-flex justify-content-end mb-4 text-secondary fs-6" id="source">loading...</div>
+        <div class="d-flex justify-content-center mb-4">
+            <div class="input-group w-75">
+                <input class="form-control focus-ring border border-dark text-center" id="ansInput" placeholder="在此输入答案" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)">
+                <button class="btn btn-dark" id="submitButton">提交</button>
+            </div>
+        </div>
+        <div class="mb-4" id="solution" style="display: none; margin: 0 auto; text-align: left; width: 75%;">loading...</div>
+        <div class="d-flex justify-content-center gap-5">
+            <button class="btn btn-dark" id="revealButton">查看解答</button>
+            <button class="btn btn-dark" id="randomClueButton">随机clue</button>
+        </div>
+        
+        <div class="mb-5"></div>
+    </div>
+
+    <script>
+        const randomClueButton = document.getElementById('randomClueButton');
+        const clueDisplay = document.getElementById('clue');
+        const sourceDisplay = document.getElementById('source');
+        const solutionDisplay = document.getElementById('solution');
+        const submitButton = document.getElementById('submitButton');
+        const revealButton = document.getElementById('revealButton');
+        const ansInput = document.getElementById('ansInput');
+        let clueArray = [];
+        let clueData;
+        let clue, solution;
+
+        fetch('./cryptic_clues.json')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            clueArray = data;
+            getRandomClue();
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
+        function getRandomClue() {
+            let randomIndex = Math.floor(Math.random() * clueArray.length);
+            let randomClue = clueArray[randomIndex];
+            clueData = randomClue;
+            clue = clueData['clue'] + ' (' + clueData['direction'] + ')';
+            let solutionText = clueData['solution'].replace('<br>', ' – ');
+            solutionText = solutionText.substring(solutionText.indexOf("–") + 1).trim()
+            solution = 'answer: <span class="fw-bold">' + clueData['answer'] + '</span><br>definition: ' + clueData['definition'] + '<br>' + solutionText;
+
+            clueDisplay.innerText = clue;
+            let category = clueData['category']
+            let number = clueData['url'].slice(clueData['url'].lastIndexOf("/") + 1).split("-").find(part => !isNaN(part) && part.trim() !== "");
+            sourceDisplay.innerHTML = 'from&nbsp;<a class="fst-italic text-secondary" href=' + clueData['url'] + ' target="_blank">' + category.split('-').slice(1).join(' ') + ' ' + number + ' (' + clueData['date'].split(" ").slice(0, 2).join(" ") + ')</a>';
+        }
+
+        randomClueButton.addEventListener('click', () => {
+            solutionDisplay.style.display = 'none';
+            ansInput.value = '';
+            ansInput.classList.remove('is-valid');
+            ansInput.classList.remove('is-invalid');
+
+            getRandomClue();
+        })
+
+        submitButton.addEventListener('click', () => {
+            let input = ansInput.value;
+            console.log('ans is ' + clueData['answer'].replace(/\s+/g, ""))
+            if (input.replace(/\s+/g, "").toUpperCase() == clueData['answer'].replace(/\s+/g, "")) {
+                ansInput.classList.add('is-valid');
+                solutionDisplay.style.display = 'block';
+                solutionDisplay.innerHTML = solution;
+            } else {
+                ansInput.classList.add('is-invalid');
+            }
+        })
+
+        revealButton.addEventListener('click', () => {
+            solutionDisplay.style.display = 'block';
+            solutionDisplay.innerHTML = solution;
+        })
+
+        ansInput.addEventListener('input', () => {
+            ansInput.classList.remove('is-valid');
+            ansInput.classList.remove('is-invalid');
+            ansInput.value = ansInput.value.toUpperCase();
+        })
+
+        ansInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                submitButton.click();
+            }
+        })
+    </script>
+</body>
+</html>
