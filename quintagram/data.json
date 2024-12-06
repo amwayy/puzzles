@@ -1,4 +1,22 @@
 {   
+    "2118": {
+        "date": "2024年12月6日",
+        "clues": [
+            "Drink cooler found in kitchen periodically (3)",
+            "Gossip starts to get acutely boring (3)",
+            "European bridge --- one leading to a road (8)",
+            "Soldiers flying drones east and back again (2-7)",
+            "Plain page redesigned to be attractive (9)"
+        ],
+        "answers": ["ICE", "GAB", "SPANIARD", "REENDORSE", "APPEALING"],
+        "solutions": [
+            "def: drink cooler; 隔位取\"kitchen\"中字母(indicator: periodically)",
+            "def: gossip; 取\"get acutely boring\"首字母(indicator: starts to)",
+            "def: European; bridge = span; one = i; road = rd",
+            "def: back again (back取\"支持, 赞同\"义); soldiers = re (Royal Engineers); \"drones\" anagram (indicator: flying); east = e",
+            "def: attractive; \"plain page\" anagram (indicator: redesigned)"
+        ]
+    },
     "2117": {
         "date": "2024年12月5日",
         "clues": [

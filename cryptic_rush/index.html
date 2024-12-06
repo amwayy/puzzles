@@ -382,7 +382,7 @@
                     shareButton.style.display = 'block';
                     speedrunInfoButton.style.display = 'block';
                 }
-            } else {
+            } else if (!isInSpeedrun) {
                 speedrunConfiguration.style.display = 'none';
                 speedrunResultDisplay.style.display = 'none';
                 shareButton.style.display = 'none';
@@ -434,7 +434,11 @@
         submitButton.addEventListener('click', () => {
             let input = '';
             letterInputs.forEach((letterInput) => {
-                input += letterInput.innerText;
+                if (letterInput.innerText) {
+                    input += letterInput.innerText;
+                } else {
+                    input += ' ';
+                }
             })
             let ans = clueData['answer'];
             let normalizedAns = removeAccents(ans).replace(/[^a-zA-Z]/g, "");
