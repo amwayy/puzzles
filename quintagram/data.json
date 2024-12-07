@@ -1,4 +1,22 @@
 {   
+    "2119": {
+        "date": "2024年12月7日",
+        "clues": [
+            "Ground net (4)",
+            "1 where R&A admits wife? (6)",
+            "1 supporter for women Hurley recalled (6)",
+            "1 eager to receive alien's leader (7)",
+            "1's a great inn refurbished (9)"
+        ],
+        "answers": ["LAND", "RWANDA", "BRAZIL", "HUNGARY", "ARGENTINA"],
+        "solutions": [
+            "double definition (ground / net (to capture))",
+            "def: 1 (land); r&a = randa; wife = w; admits表示包含",
+            "def: 1 (land); supporter for women = bra; Hurley = liz (Liz Hurley是一名演员); recalled表示倒序",
+            "def: 1 (land); eager = hungry; alien's leader = a (首字母); receive表示包含",
+            "def: 1 (land); \"a great inn\" anagram (indicator: refurbished)"
+        ]
+    },
     "2118": {
         "date": "2024年12月6日",
         "clues": [
