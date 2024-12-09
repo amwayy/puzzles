@@ -1,4 +1,22 @@
 {   
+    "2120": {
+        "date": "2024年12月9日",
+        "clues": [
+            "You really should catch this sheep (5)",
+            "Dine lavishly with son, inspired by heroic deed? (5)",
+            "Worked on boat hastily put together, I hear (6)",
+            "In favour of dependant being bold (7)",
+            "I clout one dreadful delivery (9)"
+        ],
+        "answers": ["DOLLY", "FEAST", "CREWED", "FORWARD", "ELOCUTION"],
+        "solutions": [
+            "cryptic definition; DOLLY既可指克隆羊多莉, 也可在板球用语中表示a very easy catch",
+            "def: dine lavishly; son = s; heroic deed = feat; inspired表示包含(取\"inhaled\"义)",
+            "def: worked on boat; hastily put together = crude; I hear表示谐音",
+            "def: bold; in favour of = for; dependant = ward (a minor or other person under a guardian)",
+            "def: delivery; \"I clout one\" anagram (indicator: dreadful)"
+        ]
+    },
     "2119": {
         "date": "2024年12月7日",
         "clues": [

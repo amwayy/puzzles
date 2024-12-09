@@ -39,6 +39,7 @@
         <div class="d-flex justify-content-center gap-3 mb-3">
             <button class="btn btn-light border border-dark" id="historyButton" data-bs-toggle="modal" data-bs-target="#historyModal">历史记录</button>
             <button class="btn btn-light border border-dark" id="speedrunButton">限时模式</button>
+            <button class="btn btn-light border border-dark" id="settingButton" data-bs-toggle="modal" data-bs-target="#settingModal">设置</button>
         </div>
 
         <div class="input-group mx-auto mb-4" id="speedrunConfiguration" style="display: none; width: 15rem;">
@@ -59,11 +60,28 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">历史记录</h1>
+                  <h1 class="modal-title fs-5">历史记录</h1>
                   <button type="button" class="btn-close focus-ring" data-bs-dismiss="modal" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)"></button>
                 </div>
                 <div class="modal-body" style="max-height: 400px; overflow-y: auto;" id="clueHistoryContainer">
                     <ul class="list-group" id="clueHistory"></ul>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="settingModal">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5">筛选分类</h1>
+                  <button type="button" class="btn-close focus-ring" data-bs-dismiss="modal" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)"></button>
+                </div>
+                <div class="modal-body" style="max-height: 400px; overflow-y: auto;">
+                    <ul class="list-group" id="categoryFilter"></ul>
+                </div>
+                <div class="modal-footer">
+                    <span class="text-secondary">*括号内为分类内clue数。Quick Cryptic较易；Mephisto和Monthly Club Special较难</span>
                 </div>
               </div>
             </div>
@@ -96,8 +114,9 @@
         const timeInputs = [minuteInput, secondInput];
         const speedrunResult = document.getElementById('speedrunResult');
         const speedrunResultDisplay = document.getElementById('speedrunResultText');
+        const categoryFilterDisplay = document.getElementById('categoryFilter');
         const defaultTime = 300;
-        let clueArray = [];
+        let clueDict = {};
         let clueData;
         let clue, solution;
         let letterInputs;
@@ -109,8 +128,11 @@
         let speedrunFirst5Stats = '';
         let speedrunInfo = '';
         let category, number;
+        let categoryFilterDict = {};
+        let categoryLenDict = {};
+        let accumulativeProbDict = {};
 
-        fetch('./cryptic_clues.json')
+        fetch('./categorized_clues.json')
         .then(response => {
             if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -118,12 +140,88 @@
             return response.json();
         })
         .then(data => {
-            clueArray = data;
+            clueDict = data;
+            for (let category in clueDict) {
+                categoryLenDict[category] = clueDict[category].length;
+            }
+            initializePool();
+            initializeCategoryFilterDisplay();
+            updateAccumulativeProb();
             getRandomClue();
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });
+
+        function initializePool() {
+            for (let category in clueDict) {
+                categoryFilterDict[category] = true;
+            }
+            if (localStorage.getItem('categoryFilterDict')) {
+                let savedCategoryFilterDict = JSON.parse(localStorage.getItem('categoryFilterDict'));
+                for (let category in savedCategoryFilterDict) {
+                    if (!savedCategoryFilterDict[category]) {
+                        categoryFilterDict[category] = false;
+                    }
+                }
+            }
+        }
+
+        function initializeCategoryFilterDisplay() {
+            for (let category in categoryFilterDict) {
+                let checkId = category.replace('-', '') + 'Check';
+                categoryFilterDisplay.innerHTML += `
+                    <li class="list-group-item form-check">
+                        <input class="form-check-input bg-dark focus-ring border border-light" type="checkbox" value="" id="${checkId}" ${categoryFilterDict[category]?'checked':''} category="${category}" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)">
+                        <label class="form-check-label" for="${checkId}">
+                            ${category.replaceAll('-', ' ')} (${categoryLenDict[category]})
+                        </label>
+                    </li>
+                `
+            }
+            updateCategoryFilter();
+
+            let categoryCheckArray = Array.from(categoryFilterDisplay.querySelectorAll('.form-check-input'));
+            for (let categoryCheck of categoryCheckArray) {
+                categoryCheck.addEventListener('change', () => {
+                    categoryFilterDict[categoryCheck.getAttribute('category')] = !categoryFilterDict[categoryCheck.getAttribute('category')];
+                    updateCategoryFilter();
+                })
+            }
+        }
+
+        function updateCategoryFilter() {
+            localStorage.setItem('categoryFilterDict', JSON.stringify(categoryFilterDict));
+            updateAccumulativeProb();
+            
+            // 至少留一个分类
+            let categoryCheckArray = Array.from(categoryFilterDisplay.querySelectorAll('.form-check-input'));
+            let nCategoryInPool = Object.values(categoryFilterDict).filter(Boolean).length;
+            categoryCheckArray.forEach(categoryCheck => {
+                if (nCategoryInPool === 1 && categoryCheck.checked) {
+                    categoryCheck.disabled = true;
+                } else {
+                    categoryCheck.disabled = false;
+                }
+            });
+        }
+
+        function updateAccumulativeProb() {
+            let nClue = 0;
+            accumulativeProbDict = {};
+            for (let category in categoryFilterDict) {
+                if (categoryFilterDict[category]) {
+                    nClue += parseInt(categoryLenDict[category]);
+                }
+            }
+            let nAccumulativeClue = 0;
+            for (let category in categoryFilterDict) {
+                if (categoryFilterDict[category]) {
+                    nAccumulativeClue += parseInt(categoryLenDict[category]);
+                    accumulativeProbDict[category] = nAccumulativeClue / nClue;
+                }
+            }
+        }
 
         function removeAccents(str) {
             return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -141,6 +239,15 @@
             isCorrect = false;
             isRevealed = false;
 
+            let randomNum = Math.random();
+            let randomCategory = 'everything-else';   // 异常情况下默认everything else分类
+            for (let category in accumulativeProbDict) {
+                if (randomNum <= accumulativeProbDict[category]) {
+                    randomCategory = category;
+                    break;
+                }
+            }
+            let clueArray = clueDict[randomCategory];
             let randomIndex = Math.floor(Math.random() * clueArray.length);
             let randomClue = clueArray[randomIndex];
             clueData = randomClue;
@@ -151,7 +258,11 @@
 
             clueDisplay.innerText = clue;
             category = clueData['category'];
-            number = clueData['url'].slice(clueData['url'].lastIndexOf("/") + 1).split("-").find(part => !isNaN(part) && part.trim() !== "");
+            if (category == 'category-everything-else') {
+                number = '';
+            } else {
+                number = clueData['url'].slice(clueData['url'].lastIndexOf("/") + 1).split("-").find(part => !isNaN(part) && part.trim() !== "");
+            }
             // sourceDisplay.innerHTML = 'from&nbsp;<a class="fst-italic text-secondary" href=' + clueData['url'] + ' target="_blank">' + category.split('-').slice(1).join(' ') + ' ' + number + ' (' + clueData['date'].split(" ").slice(0, 2).join(" ") + ')</a>';
             
             let ans = clueData['answer'];
