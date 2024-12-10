@@ -1,4 +1,22 @@
 {   
+    "2121": {
+        "date": "2024年12月10日",
+        "clues": [
+            "Ambassador on time finds article (3)",
+            "Chardonnay, perhaps, for chess player? (5)",
+            "Work in garden involves American dwelling (5)",
+            "Leader here holding papers (9)",
+            "Saw nothing moving in US city (10)"
+        ],
+        "answers": ["THE", "WHITE", "HOUSE", "PRESIDENT", "WASHINGTON"],
+        "solutions": [
+            "def: article; ambassador = he (his / her excellency); time = t; A on B表示A跟在B后面",
+            "cryptic definition (白酒/白棋)",
+            "def: dwelling; work in garden = hoe; American = us; involves表示包含",
+            "def: leader; here = present; papers = id; holding表示包含",
+            "def: US city; \"saw nothing\" anagram (indicator: moving)"
+        ]
+    },
     "2120": {
         "date": "2024年12月9日",
         "clues": [

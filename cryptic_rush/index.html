@@ -14,6 +14,20 @@
         [contenteditable] {
             caret-color: transparent; /* 隐藏光标 */
         }
+        .btn-progress {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .btn-progress .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            transition: width 0.3s ease;
+        }
     </style>
 </head>
 
@@ -23,21 +37,25 @@
 
         <!-- <div class="d-flex justify-content-center fs-3 mb-5 fw-bold">TIMES 2024</div> -->
 
-        <div class="d-flex justify-content-center mb-2" id="clue">loading...</div>
-        <!-- <div class="d-flex justify-content-end mb-4 text-secondary fs-6" id="source">loading...</div> -->
+        <div class="d-flex justify-content-center mb-2" id="clue">加载中，请稍候...</div>
+        <!-- <div class="d-flex justify-content-end mb-4 text-secondary fs-6" id="source">加载中...</div> -->
 
         <div class="d-flex justify-content-center mb-4" id="inputCells"></div>
 
-        <div class="mb-4" id="solution" style="display: none; margin: 0 auto; text-align: left; width: 75%;">loading...</div>
+        <div class="mb-4" id="solution" style="display: none; margin: 0 auto; text-align: left; width: 75%;">加载中...</div>
 
         <div class="d-flex justify-content-center gap-3 mb-2">
-            <button class="btn btn-dark" id="randomClueButton" style="width: 6rem">随机clue</button>
+            <button class="btn btn-dark btn-progress" id="skipButton" style="width: 6rem; display: none;">
+                <span class="btn-text" id="skipButtonText">跳过</span>
+                <div class="progress-bar"></div>
+            </button>
+            <button class="btn btn-dark" id="randomClueButton" style="width: 6rem;">随机clue</button>
             <button class="btn btn-dark" id="revealButton">查看解答</button>
             <button class="btn btn-dark" id="submitButton">提交</button>
         </div>
 
         <div class="d-flex justify-content-center gap-3 mb-3">
-            <button class="btn btn-light border border-dark" id="historyButton" data-bs-toggle="modal" data-bs-target="#historyModal">历史记录</button>
+            <button class="btn btn-light border border-dark" id="historyButton" data-bs-toggle="modal" data-bs-target="#historyModal" style="width: 6rem">历史记录</button>
             <button class="btn btn-light border border-dark" id="speedrunButton">限时模式</button>
             <button class="btn btn-light border border-dark" id="settingButton" data-bs-toggle="modal" data-bs-target="#settingModal">设置</button>
         </div>
@@ -104,6 +122,7 @@
         const toggleSpeedrunButton = document.getElementById('toggleSpeedrunButton');
         const shareButton = document.getElementById('shareButton');
         const speedrunInfoButton = document.getElementById('speedrunInfoButton');
+        const skipButton = document.getElementById('skipButton');
         const inputCells = document.getElementById('inputCells');
         const clueHistoryDisplay = document.getElementById('clueHistory');
         const historyModal = document.getElementById('historyModal');
@@ -131,6 +150,13 @@
         let categoryFilterDict = {};
         let categoryLenDict = {};
         let accumulativeProbDict = {};
+        let categoryCheckArray;
+        let poolInfo = '全分类';
+
+        let buttons = document.querySelectorAll('.btn');
+        for (let button of buttons) {
+            button.disabled = true;
+        }
 
         fetch('./categorized_clues.json')
         .then(response => {
@@ -148,6 +174,10 @@
             initializeCategoryFilterDisplay();
             updateAccumulativeProb();
             getRandomClue();
+
+            for (let button of buttons) {
+                button.disabled = false;
+            }
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
@@ -174,14 +204,14 @@
                     <li class="list-group-item form-check">
                         <input class="form-check-input bg-dark focus-ring border border-light" type="checkbox" value="" id="${checkId}" ${categoryFilterDict[category]?'checked':''} category="${category}" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)">
                         <label class="form-check-label" for="${checkId}">
-                            ${category.replaceAll('-', ' ')} (${categoryLenDict[category]})
+                            ${category.replaceAll('-', ' ')} <span class="text-secondary">(${categoryLenDict[category]})</span>
                         </label>
                     </li>
                 `
             }
+            categoryCheckArray = Array.from(categoryFilterDisplay.querySelectorAll('.form-check-input'));
             updateCategoryFilter();
 
-            let categoryCheckArray = Array.from(categoryFilterDisplay.querySelectorAll('.form-check-input'));
             for (let categoryCheck of categoryCheckArray) {
                 categoryCheck.addEventListener('change', () => {
                     categoryFilterDict[categoryCheck.getAttribute('category')] = !categoryFilterDict[categoryCheck.getAttribute('category')];
@@ -195,8 +225,23 @@
             updateAccumulativeProb();
             
             // 至少留一个分类
-            let categoryCheckArray = Array.from(categoryFilterDisplay.querySelectorAll('.form-check-input'));
-            let nCategoryInPool = Object.values(categoryFilterDict).filter(Boolean).length;
+            let nCategoryInPool = 0;
+            let selectedCategories = '';
+            let dismissedCategories = '';
+            for (let category in categoryFilterDict) {
+                if (categoryFilterDict[category]) {
+                    selectedCategories += '+' + category.replaceAll('-', ' ') + ' ';
+                    nCategoryInPool += 1;
+                } else {
+                    dismissedCategories += '-' + category.replaceAll('-', ' ') + ' ';
+                }
+            }
+            if (nCategoryInPool < Object.keys(categoryFilterDict).length / 2) {
+                poolInfo = selectedCategories;
+            } else {
+                poolInfo = dismissedCategories;
+            }
+
             categoryCheckArray.forEach(categoryCheck => {
                 if (nCategoryInPool === 1 && categoryCheck.checked) {
                     categoryCheck.disabled = true;
@@ -305,10 +350,6 @@
                     const key = event.key;
 
                     if (/^[a-zA-Z]$/.test(key)) {
-                        if (isRevealed) {
-                            return;
-                        }
-
                         letterInput.innerText = key.toUpperCase();
                         letterInputs[Math.min(idx + 1, letterInputs.length - 1)].focus();
                         
@@ -375,13 +416,14 @@
 
             clearInterval(timerInterval);
 
-            minuteInput.disabled = false;
-            secondInput.disabled = false;
-
             setTime(speedrunTime);
 
-            randomClueButton.innerText = '随机clue';
+            minuteInput.disabled = false;
+            secondInput.disabled = false;
             revealButton.disabled = false;
+            updateCategoryFilter();
+            randomClueButton.style.display = 'block';
+            skipButton.style.display = 'none';
             toggleSpeedrunButton.innerText = '开始';
 
             let duration = speedrunTime - speedrunRemainingTime;
@@ -422,15 +464,41 @@
             clueHistoryContainer.scrollTop = clueHistoryContainer.scrollHeight; // 滚动到最底部
         });
 
+        skipButton.addEventListener('click', () => {
+            getRandomClue();
+
+            const progressBar = document.querySelector('.btn-progress .progress-bar');
+            const skipButtonText = document.getElementById('skipButtonText');
+            skipButtonText.innerText = '冷却中';
+            skipButton.disabled = true;
+            
+            let progress = 100;
+            progressBar.style.width = '100%';
+
+            const interval = setInterval(() => {
+                progress -= 10;
+                progressBar.style.width = progress + '%';
+
+                if (progress <=0) {
+                    clearInterval(interval);
+                    progressBar.style.width = '0%';
+                    skipButtonText.innerText = '跳过';
+                    skipButton.disabled = false;
+                }
+            }, 500);
+        })
+
         shareButton.addEventListener('click', () => {
             let shareText = '-- CRYPTIC RUSH --\n' + speedrunResultDisplay.innerText.replace('你', '我');
+            shareText += '\n' + poolInfo;
             if (speedrunFirstCorrectClue) {
                 shareText += `\n${speedrunFirstCorrectClue}`;
                 if (speedrunNCorrect > 1) {
                     shareText += '...'
                 }
             }
-            shareText += '\n' + speedrunFirst5Stats + '\nhttps://amwayy.github.io/puzzles/cryptic_rush';
+            shareText += '\n' + speedrunFirst5Stats;
+            shareText += '\nhttps://amwayy.github.io/puzzles/cryptic_rush';
 
             copyToClipboard(shareText);
             shareButton.innerText = '已复制';
@@ -512,9 +580,12 @@
 
                 minuteInput.disabled = true;
                 secondInput.disabled = true;
-
-                randomClueButton.innerText = '跳过';
                 revealButton.disabled = true;
+                for (let categoryCheck of categoryCheckArray) {
+                    categoryCheck.disabled = true;
+                }
+                randomClueButton.style.display = 'none';
+                skipButton.style.display = 'block';
                 toggleSpeedrunButton.innerText = '退出';
 
                 let minute = parseInt(minuteInput.value, 10);
@@ -529,7 +600,7 @@
                 speedrunNCorrect = 0;
                 speedrunFirstCorrectClue = '';
                 speedrunFirst5Stats = '';
-                speedrunInfo = `${minuteInput.value}:${secondInput.value}`;
+                speedrunInfo = `${minuteInput.value}:${secondInput.value}` + '\n' + poolInfo;
                 speedrunResultDisplay.innerHTML = '';
                 shareButton.style.display = 'none';
                 speedrunInfoButton.style.display = 'none';
@@ -634,6 +705,11 @@
             solutionDisplay.style.display = 'block';
             solutionDisplay.innerHTML = solution;
             isRevealed = true;
+
+            for (let letterInput of letterInputs) {
+                letterInput.setAttribute('contenteditable', false);
+                letterInput.removeAttribute('role');
+            }
             
             saveHistory();
         }
