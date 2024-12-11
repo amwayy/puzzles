@@ -315,7 +315,7 @@
             // console.log(ans);
             inputCellsInnerHTML = '';
             for (let i = 0; i < normalizedAns.replace(/[^a-zA-Z]/g, "").length; i++) {
-                inputCellsInnerHTML += `<div class="d-flex align-items-center justify-content-center border border-dark letter-input focus-ring" role="button" contenteditable="true" style="width: 1.8rem; height: 1.8rem; --bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);"></div>`;
+                inputCellsInnerHTML += `<div class="d-flex align-items-center justify-content-center border border-dark letter-input focus-ring" role="button" contenteditable="true" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="width: 1.8rem; height: 1.8rem; --bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25);"></div>`;
             }
             inputCells.innerHTML = inputCellsInnerHTML;
             initializeInput();

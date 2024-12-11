@@ -633,6 +633,10 @@
             solutionDisplay.innerHTML = solutions;
 
             extraInfoDisplay.style.display = 'block';
+
+            for (let letterInput of letterInputs) {
+                letterInput.removeAttribute('role');
+            }
         }
 
         submitButton.addEventListener('click', () => {

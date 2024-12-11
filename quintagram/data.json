@@ -1,4 +1,22 @@
 {   
+    "2122": {
+        "date": "2024年12月11日",
+        "clues": [
+            "Song from that chap on the radio (4)",
+            "Corruption in returning government far greater (5)",
+            "Suitable work on large computer (6)",
+            "Dog beside track is mine (8)",
+            "Spy cryptic clues for particles (9)"
+        ],
+        "answers": ["HYMN", "GRAFT", "LAPTOP", "COLLIERY", "MOLECULES"],
+        "solutions": [
+            "def: song; that chap = him; on the radio表示谐音",
+            "def: corruption; hidden word (governmenT FAR Greater, indicator: in); returning表示倒序",
+            "def: computer; suitable = apt; work = op (operation); large = l; A on B表示A跟在B后面",
+            "def: mine; dog = collie; track = ry (railway)",
+            "def: particles; spy = mole; \"clues\" anagram (indicator: cryptic)"
+        ]
+    },
     "2121": {
         "date": "2024年12月10日",
         "clues": [
@@ -11,7 +29,7 @@
         "answers": ["THE", "WHITE", "HOUSE", "PRESIDENT", "WASHINGTON"],
         "solutions": [
             "def: article; ambassador = he (his / her excellency); time = t; A on B表示A跟在B后面",
-            "cryptic definition (白酒/白棋)",
+            "cryptic definition (白葡萄酒/白棋)",
             "def: dwelling; work in garden = hoe; American = us; involves表示包含",
             "def: leader; here = present; papers = id; holding表示包含",
             "def: US city; \"saw nothing\" anagram (indicator: moving)"
