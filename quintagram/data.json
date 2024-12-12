@@ -1,4 +1,22 @@
 {   
+    "2123": {
+        "date": "2024年12月12日",
+        "clues": [
+            "Passing in Scotland, eat haggis (5)",
+            "Servant finally cuts duties (5)",
+            "What poor have and rich want for? (7)",
+            "Bananas in crate for sure (7)",
+            "The Saint in tizzy is hardly 4 (8)"
+        ],
+        "answers": ["DEATH", "TAXES", "NOTHING", "CERTAIN", "HESITANT"],
+        "solutions": [
+            "def: passing; hidden word (scotlanD EAT Haggis, indicator: in)",
+            "def: duties; servant finally = t (末字母); cuts = axes",
+            "cryptic definition",
+            "def: for sure; \"in crate\" anagram (indicator: bananas)",
+            "def: hardly 4 (certain); \"the saint\" anagram (indicator: tizzy)"
+        ]
+    },
     "2122": {
         "date": "2024年12月11日",
         "clues": [

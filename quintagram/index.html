@@ -9,6 +9,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        .focus-ring:focus,
+        .show-focus-ring {
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem var(--bs-focus-ring-color);
+            position: relative;
+            z-index: 9999;
+        }
+    </style>
 </head>
 
 <body class="bg-body-tertiary">
@@ -348,7 +358,7 @@
                     for (let k = 0; k < numbers.length; k++) {
                         let num = parseInt(numbers[k]);
                         for (let j = 0; j < num; j++) {
-                            wordInputInnerHTML += `<div class="d-flex align-items-center justify-content-center border border-dark letter-input" role="button" style="width: 1.8rem; height: 1.8rem;"></div>`;
+                            wordInputInnerHTML += `<div class="d-flex align-items-center justify-content-center border border-dark focus-ring letter-input" role="button" style="width: 1.8rem; height: 1.8rem; --bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)"></div>`;
                         }
                         if (k < numbers.length - 1) {
                             if (enumeration.charAt(sum + k + 1) == '-') {
@@ -372,6 +382,10 @@
             letterInputs = document.querySelectorAll('.letter-input');
             
             document.addEventListener('keydown', (event) => {
+                if (hasCompleted) {
+                    return;
+                }
+
                 startToggleButton.blur();
                 let key = event.key.toUpperCase();
                 // console.log(key);
@@ -387,11 +401,9 @@
                     }
                 }
                 if (remainingLetters.includes(key)) {
-                    focusingLetter.classList.remove('bg-danger-subtle');
-                    focusingLetter.classList.remove('bg-success-subtle');
                     focusingLetter.innerText = key;
                     FocusLetter(Math.min(focusingLetterIndex + 1, letterInputs.length - 1));
-                    UpdateInput();
+                    UpdateInput(focusingLetter);
                 } else if (key == 'ARROWRIGHT') {
                     event.preventDefault();
                     FocusLetter(Math.min(focusingLetterIndex + 1, letterInputs.length - 1));
@@ -399,11 +411,9 @@
                     event.preventDefault();
                     FocusLetter(Math.max(focusingLetterIndex - 1, 0));
                 } else if (key == 'BACKSPACE') {
-                    focusingLetter.classList.remove('bg-danger-subtle');
-                    focusingLetter.classList.remove('bg-success-subtle');
                     focusingLetter.innerText = '';
                     FocusLetter(Math.max(focusingLetterIndex - 1, 0));
-                    UpdateInput();
+                    UpdateInput(focusingLetter);
                 } else if (key == 'HOME') {
                     event.preventDefault();
                     FocusLetter(start);
@@ -430,7 +440,12 @@
             document.dispatchEvent(event);
         }
 
-        function UpdateInput() {
+        function UpdateInput(focusLetterInput=null) {
+            if (focusLetterInput) {
+                focusLetterInput.classList.remove('bg-danger-subtle');
+                focusLetterInput.classList.remove('bg-success-subtle');
+            }
+
             let start = 0;
             lengthArray.forEach((length, index) => {
                 let word = '';
@@ -456,9 +471,9 @@
                     if (hasCompleted) {
                         return;
                     }
-                    if (input.classList.contains('bg-dark-subtle')) {
+                    if (input.classList.contains('show-focus-ring')) {
                         input.innerText = '';
-                        UpdateInput();
+                        UpdateInput(input);
                     }
                     FocusLetter(index);
                 });
@@ -482,9 +497,9 @@
                 letterInput.scrollIntoView({ behavior: 'smooth', block: 'end' });
             }
             letterInputs.forEach(letterInput => {
-                letterInput.classList.remove('bg-dark-subtle');
+                letterInput.classList.remove('show-focus-ring');
             });
-            letterInput.classList.add('bg-dark-subtle');
+            letterInput.classList.add('show-focus-ring');
         }
 
         function InitializeJump(data) {
@@ -587,7 +602,7 @@
                 let letterInputs = Array.from(wordInput.querySelectorAll('.letter-input'));
                 let isCorrect = true;
                 letterInputs.forEach((letterInput, idx) => {
-                    letterInput.classList.remove('bg-dark-subtle');
+                    // letterInput.classList.remove('bg-dark-subtle');
                     if (letterInput.innerText != ans[idx]) {
                         isComplete = false;
                         isCorrect = false;
@@ -619,6 +634,7 @@
             const completeInfo = document.getElementById('completeInfo');
             const solutionDisplay = document.getElementById('solution');
             additionalInteraction.style.display = 'none';
+            letterInputs[focusingLetterIndex].classList.remove('show-focus-ring');
             if (isReveal) {
                 completeInfo.innerText = '';
             } else {
