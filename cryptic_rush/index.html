@@ -39,8 +39,6 @@
     <div class="container col-10 col-md-8 col-lg-8">
         <div class="mt-5"></div>
 
-        <!-- <div class="d-flex justify-content-center fs-3 mb-5 fw-bold">TIMES 2024</div> -->
-
         <div class="d-flex justify-content-center mb-2" id="clue">加载中，请稍候...</div>
         <!-- <div class="d-flex justify-content-end mb-4 text-secondary fs-6" id="source">加载中...</div> -->
 
@@ -156,13 +154,14 @@
         let accumulativeProbDict = {};
         let categoryCheckArray;
         let poolInfo = '全分类';
+        let isLoaded = false;
 
         let buttons = document.querySelectorAll('.btn');
         for (let button of buttons) {
             button.disabled = true;
         }
 
-        fetch('./categorized_clues.json')
+        fetch('./teaser.json')
         .then(response => {
             if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -170,6 +169,10 @@
             return response.json();
         })
         .then(data => {
+            if (clueDict.length > 0) {
+                return;
+            }
+
             clueDict = data;
             for (let category in clueDict) {
                 categoryLenDict[category] = clueDict[category].length;
@@ -187,7 +190,35 @@
             console.error('There was a problem with the fetch operation:', error);
         });
 
+        fetch('./categorized_clues.json')
+        .then(response => {
+            if (!response.ok) {
+            throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            isLoaded = true;
+
+            clueDict = data;
+            for (let category in clueDict) {
+                categoryLenDict[category] = clueDict[category].length;
+            }
+            // initializePool();
+            initializeCategoryFilterDisplay();
+            updateAccumulativeProb();
+            // getRandomClue();
+
+            // for (let button of buttons) {
+            //     button.disabled = false;
+            // }
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+
         function initializePool() {
+            // 确定池内有哪些分类
             for (let category in clueDict) {
                 categoryFilterDict[category] = true;
             }
@@ -202,13 +233,20 @@
         }
 
         function initializeCategoryFilterDisplay() {
+            if (isLoaded) {
+                for (let category in categoryFilterDict) {
+                    document.getElementById(category.replaceAll('-', '') + 'ClueAmount').innerText = '(' + categoryLenDict[category] + ')';
+                }
+                return;
+            }
+
             for (let category in categoryFilterDict) {
-                let checkId = category.replace('-', '') + 'Check';
+                let checkId = category.replaceAll('-', '') + 'Check';
                 categoryFilterDisplay.innerHTML += `
                     <li class="list-group-item form-check">
                         <input class="form-check-input bg-dark focus-ring border border-light" type="checkbox" value="" id="${checkId}" ${categoryFilterDict[category]?'checked':''} category="${category}" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)">
                         <label class="form-check-label" for="${checkId}">
-                            ${category.replaceAll('-', ' ')} <span class="text-secondary">(${categoryLenDict[category]})</span>
+                            ${category.replaceAll('-', ' ')} <span class="text-secondary" id=${category.replaceAll('-', '')}ClueAmount></span>
                         </label>
                     </li>
                 `

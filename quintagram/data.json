@@ -1,4 +1,22 @@
 {   
+    "2124": {
+        "date": "2024年12月13日",
+        "clues": [
+            "Perhaps Chanel's business doubled (4)",
+            "Crow in thoroughfare following snake (5)",
+            "Heavenly French wine drunk by admirer regularly (6)",
+            "After fling, the French laugh (7)",
+            "Honest, favouring most of the Conservatives (10)"
+        ],
+        "answers": ["COCO", "BOAST", "DIVINE", "CHUCKLE", "FORTHRIGHT"],
+        "solutions": [
+            "def: perhaps Chanel (Chanel的创始人叫Coco Chanel); business = co (company); doubled表示重复",
+            "def: crow; thoroughfare = st (street); snake = boa",
+            "def: heavenly; French wine = vin (法语); admirer regularly = die (隔位取字母); drunk by表示包含",
+            "def: laugh; fling = chuck; the French = le (法语)",
+            "def: honest; favouring = for; most of the = th; Conservatives = right (右翼)"
+        ]
+    },
     "2123": {
         "date": "2024年12月12日",
         "clues": [
