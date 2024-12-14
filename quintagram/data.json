@@ -1,4 +1,22 @@
 {   
+    "2125": {
+        "date": "2024年12月14日",
+        "clues": [
+            "Touched soft fabric (4)",
+            "Flat British terrain (5)",
+            "Making a mistake removing head from fish (6)",
+            "Ragtime dancing move (7)",
+            "Pets to turn and run --- up this? (10)"
+        ],
+        "answers": ["FELT", "BLAND", "ERRING", "MIGRATE", "STEPLADDER"],
+        "solutions": [
+            "double definition (touched / soft fabric)",
+            "def: flat; British = b; terrain = land",
+            "def: making a mistake; fish = herring; removing head from表示去除首字母",
+            "def: move; \"ragtime\" anagram (indicator: dancing)",
+            "def: up this; pets倒序(indicator: turn); run = ladder (织物脱线)"
+        ]
+    },
     "2124": {
         "date": "2024年12月13日",
         "clues": [
