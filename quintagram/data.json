@@ -1,4 +1,22 @@
 {   
+    "2126": {
+        "date": "2024年12月16日",
+        "clues": [
+            "Support return of setter? (3)",
+            "A season with Italian team (6)",
+            "Trapped in royal household one might say (6)",
+            "Lampeter unexpectedly producing tropical growth (4,4)",
+            "Police officer who painted (9)"
+        ],
+        "answers": ["LEG", "WINTER", "CAUGHT", "PALMTREE", "CONSTABLE"],
+        "solutions": [
+            "def: support; setter = gel; return表示倒序",
+            "def: season; with = w; Italian team = inter (Inter Milan)",
+            "def: trapped; royal household = court; one might say表示谐音",
+            "def: tropical growth; \"lampeter\" anagram (indicator: unexpectedly)",
+            "double definition (police officer / who painted (John Constable))"
+        ]
+    },
     "2125": {
         "date": "2024年12月14日",
         "clues": [
