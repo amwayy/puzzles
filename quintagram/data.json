@@ -1,4 +1,22 @@
 {   
+    "2127": {
+        "date": "2024年12月17日",
+        "clues": [
+            "Hotel in Aspen, say, for this many musketeers? (5)",
+            "Small flat for this many samurai? (5)",
+            "Some in Buckleigh tracking this many immortals? (5)",
+            "Mathematically able to work out true mean (8)",
+            "Cook seen with elves in break (9)"
+        ],
+        "answers": ["THREE", "SEVEN", "EIGHT", "NUMERATE", "ELEVENSES"],
+        "solutions": [
+            "def: this many musketeers (三个火枪手, 大仲马小说); hotel = h (NATO字母表); aspen, say = tree",
+            "def: this many samurai (七武士, 黑泽明电影); small = s; flat = even",
+            "def: this many immortals (八仙过海); hidden word (bucklEIGH Tracking, indicator: some in)",
+            "def: mathematically able; \"true mean\" anagram (indicator: work out)",
+            "def: break; \"seen elves\" anagram (indicator: cook)"
+        ]
+    },
     "2126": {
         "date": "2024年12月16日",
         "clues": [
