@@ -1,4 +1,22 @@
 {   
+    "2128": {
+        "date": "2024年12月18日",
+        "clues": [
+            "The setter's entertained by the setter's show of silence (4)",
+            "Perhaps a bunch of sultanas are consumed by his majesty (5)",
+            "At first, girl guide is a very effusive person (6)",
+            "Clergymen right to separate parent and some children (7)",
+            "Feller from Washington in court,say (10)"
+        ],
+        "answers": ["MIME", "HAREM", "GUSHER", "PARSONS", "WOODCUTTER"],
+        "solutions": [
+            "def: show of silence; 第1个setter = me (出题人); 第2个setter's = i'm; entertained表示包含",
+            "def: perhaps a bunch of sultanas; are原封不动; his majesty = hm; consumed表示包含",
+            "def: very effusive person; at first girl = g (首字母); guide = usher",
+            "def: clergymen; right = r; parent = pa (father); some children = sons; separate表示包含",
+            "def: feller; washington = dc; court = woo; say = utter; in表示包含"
+        ]
+    },
     "2127": {
         "date": "2024年12月17日",
         "clues": [
