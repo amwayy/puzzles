@@ -1,4 +1,22 @@
 {   
+    "2129": {
+        "date": "2024年12月19日",
+        "clues": [
+            "Damp wheat regularly chopped (3)",
+            "Agent with tune to fix (6)",
+            "Problem in metal works (7)",
+            "Spoil container with iodine cocktail (7)",
+            "To take apart medal isn't wrong (9)"
+        ],
+        "answers": ["WET", "REPAIR", "AILMENT", "MARTINI", "DISMANTLE"],
+        "solutions": [
+            "def: damp; 隔位取\"wheat\"中的字母(indicator: regularly chopped)",
+            "def: fix; agent = rep; tune = air",
+            "def: problem; \"in metal\" anagram (indicator: works)",
+            "def: cocktail; spoil = mar; container = tin; iodine = i",
+            "def: take apart; \"medal isn't\" anagram (indicator: wrong)"
+        ]
+    },
     "2128": {
         "date": "2024年12月18日",
         "clues": [
