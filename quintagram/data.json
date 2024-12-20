@@ -1,4 +1,22 @@
 {   
+    "2130": {
+        "date": "2024年12月20日",
+        "clues": [
+            "Bust a shop containing an amount of drugs? (5)",
+            "Hard weaponry does damage (5)",
+            "Site featuring a magnificent residence (6)",
+            "Endless money in old gambling hall (6)",
+            "Puppet, or a different ornate item? (10)"
+        ],
+        "answers": ["STASH", "HARMS", "PALACE", "CASINO", "MARIONETTE"],
+        "solutions": [
+            "def: an amount of drugs; hidden word (buST A SHop, indicator: containing)",
+            "def: does damage; hard = h; weaponry = arms",
+            "def: magnificent residence; site = place; a原封不动; featuring表示包含",
+            "def: gambling hall; money = cash; endless表示截断; in原封不动; old = o",
+            "def: puppet; \"ornate item\" anagram (indicator: different)"
+        ]
+    },
     "2129": {
         "date": "2024年12月19日",
         "clues": [
