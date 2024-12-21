@@ -1,4 +1,22 @@
 {   
+    "2131": {
+        "date": "2024年12月21日",
+        "clues": [
+            "Barker ripping side from meat (4)",
+            "Also devouring ton is famed 1 (4)",
+            "Good king to exclude famed 1 (6)",
+            "He in mess with bone: vet needed for famed 1 (9)",
+            "Clue for Cockney's famed 1 (6-3)"
+        ],
+        "answers": ["MUTT", "TOTO", "GROMIT", "BEETHOVEN", "SCOOBYDOO"],
+        "solutions": [
+            "def: barker; meat = mutton; side = on (板球); ripping表示删除",
+            "def: famed 1 (barker); also = too; ton = t; devouring表示包含",
+            "def: famed 1 (barker); good = g; king = r (rex); exclude = omit",
+            "def: famed 1 (barker); \"he bone vet\" anagram (indicator: in mess)",
+            "double definition (clue for cockney (cockney rhyming slang) / famed 1 (barker))"
+        ]
+    },
     "2130": {
         "date": "2024年12月20日",
         "clues": [
