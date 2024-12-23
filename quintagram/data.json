@@ -1,4 +1,22 @@
 {   
+    "2132": {
+        "date": "2024年12月23日",
+        "clues": [
+            "Kennedy, for one, caught in flagrante delicto (3)",
+            "Nobleman unable to produce an heir, they say (5)",
+            "Mistreating a bishop on drugs? (7)",
+            "Top town in Wales (8)",
+            "Adapt to realist philosopher (9)"
+        ],
+        "answers": ["TED", "BARON", "ABUSING", "CARDIGAN", "ARISTOTLE"],
+        "solutions": [
+            "def: kennedy, for one; hidden word (flagranTE Delicto; indicator: caught in)",
+            "def: nobleman; unable to produce an heir = barren; they say表示谐音",
+            "def: mistreating; a原封不动; bishop = b; on drugs = using",
+            "double definition (top / town in wales)",
+            "def: philosopher; \"to realist\" anagram (indicator: adapt)"
+        ]
+    },
     "2131": {
         "date": "2024年12月21日",
         "clues": [
