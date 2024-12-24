@@ -1,4 +1,22 @@
 {   
+    "2133": {
+        "date": "2024年12月24日",
+        "clues": [
+            "Warmer in Skegness unusually (3)",
+            "Low point for our satellite? (4)",
+            "Chief of staff meeting doctors for literally everything! (6)",
+            "Backward velocity and progress in distant region (4,5)",
+            "Secret affair an elusive universal presence (4,6)"
+        ],
+        "answers": ["SUN", "MOON", "COSMOS", "DEEPSPACE", "DARKMATTER"],
+        "solutions": [
+            "def: warmer; hidden word (skegnesS UNusually; indicator: in)",
+            "def: our satellite; low = moo; point = n (compass point)",
+            "def: literally everything; chief of staff = cos; doctors = mos (medical officers)",
+            "def: distant range; velocity = speed; backward表示倒序; progress = pace",
+            "def: an elusive universal presence; secret = dark; affair = matter"
+        ]
+    },
     "2132": {
         "date": "2024年12月23日",
         "clues": [
