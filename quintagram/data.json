@@ -1,4 +1,22 @@
 {   
+    "2134": {
+        "date": "2024年12月25日",
+        "clues": [
+            "Prime minister's suggestion turned back time (4)",
+            "Country suppressing king's injury (6)",
+            "Bag chalets after a struggle (7)",
+            "Member meets friend legitimately (7)",
+            "Loses car after playing sport (8)"
+        ],
+        "answers": ["PITT", "SPRAIN", "SATCHEL", "LEGALLY", "LACROSSE"],
+        "solutions": [
+            "def: prime minister; suggestion = tip; turned back表示倒序; time = t",
+            "def: injury; country = spain; king = r (rex); suppressing表示包含",
+            "def: bag; \"chalets\" anagram (indicator: after a struggle)",
+            "def: legitimately; member = leg; friend = ally",
+            "def: sport; \"loses car\" anagram (indicator: after playing)"
+        ]
+    },
     "2133": {
         "date": "2024年12月24日",
         "clues": [
