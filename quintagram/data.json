@@ -1,4 +1,22 @@
 {   
+    "2135": {
+        "date": "2024年12月26日",
+        "clues": [
+            "Important wharf, reportedly (3)",
+            "Graze is tender at first, and it hurts! (5)",
+            "Piece of paper used for scan (6)",
+            "Become aware of new Bowie set (2,4,2)",
+            "Submission from cold, corrupt policeman (10)"
+        ],
+        "answers": ["KEY", "TOUCH", "PERUSE", "BEWISETO", "COMPLIANCE"],
+        "solutions": [
+            "def: important; wharf = quay; reportedly表示谐音",
+            "def: graze; tender at first = t (首字母); it hurts = ouch",
+            "def: scan; hidden word (paPER USEd, indicator: piece of)",
+            "def: become aware of; \"bowie set\" anagram (indicator: new)",
+            "def: submission; cold = c; \"policeman\" anagram (indicator: corrupt)"
+        ]
+    },
     "2134": {
         "date": "2024年12月25日",
         "clues": [
