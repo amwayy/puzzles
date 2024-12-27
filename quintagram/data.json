@@ -1,4 +1,22 @@
 {   
+    "2136": {
+        "date": "2024年12月27日",
+        "clues": [
+            "Good first point (4)",
+            "Topic in article by this writer (5)",
+            "Strand in red hat loosened (6)",
+            "Bickering agent drunk with rum (8)",
+            "Recurring idea: the French reason endlessly about it (9)"
+        ],
+        "answers": ["GIST", "THEME", "THREAD", "ARGUMENT", "LEITMOTIV"],
+        "solutions": [
+            "def: point; good = g; first = ist (1st)",
+            "def: topic; article = the; this writer = me",
+            "def: strand; \"red hat\" anagram (indicator: loosened)",
+            "def: bickering; \"agent rum\" anagram (indicator: drunk)",
+            "def: recurring idea; the French = le; reason = motive; endlessly表示截断; about表示包含; it原封不动"
+        ]
+    },
     "2135": {
         "date": "2024年12月26日",
         "clues": [
