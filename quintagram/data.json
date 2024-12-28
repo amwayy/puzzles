@@ -1,4 +1,22 @@
 {   
+    "2137": {
+        "date": "2024年12月28日",
+        "clues": [
+            "Piano expert showing tempo (4)",
+            "The French taken in by tax man (5)",
+            "Hot stuff is cold, by the sound of it (6)",
+            "Notable problem in entering houses (7)",
+            "Considered case of detainee getting free (10)"
+        ],
+        "answers": ["PACE", "VALET", "CHILLI", "EMINENT", "DELIBERATE"],
+        "solutions": [
+            "def: tempo; piano = p; expert = ace",
+            "def: man; the French = le (法语); tax = vat (value added tax); taken in by表示包含",
+            "def: hot stuff; cold = chilly; by the sound of it表示谐音",
+            "def: notable; hidden word (problEM IN ENTering, indicator: houses)",
+            "def: considered; case of detainee = de (首尾字母); free = liberate"
+        ]
+    },
     "2136": {
         "date": "2024年12月27日",
         "clues": [
