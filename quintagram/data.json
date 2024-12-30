@@ -1,4 +1,22 @@
 {   
+    "2138": {
+        "date": "2024年12月30日",
+        "clues": [
+            "Receding hair displayed by Englishman (3)",
+            "A Donald to avoid? (4)",
+            "Someone in punt, say, catching large fish (7)",
+            "Islands where ambassador meets newlyweds (8)",
+            "Artist in on revolutionary change (10)"
+        ],
+        "answers": ["POM", "DUCK", "BLOATER", "HEBRIDES", "TRANSITION"],
+        "solutions": [
+            "def: englishman; hair = mop; receding表示倒序",
+            "double definition (donald (唐老鸭) / avoid)",
+            "def: fish; someone in punt, say = boater; large = l; catching表示包含",
+            "def: islands; ambassador = he (his / her excellency); newlyweds = brides",
+            "def: change; \"artist in on\" anagram (indicator: revolutionary)"
+        ]
+    },
     "2137": {
         "date": "2024年12月28日",
         "clues": [
