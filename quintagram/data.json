@@ -1,4 +1,22 @@
 {   
+    "2139": {
+        "date": "2024年12月31日",
+        "clues": [
+            "Goddess at home having abandoned US state (5)",
+            "Goddess among seven usherettes (5)",
+            "Underground toiler opposing a goddess (7)",
+            "Returning writer with song finds god (7)",
+            "Poirot's a demigod (8)"
+        ],
+        "answers": ["DIANA", "VENUS", "MINERVA", "NEPTUNE", "HERCULES"],
+        "solutions": [
+            "def: goddess; at home = in; us state = indiana; abandoned表示删除",
+            "def: goddess; hidden word (seVEN USherettes, indicator: among)",
+            "def: goddess; underground toiler = miner; opposing = v (versus); a原封不动",
+            "def: god; writer = pen; returning表示倒序; song = tune",
+            "def: demigod; poirot = hercule; s原封不动"
+        ]
+    },
     "2138": {
         "date": "2024年12月30日",
         "clues": [
