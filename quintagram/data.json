@@ -1,4 +1,22 @@
 {   
+    "2140": {
+        "date": "2025年1月1日",
+        "clues": [
+            "Small portion of cream, initially (4)",
+            "Record, first from Oasis, in dance venue (5)",
+            "Recent fashion followed by a lot of sailors (6)",
+            "Get hold of remedy, drinking a pint (7)",
+            "Weatherman maybe warning actors about heading west (10)"
+        ],
+        "answers": ["MINI", "DISCO", "MODERN", "CAPTURE", "FORECASTER"],
+        "solutions": [
+            "def: small; hidden word (creaM INItially, indicator: portion of)",
+            "def: dance venue; record = disc; first from oasis = o (首字母)",
+            "def: recent; fashion = mode; a lot of sailors = rn (Royal Navy)",
+            "def: get hold of; remedy = cure; a原封不动; pint = pt; drinking表示包含",
+            "def: weatherman maybe; warning = fore; actors = cast; about = re; heading west表示倒序"
+        ]
+    },
     "2139": {
         "date": "2024年12月31日",
         "clues": [
