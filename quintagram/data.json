@@ -1,4 +1,22 @@
 {   
+    "2141": {
+        "date": "2025年1月2日",
+        "clues": [
+            "Every now and then, we're right, and that is weird (5)",
+            "Decide to pay up (6)",
+            "Fine coffee drink, primarily nice and smooth (7)",
+            "Catastrophe ultimately ruined a celeb, possibly (7)",
+            "Left consumed by unhappiness, as Scrooge was (7)"
+        ],
+        "answers": ["EERIE", "SETTLE", "FLATTEN", "DEBACLE", "MISERLY"],
+        "solutions": [
+            "def: weird; 隔位取\"we're\"字母(indicator: every now and then); right = r; that is = ie",
+            "double definition (decide / pay up)",
+            "def: smooth; fine = f; coffee drink = latte; primarily nice = n (首字母)",
+            "def: catastrophe; ultimately ruined = d (末字母); \"a celeb\" anagram (indicator: possibly)",
+            "def: as Scrooge was; left = l; unhappiness = misery; consumed by表示包含"
+        ]
+    },
     "2140": {
         "date": "2025年1月1日",
         "clues": [
