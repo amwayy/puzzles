@@ -1,4 +1,22 @@
 {   
+    "2142": {
+        "date": "2025年1月3日",
+        "clues": [
+            "Blueprint of factory incomplete (4)",
+            "Unimpressed with lake inside headquarters (5)",
+            "Baseball player's jug (7)",
+            "Jumper with tears we fixed (7)",
+            "End of joke featuring queue for drink? (9)"
+        ],
+        "answers": ["PLAN", "BLASE", "PITCHER", "SWEATER", "PUNCHLINE"],
+        "solutions": [
+            "def: blueprint; factory = plant; incomplete表示截断",
+            "def: unimpressed; lake = l; headquarters = base; inside表示包含",
+            "double definition (baseball player / jug)",
+            "def: jumper; \"tears we\" anagram (indicator: fixed)",
+            "double definition (end of joke / queue (line) for drink (punch))"
+        ]
+    },
     "2141": {
         "date": "2025年1月2日",
         "clues": [
