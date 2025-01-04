@@ -1,4 +1,22 @@
 {   
+    "2143": {
+        "date": "2025年1月4日",
+        "clues": [
+            "Funeral party in boat-trailer? (4)",
+            "Writer in rapture brought to church (5)",
+            "Greek hero strangely sly in habits (7)",
+            "Mistake that's made by baker? (7)",
+            "Blunder is corrected for some Irish citizens (9)"
+        ],
+        "answers": ["WAKE", "JOYCE", "ULYSSES", "BLOOMER", "DUBLINERS"],
+        "solutions": [
+            "double definition (funeral party / boat-trailer)",
+            "def: writer; rapture = joy; church = ce (Church of England)",
+            "def: Greek hero; \"sly\" anagram (indicator: strangely); habits = uses; in表示包含",
+            "double definition (mistake / that's made by baker)",
+            "def: some Irish citizens; \"blunder is\" anagram (indicator: corrected)"
+        ]
+    },
     "2142": {
         "date": "2025年1月3日",
         "clues": [
