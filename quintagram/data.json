@@ -1,4 +1,22 @@
 {   
+    "2144": {
+        "date": "2025年1月6日",
+        "clues": [
+            "Dash back for metal fastener (3)",
+            "Spoils a musical instrument, you say? (4)",
+            "Son not doing too well on yacht? (7)",
+            "Speed of communication (8)",
+            "US botanist possibly beginning journey here? (3,7)"
+        ],
+        "answers": ["PIN", "LOOT", "SAILING", "DISPATCH", "BUSSTATION"],
+        "solutions": [
+            "def: metal fastener; dash = nip; back表示倒序",
+            "def: spoils; musical instrument = lute; you say表示谐音",
+            "def: on yacht; son = s; not doing too well = ailing",
+            "double definition (speed / communication)",
+            "def: beginning journey here; \"us botanist\" anagram (indicator: possibly)"
+        ]
+    },
     "2143": {
         "date": "2025年1月4日",
         "clues": [
