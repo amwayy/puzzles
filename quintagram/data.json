@@ -1,4 +1,22 @@
 {   
+    "2145": {
+        "date": "2025年1月7日",
+        "clues": [
+            "Angst-ridden about hiding scandalous gossip (4)",
+            "Car from European country (6)",
+            "Assistant in a depression, yet working (7)",
+            "Remove corruption and make lots of money (5,2)",
+            "Gets to carry rum round Central American country (8)"
+        ],
+        "answers": ["DIRT", "ESTATE", "ACOLYTE", "CLEANUP", "HONDURAS"],
+        "solutions": [
+            "def: scandalous gossip; hidden word (angsT RIDden, indicator: hiding); about表示倒序",
+            "def: car; european = e; country = state",
+            "def: assistant; a原封不动; depression = col; \"yet\" anagram (indicator: working)",
+            "double definition (remove corruption / make lots of money)",
+            "def: Central American country; gets = has; \"round\" anagram (indicator: rum); carry表示包含"
+        ]
+    },
     "2144": {
         "date": "2025年1月6日",
         "clues": [
