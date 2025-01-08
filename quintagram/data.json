@@ -1,4 +1,22 @@
 {   
+    "2146": {
+        "date": "2025年1月8日",
+        "clues": [
+            "Give up almost entirely (4)",
+            "Encourages unruly surge (5)",
+            "Really popular act (6)",
+            "Chewed part of pen leaked (7)",
+            "Note the Parisian manages contracts (10)"
+        ],
+        "answers": ["QUIT", "URGES", "INDEED", "NIBBLED", "TELESCOPES"],
+        "solutions": [
+            "def: give up; entirely = quite; almost表示截断",
+            "def: encourages; \"surge\" anagram (indicator: unruly)",
+            "def: really; popular = in; act = deed",
+            "def: chewed; part of pen = nib; leaked = bled",
+            "def: contracts; note = te (musical note); the Parisian = les (法语); manages = copes"
+        ]
+    },
     "2145": {
         "date": "2025年1月7日",
         "clues": [

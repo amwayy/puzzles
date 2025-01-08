@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>3Fall</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        .hw {
+          color: #4A6C9B;
+          font-size: x-large;
+        }
+        .pos {
+            color: #800000;
+        }
+        .etym {
+            font-size: small;
+        }
+        .et {
+            color: #0B590B;
+        }
+        .ctx {
+            color: #250080;
+        }
+        .GRA {
+            font-style: italic;
+        }
+        .mwe {
+            color: #4A6C9B;
+            font-weight: bold;
+        }
+        .inf {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="bg-body-tertiary">
+
+    <div class="container col-10 col-md-6 col-lg-5">
+        <div class="mt-5"></div>
+
+        <div id="clues" class="text-center mb-5">loading...</div>
+
+        <div class="input-group mb-5">
+            <input class="form-control focus-ring border border-dark text-center" id="ansInput" style="--bs-focus-ring-color: rgba(var(--bs-dark-rgb), .25)" disabled>
+        </div>
+
+        <div class="text-center mb-3">
+            <button class="btn btn-dark me-3" id="newPuzzleButton">再来一题</button>
+            <button class="btn btn-dark" id="submitButton">提交</button>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-light border-dark me-3" id="revealLengthButton">揭露长度</button>
+            <button class="btn btn-light border-dark me-3" id="revealLetterButton">揭露字母</button>
+            <button class="btn btn-light border-dark" id="revealButton">揭露答案</button>
+        </div>
+
+        <div class="mb-5"></div>
+    </div>
+
+    <script>
+        const clueDisplay = document.getElementById('clues');
+        const ansInput = document.getElementById('ansInput');
+        const submitButton = document.getElementById('submitButton');
+        const revealButton = document.getElementById('revealButton');
+        const revealLengthButton = document.getElementById('revealLengthButton');
+        const revealLetterButton = document.getElementById('revealLetterButton');
+        const newPuzzleButton = document.getElementById('newPuzzleButton');
+
+        let candidateComponents = [];
+        let wordMatchDict = {};
+        let wordPairDict = {};
+        let puzzlePairs = {};
+        let answer = '';
+        let revealedPart = '';
+
+        revealLetterButton.addEventListener('click', () => {
+            revealedPart += answer[revealedPart.length];
+            ansInput.value = revealedPart;
+            ansInput.classList.remove('is-invalid');
+            if (revealedPart == answer) {
+                revealLetterButton.disabled = true;
+                revealAnswer();
+            }
+        })
+
+        revealLengthButton.addEventListener('click', () => {
+            revealLengthButton.innerText = '长度：' + answer.length;
+            revealLengthButton.disabled = true;
+        })
+
+        newPuzzleButton.addEventListener('click', () => {
+            getRandomPuzzle();
+
+            ansInput.disabled = false;
+            revealButton.disabled = false;
+            submitButton.disabled = false;
+            revealLengthButton.disabled = false;
+            revealLetterButton.disabled = false;
+            revealLengthButton.innerText = '揭露长度';
+            revealedPart = '';
+            ansInput.value = '';
+            ansInput.classList.remove('is-valid');
+            ansInput.classList.remove('is-invalid');
+        })
+
+        function revealAnswer() {
+            for (let clue of clueDisplay.children) {
+                let clueText = clue.innerText;
+                clue.innerText = puzzlePairs[clueText];
+            }
+
+            ansInput.value = answer;
+            ansInput.disabled = true;
+            revealButton.disabled = true;
+            submitButton.disabled = true;
+            revealLengthButton.disabled = true;
+            revealLetterButton.disabled = true;
+            ansInput.classList.remove('is-invalid');
+        }
+
+        revealButton.addEventListener('click', () => {
+            revealAnswer();
+        })
+
+        submitButton.addEventListener('click', () => {
+            let input = ansInput.value.replace(/[^a-zA-Z]/g, '').toUpperCase();
+            if (input == answer) {
+                revealAnswer();
+                ansInput.classList.add('is-valid');
+                ansInput.classList.remove('is-invalid');
+            } else {
+                ansInput.classList.add('is-invalid');
+                ansInput.classList.remove('is-valid');
+            }
+        })
+
+        ansInput.addEventListener('input', () => {
+            let modifiedInput = ansInput.value.toUpperCase();
+            if (modifiedInput.length < revealedPart.length) {
+                modifiedInput = revealedPart;
+            } else {
+                for (let i = 0; i < revealedPart.length; i++) {
+                    if (modifiedInput[i] != revealedPart[i]) {
+                        modifiedInput = modifiedInput.slice(0, i) + revealedPart[i] + modifiedInput.slice(i);
+                    }
+                }
+            }
+            ansInput.value = modifiedInput;
+            ansInput.classList.remove('is-valid');
+            ansInput.classList.remove('is-invalid');
+        })
+
+        ansInput.addEventListener('keydown', (event) => {
+            if (event.key == 'Enter') {
+                event.preventDefault();
+                submitButton.click();
+            }
+        })
+
+        function getRandomElement(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+
+        function initializeData() {
+            for (const wordPair in wordPairDict) {
+                const [left, right] = wordPairDict[wordPair];
+
+                if (!wordMatchDict[left]) wordMatchDict[left] = [];
+                if (!wordMatchDict[right]) wordMatchDict[right] = [];
+
+                if (!wordMatchDict[left].includes(right)) {
+                    wordMatchDict[left].push(right);
+                }
+                if (!wordMatchDict[right].includes(left)) {
+                    wordMatchDict[right].push(left);
+                }
+            }
+
+            // 构建 candidateComponents
+            for (const word in wordMatchDict) {
+                if (wordMatchDict[word].length >= 3) {
+                    candidateComponents.push(word);
+                }
+            }
+        }
+
+        function getWordPair(component1, component2, pairDict) {
+            for (const wordPair in pairDict) {
+                const components = pairDict[wordPair];
+                if (
+                    components.sort().join(',') === [component1, component2].sort().join(',')
+                ) {
+                    return wordPair;
+                }
+            }
+            return null;
+        }
+
+        function getRandomPuzzle() {
+            while (true) {
+                const ans = getRandomElement(candidateComponents);
+                const matches = wordMatchDict[ans];
+                const givenMatches = [];
+
+                // 随机选取 3 个不重复的元素
+                while (givenMatches.length < 3) {
+                    const match = getRandomElement(matches);
+                    if (!givenMatches.includes(match)) {
+                        givenMatches.push(match);
+                    }
+                }
+
+                // 交集检查
+                const intersection = wordMatchDict[givenMatches[0]]
+                    .filter(value => wordMatchDict[givenMatches[1]].includes(value))
+                    .filter(value => wordMatchDict[givenMatches[2]].includes(value));
+
+                if (intersection.length > 1) continue;
+
+                answer = ans.toUpperCase();
+                let clueDisplayHTML = '';
+                for (let givenMatch of givenMatches) {
+                    puzzlePairs[givenMatch.toUpperCase()] = getWordPair(givenMatch, ans, wordPairDict).toUpperCase();
+                    clueDisplayHTML += `<div class="fs-5">${givenMatch.toUpperCase()}</div>`;
+                }
+                clueDisplay.innerHTML = clueDisplayHTML;
+                break;
+            }
+        }
+
+        fetch('word_pairs.json')
+        .then(response => response.json())
+        .then(data => {
+            wordPairDict = data;
+            initializeData();
+            getRandomPuzzle();
+            ansInput.removeAttribute('disabled');
+        })
+        .catch(error => console.error('Error loading word_pairs.json:', error));
+    </script>
+</body>
+</html>
