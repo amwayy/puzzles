@@ -1,4 +1,22 @@
 {   
+    "2147": {
+        "date": "2025年1月9日",
+        "clues": [
+            "Asian match in commentary? (4)",
+            "Smart police operation (5)",
+            "Run, jumping over nine fences (6)",
+            "Dark horse circling vehicle (7)",
+            "Expert professional with political power in shabby trench coat (10)"
+        ],
+        "answers": ["THAI", "STING", "GOVERN", "MACABRE", "TECHNOCRAT"],
+        "solutions": [
+            "def: Asian; match = tie; in commentary表示谐音",
+            "double definition (smart / police operation)",
+            "def: run; hidden word (jumpinG OVER Nine, indicator: fences)",
+            "def: dark; horse = mare; vehicle = cab; circling表示包含",
+            "def: expert professional with political power; \"trench coat\" anagram (indicator: shabby)"
+        ]
+    },
     "2146": {
         "date": "2025年1月8日",
         "clues": [
