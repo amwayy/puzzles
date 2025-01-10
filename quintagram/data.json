@@ -1,4 +1,22 @@
 {   
+    "2148": {
+        "date": "2025年1月10日",
+        "clues": [
+            "After returning, plunders seat (5)",
+            "Bit of stillness, reportedly (5)",
+            "Mum rearranged tinsel (6)",
+            "Some American money for lodgings (8)",
+            "Arachnid's offspring eating gold penny (8)"
+        ],
+        "answers": ["STOOL", "PIECE", "SILENT", "QUARTERS", "SCORPION"],
+        "solutions": [
+            "def: seat; plunders = loots; returning表示倒序",
+            "def: bit; stillness = peace; reportedly表示谐音",
+            "def: mum; \"tinsel\" anagram (indicator: rearranged)",
+            "double definition (some American money / lodgings)",
+            "def: arachnid; offspring = scion; gold = or (源自纹章学); penny = p; eating表示包含"
+        ]
+    },
     "2147": {
         "date": "2025年1月9日",
         "clues": [
@@ -1707,6 +1725,24 @@
             "def: little delicacy; vehicle = car; six = vi; holding表示包含",
             "def: swimmer; hotel = h (NATO字母表); slipping = erring",
             "def: dish; \"a clam\" anagram (indicator: cooked); dry = arid; almost表示截断"
+        ]
+    },
+    "2052": {
+        "date": "2024年9月20日",
+        "clues": [
+            "Large facility let out for money (5)",
+            "Fish are primarily stored in big containers (5)",
+            "Place to land plane (totally empty) (5)",
+            "Act of disloyalty requiring time and incentive (7)",
+            "Various margarines put in the wrong order (10)"
+        ],
+        "answers": ["LEASE", "TUNAS", "JETTY", "TREASON", "MISARRANGE"],
+        "solutions": [
+            "def: let out for money; large = l; facility = ease",
+            "def: fish; are primarily = a (首字母); big containers = tuns; stored in表示包含",
+            "def: place to land; plane = jet; totally empty = ty (两端字母)",
+            "def: act of disloyalty; time = t; incentive = reason",
+            "def: put in the wrong order; \"margarines\" anagram (indicator: various)"
         ]
     }
 }
