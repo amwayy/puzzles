@@ -1,4 +1,22 @@
 {   
+    "2149": {
+        "date": "2025年1月11日",
+        "clues": [
+            "Is in Tchaikovsky etude? (4)",
+            "Is westbound motorway covered in rubbish? (5)",
+            "Is carried round? (6)",
+            "Is genius catching it? (7)",
+            "Is schooner featured in <span class='fst-italic'>Treasure Island</span> (10)"
+        ],
+        "answers": ["SKYE", "TIMOR", "BORNEO", "BRITAIN", "HISPANIOLA"],
+        "solutions": [
+            "def: is (island); hidden word (tchaikovSKY Etude, indicator: in)",
+            "def: is (island); motorway = mi (m1); rubbish = rot; covered in表示包含; westbound表示倒序",
+            "def: is (island); carried = borne; round = o",
+            "def: is (island); genius = brain; it原封不动; catching表示包含",
+            "double definition (is (island) / schooner featured in Treasure Island)"
+        ]
+    },
     "2148": {
         "date": "2025年1月10日",
         "clues": [
