@@ -1,4 +1,22 @@
 {   
+    "2150": {
+        "date": "2025年1月13日",
+        "clues": [
+            "Ruin party at country club? (4)",
+            "Singer found, did you say? (4)",
+            "County frequented by mating deer? (7)",
+            "Boasting about activity on river? (7)",
+            "None refuse to change? That's surprising (10)"
+        ],
+        "answers": ["UNDO", "BASS", "RUTLAND", "CROWING", "UNFORESEEN"],
+        "solutions": [
+            "def: ruin; party = do; country club = un (United Nations)",
+            "def: singer; found = base; did you say表示谐音",
+            "cryptic definition?; rut可指\"the annual period of sexual excitement in male deer\"",
+            "def: boasting; about = c (circa); activity on river = rowing",
+            "def: surprising; \"none refuse\" anagram (indicator: change)"
+        ]
+    },
     "2149": {
         "date": "2025年1月11日",
         "clues": [
