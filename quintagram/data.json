@@ -1,4 +1,22 @@
 {   
+    "2151": {
+        "date": "2025年1月14日",
+        "clues": [
+            "Ring held by little amphibian (4)",
+            "Distributed super prize money (5)",
+            "Slight injury concealed by Mrs Cratchit (7)",
+            "Alternatively, come down over US city (7)",
+            "Writes all about flight location (9)"
+        ],
+        "answers": ["TOAD", "PURSE", "SCRATCH", "ORLANDO", "STAIRWELL"],
+        "solutions": [
+            "def: amphibian; ring = o; little = tad; held by表示包含",
+            "def: prize money; \"super\" anagram (indicator: distributed)",
+            "def: slight injury; hidden word (mrS CRATCHit, indicator: concealed)",
+            "def: US city; alternatively = or; come down = land; over = o",
+            "def: flight location; \"writes all\" anagram (indicator: about)"
+        ]
+    },
     "2150": {
         "date": "2025年1月13日",
         "clues": [
@@ -12,7 +30,7 @@
         "solutions": [
             "def: ruin; party = do; country club = un (United Nations)",
             "def: singer; found = base; did you say表示谐音",
-            "cryptic definition?; rut可指\"the annual period of sexual excitement in male deer\"",
+            "cryptic definition; rut可指\"the annual period of sexual excitement in male deer\"",
             "def: boasting; about = c (circa); activity on river = rowing",
             "def: surprising; \"none refuse\" anagram (indicator: change)"
         ]
