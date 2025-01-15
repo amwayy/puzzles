@@ -1,4 +1,22 @@
 {   
+    "2152": {
+        "date": "2025年1月14日",
+        "clues": [
+            "Some retirees returning for ceremony (4)",
+            "Change your journey to the office? (7)",
+            "Old garment glitters in the middle (7)",
+            "Make a determined effort to attack one time (2,3,2)",
+            "Turn of phrase incorporating punning at first, possibly (7)"
+        ],
+        "answers": ["RITE", "COMMUTE", "DOUBLET", "GOFORIT", "PERHAPS"],
+        "solutions": [
+            "def: ceremony; hidden word (rETIRees, indicator: some); returning表示倒序",
+            "double definition (change / your journey to the office)",
+            "def: old garment; glitters in the middle = double t (tt)",
+            "def: make a determined effort; attack = go for; one = i; time = t",
+            "def: possibly; \"phrase\" anagram (indicator: turn); punning at first = p (首字母); incorporating表示包含"
+        ]
+    },
     "2151": {
         "date": "2025年1月14日",
         "clues": [
