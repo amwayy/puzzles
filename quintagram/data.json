@@ -1,10 +1,28 @@
 {   
+    "2153": {
+        "date": "2025年1月16日",
+        "clues": [
+            "Waited in base clutching papers (5)",
+            "Protest item (6)",
+            "Nonbeliever attending robbery (7)",
+            "This tall Edwardian somewhat played for time (7)",
+            "Perhaps master cheater reformed (7)"
+        ],
+        "answers": ["BIDED", "OBJECT", "ATHEIST", "STALLED", "TEACHER"],
+        "solutions": [
+            "def: waited; base = bed; papers = id; clutching表示包含",
+            "double definition (protest / item)",
+            "def: nonbeliever; attending = at; robbery = heist",
+            "def: played for time; hidden word (thiS TALL EDwardian, indicator: somewhat)",
+            "def: perhaps master; \"cheater\" anagram (indicator: reformed)"
+        ]
+    },
     "2152": {
         "date": "2025年1月15日",
         "clues": [
             "Some retirees returning for ceremony (4)",
             "Change your journey to the office? (7)",
-            "Old garment glitters in the middle (7)",
+            "Old garment glitters in the middle? (7)",
             "Make a determined effort to attack one time (2,3,2)",
             "Turn of phrase incorporating punning at first, possibly (7)"
         ],
