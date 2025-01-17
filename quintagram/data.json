@@ -1,4 +1,22 @@
 {   
+    "2154": {
+        "date": "2025年1月17日",
+        "clues": [
+            "Thaw melted, eh? (4)",
+            "Dairy product, stuff covering cake, ultimately (5)",
+            "Constant price for unauthorised copy (6)",
+            "Hoopla, say, is permissible (4,4)",
+            "Over fifty? That's wrong --- fewer (5-4)"
+        ],
+        "answers": ["WHAT", "CREAM", "PIRATE", "FAIRGAME", "FORTYFIVE"],
+        "solutions": [
+            "def: eh; \"thaw\" anagram (indicator: melted)",
+            "def: dairy product; stuff = cram; cake, ultimately = e (末字母); covering表示包含",
+            "def: unauthorised copy; constant = pi; price = rate",
+            "double definition (hoopla, say / permissible)",
+            "def: fewer (than fifty); \"over fifty\" anagram (indicator: that's wrong)"
+        ]
+    },
     "2153": {
         "date": "2025年1月16日",
         "clues": [
