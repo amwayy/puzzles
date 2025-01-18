@@ -1,4 +1,22 @@
 {   
+    "2155": {
+        "date": "2025年1月18日",
+        "clues": [
+            "I controlled Asian nation (4)",
+            "Father with bad acne in European nation (6)",
+            "Twenty-one shillings for African nation? (6)",
+            "Eager to tour area in European nation (7)",
+            "Reason pig shot in Asian nation? (9)"
+        ],
+        "answers": ["IRAN", "FRANCE", "GUINEA", "HUNGARY", "SINGAPORE"],
+        "solutions": [
+            "def: Asian nation; i原封不动; controlled = ran",
+            "def: European nation; father = fr; \"acne\" anagram (indicator: bad)",
+            "double definition (twenty-one shillings / African nation)",
+            "def: European nation; eager = hungry; area = a; tour表示包含",
+            "def: Asian nation; \"reason pig\" anagram (indicator: shot)"
+        ]
+    },
     "2154": {
         "date": "2025年1月17日",
         "clues": [
