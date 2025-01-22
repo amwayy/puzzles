@@ -1,4 +1,22 @@
 {   
+    "2158": {
+        "date": "2025年1月22日",
+        "clues": [
+            "Year after US prosecutor serves time (3)",
+            "Extremely short book to write, say (4)",
+            "Bad feeling held by Afghan governors (8)",
+            "Earmark time in holiday resort? (3,5)",
+            "Rampaging men-at-arms displaying military equipment (9)"
+        ],
+        "answers": ["DAY", "VERB", "HANGOVER", "SETASIDE", "ARMAMENTS"],
+        "solutions": [
+            "def: times; year = y; US prosecutor = da (district attorney)",
+            "def: write, say; extremely = very; short表示截断; book = b",
+            "def: bad feeling; hidden word (afgHAN GOVERnors, indicator: held by)",
+            "def: earmark; time = t; holiday resort = seaside; in表示包含",
+            "def: military equipment; \"men at arms\" anagram (indicator: rampaging)"
+        ]
+    },
     "2157": {
         "date": "2025年1月21日",
         "clues": [
