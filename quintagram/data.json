@@ -1,4 +1,22 @@
 {   
+    "2159": {
+        "date": "2025年1月23日",
+        "clues": [
+            "Traitor truants regularly (3)",
+            "Range popular once more (5)",
+            "Tramp parties wildly (7)",
+            "Home getting looked after for fiancé (8)",
+            "Suburbs disallowed items of clothing (9)"
+        ],
+        "answers": ["RAT", "AGAIN", "TRAIPSE", "INTENDED", "OUTSKIRTS"],
+        "solutions": [
+            "def: traitor; 隔位取\"truants\"中的字母 (indicator: regularly)",
+            "def: once more; range = aga; popular = in",
+            "def: tramp; \"parties\" anagram (indicator: wildly)",
+            "def: fiancé; home = in; looked after = tended",
+            "def: suburbs; disallowed = out; items of clothing = skirts"
+        ]
+    },
     "2158": {
         "date": "2025年1月22日",
         "clues": [
@@ -28,7 +46,7 @@
         ],
         "answers": ["APE", "QUARRY", "HADDOCK", "SENTINEL", "LANGUISH"],
         "solutions": [
-            "def: copy; 间隔地取\"magpie\"中的字母 (indicator: regularly)",
+            "def: copy; 隔位取\"magpie\"中的字母 (indicator: regularly)",
             "double definition (one being chased / excavation site)",
             "def: swimmer; conned = had; wharf = dock",
             "def: guard; front of station = s (首字母); \"lenient\" anagram (indicator: strangely)",
