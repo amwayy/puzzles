@@ -1,4 +1,22 @@
 {   
+    "2160": {
+        "date": "2025年1月24日",
+        "clues": [
+            "Clue somewhat ticklish in theory (4)",
+            "Country bridge letting one through (5)",
+            "Gentle wind for a walk in the park? (6)",
+            "First of ten taking shelter in horrible dens (8)",
+            "Horrible uprising (9)"
+        ],
+        "answers": ["HINT", "SPAIN", "BREEZE", "HIDEOUTS", "REVOLTING"],
+        "solutions": [
+            "def: clue; hidden word (ticklisH IN Theory, indicator: somewhat)",
+            "def: country; bridge = span; one = i; letting through表示包含",
+            "double definition (gentle wind / a walk in the park)",
+            "def: dens; first of ten = t (首字母); horrible = hideous; taking shelter in表示包含",
+            "double definition (horrible / uprising)"
+        ]
+    },
     "2159": {
         "date": "2025年1月23日",
         "clues": [
