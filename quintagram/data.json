@@ -1,4 +1,22 @@
 {   
+    "2161": {
+        "date": "2025年1月25日",
+        "clues": [
+            "God shows an interest? Not at first! (4)",
+            "God's series of moon missions (6)",
+            "Goddess at that time featured in two articles (6)",
+            "Goddess, second one, encountered sun god returning (7)",
+            "Goddess collapsed in pit? Oh dear! (9)"
+        ],
+        "answers": ["ARES", "APOLLO", "ATHENA", "ARTEMIS", "APHRODITE"],
+        "solutions": [
+            "def: god; shows an interest = cares; not at first表示去除首字母",
+            "double definition (god / series of moon missions)",
+            "def: goddess; at that time = then; articles = a; featured in表示包含",
+            "def: goddess; second = s; one = i; encountered = met; sun god = ra; returning表示倒序",
+            "def: goddess; \"pit oh dear\" anagram (indicator: collapsed)"
+        ]
+    },
     "2160": {
         "date": "2025年1月24日",
         "clues": [
