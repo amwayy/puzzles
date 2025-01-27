@@ -1,4 +1,22 @@
 {   
+    "2162": {
+        "date": "2025年1月27日",
+        "clues": [
+            "TV cook without a place to buy fine food? (4)",
+            "Greek state increasingly significant (6)",
+            "Spike article about king (6)",
+            "Formal agreement for shrink (8)",
+            "Expulsion of rogue into vice (8)"
+        ],
+        "answers": ["DELI", "GRAVER", "PIERCE", "CONTRACT", "EVICTION"],
+        "solutions": [
+            "def: place to buy fine food; tv cook = delia; without a表示去除字母a",
+            "def: increasingly significant; greek = gr; state = aver",
+            "def: spike; article = piece; king = r (rex); about表示包含",
+            "double definition (formal agreement / shrink)",
+            "def: expulsion; \"into vice\" anagram (indicator: rogue)"
+        ]
+    },
     "2161": {
         "date": "2025年1月25日",
         "clues": [
