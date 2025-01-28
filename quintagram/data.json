@@ -1,4 +1,22 @@
 {   
+    "2163": {
+        "date": "2025年1月28日",
+        "clues": [
+            "Nobleman extremely polite with queen (4)",
+            "Political event with Republican supporter (5)",
+            "Shopping area encountered around ship (6)",
+            "Book correct about city (8)",
+            "Doctor hero cares for one in Derby? (9)"
+        ],
+        "answers": ["PEER", "RALLY", "MARKET", "BRIGHTON", "RACEHORSE"],
+        "solutions": [
+            "def: nobleman; extremely polite = pe (两端字母); queen = er",
+            "def: political event; republican = r; supporter = ally",
+            "def: shopping area; encountered = met; ship = ark; around表示包含",
+            "def: city; book = b; correct = right; about = on",
+            "def: one in Derby; \"hero cares\" anagram (indicator: doctor)"
+        ]
+    },
     "2162": {
         "date": "2025年1月27日",
         "clues": [
