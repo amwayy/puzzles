@@ -1,4 +1,22 @@
 {   
+    "2164": {
+        "date": "2025年1月29日",
+        "clues": [
+            "Spring, time for argument (4)",
+            "Target of boxer, perhaps, a fragile thing (5)",
+            "Many dogs, but no lead (6)",
+            "Area of land: a change from the acre (7)",
+            "Smoother run? Nonsense! (10)"
+        ],
+        "answers": ["SPAT", "CHINA", "OODLES", "HECTARE", "BALDERDASH"],
+        "solutions": [
+            "def: argument; spring = spa; time = t",
+            "double definition (target of boxer, perhaps (义和团); fragile thing",
+            "def: many; dogs = poodles; no lead表示去除首字母",
+            "def: area of land; \"the acre\" anagram (indicator: change)",
+            "def: nonsense; smoother = balder; run = dash"
+        ]
+    },
     "2163": {
         "date": "2025年1月28日",
         "clues": [
