@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peeking Through the Closet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="noise-canvas"></canvas>
+
+    <div class="content">
+        <h1>Peeking Through the Closet</h1>
+        <p>There is only 1 person in the room at the beginning. Nobody enters or leaves the room unless stated.</p>
+        <div id="image-container">
+            <img src="puzzle.png" alt="Closet">
+        </div>
+    </div>
+
+    <div id="stripe-mask"></div>
+    
+    <script>
+        function generateNoise() {
+            const canvas = document.getElementById('noise-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+    
+            // **先填充蓝色背景**
+            ctx.fillStyle = "#0077cc"; // 纯蓝色
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+            // **再绘制随机黑色噪点**
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const pixels = imageData.data;
+            for (let i = 0; i < pixels.length; i += 4) {
+                if (Math.random() < 0.05) { // 5% 概率变黑色
+                    pixels[i] = 0;   // R
+                    pixels[i+1] = 0; // G
+                    pixels[i+2] = 0; // B
+                    pixels[i+3] = 255; // Alpha
+                }
+            }
+            ctx.putImageData(imageData, 0, 0);
+        }
+    
+        // 初始生成噪点背景
+        generateNoise();
+    
+        // 窗口大小改变时重新生成
+        window.addEventListener('resize', generateNoise);
+    </script>    
+
+</body>
+</html>

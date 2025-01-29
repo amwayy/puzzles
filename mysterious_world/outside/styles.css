@@ -1,0 +1,39 @@
+#image-container {
+    text-align: center;
+}
+
+#image-container img {
+    width: 900px;
+    height: auto;
+}
+
+#stripe-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        black 0px,
+        black 30px, /* 黑色条纹宽度 */
+        transparent 30px,
+        transparent 60px /* 间隙宽度 */
+    );
+}
+
+#noise-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body {
+    text-align: center;
+}
