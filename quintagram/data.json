@@ -1,4 +1,22 @@
 {   
+    "2165": {
+        "date": "2025年1月30日",
+        "clues": [
+            "Brand of butter brought back with added potassium (4)",
+            "Order cited incorrectly (5)",
+            "Celebrated flipping study involving books (5)",
+            "Plaster sauce (8)",
+            "Amphibian bloke found in dish starts to eat radish (10)"
+        ],
+        "answers": ["MARK", "EDICT", "NOTED", "DRESSING", "SALAMANDER"],
+        "solutions": [
+            "def: brand; batter = ram; brought back表示倒序; potassium = k",
+            "def: order; \"cited\" anagram (indicator: incorrectly)",
+            "def: celebrated; study = den; flipping表示倒序; books = ot (old testament); involving表示包含",
+            "double definition (plaster / sauce)",
+            "def: amphibian; bloke = man; dish = salad; found in表示包含; starts to eat radish = er (首字母)"
+        ]
+    },
     "2164": {
         "date": "2025年1月29日",
         "clues": [
