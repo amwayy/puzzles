@@ -1,4 +1,22 @@
 {   
+    "2166": {
+        "date": "2025年1月31日",
+        "clues": [
+            "Castle's core of iron, satisfactory (4)",
+            "Spouse is close to following heart (5)",
+            "Fruit in two hands? (6)",
+            "Real swindle, Greek holiday destination (8)",
+            "Bring in crazy reduction (9)"
+        ],
+        "answers": ["ROOK", "HUBBY", "PAWPAW", "CONCRETE", "INTRODUCE"],
+        "solutions": [
+            "def: castle; core of iron = ro (中心字母); satisfactory = ok",
+            "def: spouse; close to = by; heart = hub",
+            "def: fruit; hand = paw",
+            "def: real; swindle = con; Greek holiday destination = crete",
+            "def: bring in; \"reduction\" anagram (indicator: crazy)"
+        ]
+    },
     "2165": {
         "date": "2025年1月30日",
         "clues": [
