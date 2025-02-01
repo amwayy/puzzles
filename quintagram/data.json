@@ -1,4 +1,22 @@
 {   
+    "2167": {
+        "date": "2025年2月1日",
+        "clues": [
+            "Language in old city said to be enough (4)",
+            "Language: we don't say a word about head of Latin (5)",
+            "Language of Asia from Alpine ground (6)",
+            "Language of bridge is hard (7)",
+            "Language of drunk people disheartened Scotsman? (10)"
+        ],
+        "answers": ["URDU", "WELSH", "NEPALI", "SPANISH", "LITHUANIAN"],
+        "solutions": [
+            "def: language; old city = ur; be enough = do; said表示谐音",
+            "def: language; we原封不动; don't say a word = sh; head of Latin = l (首字母); about表示包含",
+            "def: language; \"alpine\" anagram (indicator: ground)",
+            "def: language; bridge = span; is原封不动; hard = h",
+            "def: language; drunk = lit; person = human; disheartened表示去除中心字母; Scotsman = ian"
+        ]
+    },
     "2166": {
         "date": "2025年1月31日",
         "clues": [
